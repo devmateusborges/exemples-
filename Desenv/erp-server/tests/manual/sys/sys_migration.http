@@ -1,0 +1,42 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"e8d970d2-59cf-4a1f-98d0-5a14262362e9"
+}
+
+###  
+
+GET {{HOSTAPI}}/api/sysdocumentgroup HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/sysmigration HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+       "version_num": "e8d970d2-59cf-4a1f-98d0-5a14262362e9"
+}
+
+
+### 
+
+
+
+
+

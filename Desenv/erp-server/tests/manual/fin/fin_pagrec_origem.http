@@ -1,0 +1,51 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finpagrecorigem HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finpagrecorigem HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "fin_extrato_id":"056f0086-6914-49a3-ba36-fe598e461823" ,
+  "fin_pagrec_baixa_id": "c7d87a88-3045-4c25-9431-349ef02b5c93",
+  "fin_pagrec_banco_id": "2a368fff-d02e-4131-add5-366ea66ca8c4",
+  "fin_pagrec_id": "1e91aef1-2d96-4d4d-9fd2-5605d2554f4a",
+  "fin_pagrec_id_origem": "1e91aef1-2d96-4d4d-9fd2-5605d2554f4a",
+  "fin_pagrec_parc1_id_origem": "429ad63c-2c64-4232-8e08-a19751725f5c",
+  "fin_pagrec_parc_id": "429ad63c-2c64-4232-8e08-a19751725f5c",
+  "fin_recibo_id": "bc610244-33fb-42ee-8c2b-a38ac2791c55",
+  "tipo": "S",
+  "unit_id":self.session.get("sys_unit_id1").decode()
+  
+}
+
+
+### 
+
+
+
+

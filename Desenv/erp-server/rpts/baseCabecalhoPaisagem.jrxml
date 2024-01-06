@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="baseCabecalho" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3ba57088-91de-4bc5-b160-9cd45ae6acc7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="107"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="886"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="633"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="353"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="pParTitleReport" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pParUser" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new String("Admin")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2a46c160-47e7-4bc7-9477-fab5b82e346a"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParParam" class="java.lang.String" nestedType="java.lang.String">
+		<defaultValueExpression><![CDATA["[{#pParGerEmpresaId#:#^30f96759-2081-4bb3-acfd-121c8f7215e1^,^30f96759-2081-4bb3-acfd-121c8f7215e2^#},{#pParFinDocTipoId#:#09439eef-1e2e-4a6f-b5af-8b1a0df73589#},{#pParGerCidadeNome#: #5da3855f-9103-476b-84ba-f7cd84bcb2b5#}]"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select fnreport_par( $P{pParUnitId}, $P{pParIndRelId}, $P{pParParam} ) as ind_rel_par1]]>
+	</queryString>
+	<field name="ind_rel_par1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par1"/>
+	</field>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="490" height="20" isRemoveLineWhenBlank="true" uuid="4917eff4-31d8-421b-9f6c-1ae61ffe06d0"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pParTitleReport}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="310" height="20" isRemoveLineWhenBlank="true" uuid="1596543f-a1c5-40a8-b2f1-1272e6c444f1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Usuario: ".concat($P{pParUser})]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="60">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement key="" x="0" y="10" width="800" height="50" isRemoveLineWhenBlank="true" uuid="3cb2e868-fb33-4c96-9f9e-712306747169">
+					<printWhenExpression><![CDATA[$P{pParParam} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#DEDEDE"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_rel_par1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

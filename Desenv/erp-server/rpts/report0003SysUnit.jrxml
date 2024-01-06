@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0003SysUnit" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" uuid="cfa023c7-410f-4329-998c-0b8ad9864df2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="pParUserId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["062dddad-4ca3-4956-aa75-6f6cf368b05b"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[Select u.*, uu.sys_user_id from sys_unit u join sys_user_unit uu on (u.id = uu.unit_id)
+ where uu.sys_user_id = $P{pParUserId}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="sys_user_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="system_user_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="sigla_unit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_unit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="log_user_ins" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="log_date_ins" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="log_user_upd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="log_date_upd" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{sys_user_id}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<frame>
+					<reportElement mode="Transparent" x="0" y="0" width="800" height="12" backcolor="#EDEDED" uuid="3d8c6ea9-7818-41b7-b449-acc9eb7532bc">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+				</frame>
+				<staticText>
+					<reportElement x="10" y="0" width="110" height="12" uuid="20ab1f51-9abd-4802-ade0-f3aebf187b99">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c77682aa-5042-4bd0-8882-bc7b5fb32f1a"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sigla]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="140" y="0" width="100" height="12" uuid="696ea3f7-02d1-4e24-8558-a7ddfa0fc80e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="882425ec-cf68-42c0-a0cf-af1ac73adfdb"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Unidade]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="110" height="11" isRemoveLineWhenBlank="true" uuid="ae427894-4e0d-48ca-abed-819b8f33f5df">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sigla_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="100" height="11" isRemoveLineWhenBlank="true" uuid="22184a45-117d-4443-a7bb-a96e433adfa2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

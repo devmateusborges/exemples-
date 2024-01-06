@@ -1,0 +1,52 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/moventregadoc HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/moventregadoc HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "modelo_documento": "t",
+    "subserie_documento": "t",
+    "mov_id_interno": "e08fc5de-5ac5-4c54-8df0-01082a83917f",
+    "mov_entrega_id": "8b8bc54e-104f-4a72-b3e8-7142237c4ae3",
+    "serie_documento": "5",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "valor_total": "5",
+    "mov_id": "e08fc5de-5ac5-4c54-8df0-01082a83917f",
+    "nr_documento": "5",
+    "chave_documento": "a7a6819b-ccf3-4951-9e4b-0bf6ea69d1eb",
+    "data_emissao": "15/07/2001"
+  
+}
+
+
+### 
+
+
+
+

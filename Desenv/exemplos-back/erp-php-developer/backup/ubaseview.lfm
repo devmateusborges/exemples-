@@ -1,0 +1,42 @@
+object FrmBaseView: TFrmBaseView
+  Left = 671
+  Height = 240
+  Top = 412
+  Width = 320
+  Caption = 'Base'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '2.0.8.0'
+  object PnlMenuTop: TPanel
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 320
+    Align = alTop
+    BevelOuter = bvSpace
+    ClientHeight = 25
+    ClientWidth = 320
+    TabOrder = 0
+    object BtnSair: TSpeedButton
+      Left = 254
+      Height = 13
+      Top = 6
+      Width = 60
+      Action = AclSair
+      Align = alRight
+      BorderSpacing.Around = 5
+      Flat = True
+      Images = FrmPrincipal.ImgPrincipal
+      ImageIndex = 0
+    end
+  end
+  object AclBase: TActionList
+    Images = FrmPrincipal.ImgPrincipal
+    left = 66
+    top = 67
+    object AclSair: TAction
+      ImageIndex = 0
+      OnExecute = AclSairExecute
+    end
+  end
+end

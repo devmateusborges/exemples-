@@ -1,0 +1,32 @@
+service: bordo
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  stage: v1
+  runtime: nodejs12.x
+  region: sa-east-1
+  memorySize: 256
+  timeout: 30 
+  lambdaHashingVersion: 20201221
+  deploymentBucket:
+    name: lambda-bordoinput.resultfacil.com.br
+  apiGateway:
+    shouldStartNameWithService: true
+    
+functions:
+  indexpg:
+    handler: indexpg.input
+    events:
+      - http:
+          path: inputpg
+          method: post
+          cors: true
+  indexmg:
+    handler: indexmg.input
+    events:
+      - http:
+          path: inputmg
+          method: post
+          cors: true          

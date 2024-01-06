@@ -1,0 +1,63 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+   "login":"admin",
+   "password":"123",
+   "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/ind/indprm HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+POST {{HOSTAPI}}/api/ind/indprm HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+   "id":"984b7aaf-dd3f-4a5f-856c-521d1dec081",
+   "busca_tabela": "TST1",
+    "busca_campo_id": "TST1",
+    "valor_sufixo": "5",
+    "busca_tabela_classe": "TST1",
+    "nome": "TST1",
+    "obrigatorio": "S",
+    "internal": "S",
+    "busca_campo_nome": "TST1",
+    "tipo_entrada": "IS",
+    "valor_prefixo": "TST1",
+    "busca_valores": "TST1",
+    "nome_tecnico": "TST1",
+    "valor_padrao": "TST1",
+    "tipo_dado": "TX",
+    "ativo": "S",
+    "visivel": "S",
+    "busca_campo_nome_classe": "TST1",
+    "busca_campo_id_classe": "TST1"
+
+}
+
+
+###
+
+POST {{HOSTAPI}}/api/ind/indprm HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{"ativo": "S", "busca_campo_id": "TESTE [CRUD]1", "busca_campo_id_classe": "TESTE [CRUD]1", "busca_campo_nome": "TESTE [CRUD]1", "busca_campo_nome_classe": "TESTE [CRUD]1", "busca_tabela": "TESTE [CRUD]1", "busca_tabela_classe": "TESTE [CRUD]1", "busca_valores": "TESTE [CRUD]1", "id": "f92e8b1e-5e04-4c68-bc61-b779b5af1c56", "internal": "S", "nome": "TESTE [CRUD]1", "nome_tecnico": "TESTE [CRUD]1", "obrigatorio": "S", "tipo_dado": "TX", "tipo_entrada": "IS", "valor_padrao": "TESTE [CRUD]1", "valor_prefixo": "TESTE [CRUD]1", "valor_sufixo": "5", "visivel": "S"}
+ 

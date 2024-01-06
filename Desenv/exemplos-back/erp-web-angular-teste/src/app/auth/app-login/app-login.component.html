@@ -1,0 +1,102 @@
+<div
+  class="
+    grid
+    col-12
+    m-0
+    flex
+    justify-content-center
+    background
+    min-h-screen
+    h-full
+  "
+>
+  <div class="col-12 sm:col-12 md:col-6 lg:col-5 xl:col-4">
+    <div class="text-center">
+      <img src="assets/img/resultfacil3.png" alt="logo" width="200" />
+    </div>
+
+    <form
+      class="surface-card shadow-4 p-5 m-3"
+      id="AppLogin"
+      autocomplete="off"
+      #f="ngForm"
+    >
+      <h5 class="text-center font-bold">ACESSAR A PLATAFORMA</h5>
+      <div class="field">
+        <label for="username">Login</label>
+        <input
+        class="w-full"
+          pInputText
+          type="text"
+          name="username"
+          #username
+          [value]="username"
+          ngModel
+          required
+        />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input
+        class="w-full"
+          pInputText
+          type="text"
+          name="password"
+          #username
+          [value]="password"
+          ngModel
+          required
+        />
+      </div>
+
+      <div class="field">
+        <div class="align-items-center text-right">
+          <label class="mr-3" for="rememberme">Lembrar a senha ?</label>
+          <p-checkbox id="rememberme"></p-checkbox>
+        </div>
+      </div>
+
+      <div class="field mt-2 flex justify-content-center">
+        <button
+          pButton
+          label="ENTRAR"
+          class="font-bold w-full"
+          icon="pi pi-sign-in"
+        ></button>
+      </div>
+      <div class="field flex justify-content-center">
+        <button
+          pButton
+          label="Esqueci minha senha"
+          class="p-button-text w-full"
+        ></button>
+      </div>
+      <p-divider align="center">
+        <a>OU</a>
+      </p-divider>
+      <div class="flex align-items-center flex-column">
+        <div id="buttonGoogle" class="flex justify-content-center m-1"></div>
+
+        <button
+          pButton
+          label="Fazer login com o Facebook "
+          class="p-button-outlined m-1"
+          style="width: 281px"
+          icon="pi pi-facebook"
+        ></button>
+      </div>
+
+      <p-divider align="center">
+        <i class="pi pi-arrow-down"></i>
+      </p-divider>
+      <div class="field flex justify-content-center">
+        <button
+          pButton
+          label="CRIAR UMA CONTA"
+          class="font-bold p-button-outlined p-button-danger"
+          style="width: 281px"
+        ></button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/crm/crmclasssubgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/crm/crmclasssubgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+  "crm_class_grupo_id": "a1ef0ccf-23e8-44fc-a354-e67be68e8d94",
+  "nome": "TESTE",
+  "sigla_class_subgrupo": "TESTE",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+  
+}
+
+
+### 
+
+
+
+

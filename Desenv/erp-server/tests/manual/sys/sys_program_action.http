@@ -1,0 +1,51 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+####
+
+POST {{HOSTAPI}}/api/sys/sysprogramaction HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "sys_program_id": "d8656c0b-6f0e-4f88-a923-c48d2ad61da3",
+  "sys_action_id": "9218ba8e-2383-4a8a-bffc-f3a4484c13cd"
+}
+
+### 
+
+GET {{HOSTAPI}}/api/sys/sysprogramaction/36d67471-10cb-4d25-bd73-bf94aea7001f HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+### 
+
+GET {{HOSTAPI}}/api/sys/sysprogramaction HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+
+GET {{HOSTAPI}}/api/sys/sysprogramaction/getbyuserlogin?pfilters={"filter": {"and": {"login":"admin", "pvsysid":"e8329d00-443f-4c03-8e73-c161f0d4f37d","pvsysprogramid":"c38b2a96-c488-4bcf-998d-8739b3f4757b"}}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+### 
+
+DELETE {{HOSTAPI}}/api/sys/sysprogramaction/36d67471-10cb-4d25-bd73-bf94aea7001f HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}

@@ -1,0 +1,78 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+
+### 
+GET {{HOSTAPI}}/api/geritemserv HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+###
+
+POST {{HOSTAPI}}/api/geritemserv HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{ "ativo":"S",
+  "fis_doc_cnae_nfs":"tst",
+  "fis_sigla_servico":"tst",
+  "fis_sigla_servico_municipio":"tst",
+  "ger_itemserv_subgrupo_id":"99f4ff46-2aaa-41b2-8b90-beb02248ef8f",
+  "ger_umedida_id":"a1473819-04ba-438e-a129-8463084ad586",
+  "nome":"tst",
+  "nome_alternativo":"tst",
+  "origem_fiscal":"1",
+  "referencia1":"st",
+  "referencia2":"st",
+  "referencia3":"st",
+  "sigla_itemserv":"st",
+  "tipo":"S",
+  "tipo_composicao":"K",
+  "tipo_ctb_comp":"C",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "ctb_comp_id": "647b7389-5029-4f56-8f02-20962b4a3829",
+  "fis_nbs_id": "4973e5c3-9372-40fc-8e6e-14f76ea92f9d",
+  "fis_cest_id": "bdbfa355-0136-4790-a6fd-5a735d9ed40b",
+  "fis_ncm_id": "63d90cb7-55f5-43b4-a1cd-a2e50a2d303c",
+  "ger_itemserv_barra_childs": [{
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "codigo_barra": "TST1"
+    }],
+  "ger_itemserv_pessoa_childs": [{
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "ativo": "S",
+        "cod_itemserv_ext": "TST1",
+        "ger_pessoa_id": "812e91bd-2a43-45b8-8ec5-eba6c8ddbaa9"
+  }],
+  "ger_itemserv_local_childs": [{
+        "desc_local3": "TST1",
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "desc_local1": "TST1",
+        "observacao": "TST1",
+        "desc_local2": "TST1",
+        "ativo": "S"
+  }]
+}
+
+### 
+Delete {{HOSTAPI}}/api/geritemserv HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+
+

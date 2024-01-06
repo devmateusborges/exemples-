@@ -1,0 +1,43 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/bor/bordispositivo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+POST {{HOSTAPI}}/api/bor/bordispositivo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "nome": "tst",
+  "numero_serie": "12345",
+  "tipo": "1",
+  "ativo":"S",
+  "unit_id":"eb9c1091-383b-4194-976e-d2a9e491ea29",
+  "ope_centro2_pessoa_id":"556ca44f-d4f7-4070-8278-6b5bca15fe12",
+  "ope_centro2_equip_id":"879307ae-3139-4bf6-a021-72d542f731fd"
+}
+
+
+ 

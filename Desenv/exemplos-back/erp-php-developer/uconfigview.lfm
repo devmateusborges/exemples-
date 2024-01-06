@@ -1,0 +1,7 @@
+inherited FrmConfig: TFrmConfig
+  Left = 484
+  Top = 207
+  Caption = 'Config'
+  inherited AclBase: TActionList[2]
+  end
+end

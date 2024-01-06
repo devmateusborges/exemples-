@@ -1,0 +1,61 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/gerempresapessoa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/gerempresapessoa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+  "ger_empresa_id": "52745bb2-814e-4d61-8ca1-01abea32cfe5",
+  "ger_pessoa_id": "25cfa280-6933-4dd3-8471-8f2f7a0daeaf",
+  "observacao": "tst",
+  "tipo": "1",
+  "unit_id":self.session.get("sys_unit_id1").decode()
+}
+
+
+### 
+
+
+
+POST {{HOSTAPI}}/api/gerempresapessoa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "ger_empresa_id": "",
+  "ger_pessoa_id": "",
+  "observacao": "",
+  "tipo": "",
+  "unit_id":""
+}
+
+### 
+
+
+
+DELETE {{HOSTAPI}}/api/gerempresapessoa/feaffbe3-dbd3-4130-893c-b406eafc42c7 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+

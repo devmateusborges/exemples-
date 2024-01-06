@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0010" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="85c67808-400f-4691-89e7-8dd5192eaf63">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParBancoNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParBancoNr" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParBancoAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParContaAgencia" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParContaNr" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParBancoId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParContaId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParContaAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("(FIN) - BANCO > CONTA")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Admin")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ec2af668-7cda-4021-a7ad-320c5e93b703"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select f1.id ,f1.nome As nome_banco,
+ f1.nr_banco, f1.ativo,
+ f2.nr_agencia As Agencia,
+ f2.nr_conta
+ from fin_banco f1
+ left join fin_conta f2 on f1.id = f2.fin_banco_id
+ where  f1.id like $P{pParBancoId} 
+and  f1.nome like $P{pParBancoNome} 
+and f1.nr_banco like $P{pParBancoNr} 
+and f1.ativo like $P{pParBancoAtivo} 
+and f2.id like $P{pParContaId} 
+and f2.ativo like $P{pParContaAtivo} 
+and f2.nr_agencia like $P{pParContaAgencia} 
+and f2.nr_conta like $P{pParContaNr}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_banco"/>
+	</field>
+	<field name="nome_banco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_banco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_banco"/>
+	</field>
+	<field name="nr_banco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nr_banco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_banco"/>
+	</field>
+	<field name="ativo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ativo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_banco"/>
+	</field>
+	<field name="agencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="agencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_conta"/>
+	</field>
+	<field name="nr_conta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nr_conta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_conta"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="12" backcolor="#EDEDED" uuid="21d0ed42-4936-4b02-a1ea-a13aed1e8d8e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textField>
+						<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="327" y="0" width="40" height="12" uuid="53997a7d-89c2-458f-90a8-5728094122bc">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<printWhenExpression><![CDATA[$F{ativo} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$F{ativo}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="33" y="0" width="97" height="12" uuid="ef019d56-4d72-47f2-a021-b8893b621fbb">
+							<printWhenExpression><![CDATA[$F{nome_banco} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$F{nome_banco}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="190" y="0" width="95" height="12" uuid="bae67606-8264-4bea-bc83-08090107a0bf">
+							<printWhenExpression><![CDATA[$F{nr_banco} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$F{nr_banco}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="33" height="12" uuid="86382e9e-ba5b-4a9a-8bd9-f9824db916e1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="150" y="0" width="40" height="12" uuid="6c80b9c2-38c8-4a3e-9481-a8986f7a0ca6">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{nr_banco} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Numero:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="300" y="0" width="27" height="12" uuid="54ea5a13-122f-43ee-bb59-3a32b6f8b46f">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ativo:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<frame>
+					<reportElement x="0" y="0" width="554" height="12" uuid="26a952a9-48b3-4d91-bce3-7d694b2a9cdf">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+				</frame>
+				<staticText>
+					<reportElement x="15" y="0" width="50" height="12" uuid="8a22a7ed-7a0e-4d87-8f2a-5e5217e10cf5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$F{nr_conta} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Agência]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="0" width="50" height="12" uuid="c0d87053-59da-4edb-889f-2124fc39d4d3">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$F{nr_conta} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Conta]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="30" uuid="c50366ba-4f5f-4f05-b22c-c5f4d5694ff9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA["[{#pParBancoNome#:#"+$P{pParBancoNome}+"#},"+"{#pParBancoNr#:#"+$P{pParBancoNr}+"#},"+"{#pParBancoAtivo#:#"+$P{pParBancoAtivo}+"#},{#pParContaAtivo#:#"+$P{pParContaAtivo}+"#},"+"{#pParContaAgencia#:#"+$P{pParContaAgencia}+"#},"+"{#pParContaNr#:#"+$P{pParContaNr}+"#}]"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoRetrato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="0" width="80" height="11" uuid="50d36649-c929-480e-af9c-ff77d11f3aeb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{agencia}  != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="137" height="11" uuid="027c44cc-b7a7-474d-b0ad-a1bf4e5d7f18">
+					<printWhenExpression><![CDATA[$F{nr_conta} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nr_conta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="440" y="0" width="80" height="18" uuid="5b54bfdb-c8cf-44c6-ae62-01d25a94cb72">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="520" y="0" width="35" height="18" uuid="3f6a0eef-6fe6-42c7-8530-666a748e3046">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="440" height="18" uuid="f50bb087-2419-44c1-b645-9d1eca62c3a2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["report0010"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapeRetrato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>

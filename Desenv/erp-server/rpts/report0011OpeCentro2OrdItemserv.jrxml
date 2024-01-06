@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0011OpeCentro2OrdItemserv" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="36e9947c-8493-49c0-965a-6196fa9f96a0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Conn"/>
+	<parameter name="pParIdAtiv" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select opItemServ.id as id_item_serv,
+					 opItemServ.observacao_interna, 
+					 opItemServ.observacao_externa,
+					 opItemServ.qnt_rend,
+					 opItemServ.perc_util,			 
+					 opItemServ.qnt_total_util,
+					 opItemServ.valor_unit_util,
+					 opItemServ.valor_total_util,
+					 opItemServ.ope_centro2_ord_ativ_id,
+					 gItem.id as id_ger_item,
+					 gItem.nome as nome_item_serv,
+					 gItem.sigla_itemserv,
+					 gUmed.id as id_unidade_medida,
+					 gUmed.nome as nome_unidade_medida,
+					 gUmed.sigla_umedida as sigla_unidade_medida,
+					 --
+					 gItemComp.id as id_ctb_comp,
+					 gItemComp.nome as nome_comp,
+					 gItemComp.sigla_comp,
+					 gUmedComp.id as id_unidade_medida_comp,
+					 gUmedComp.nome as nome_unidade_medida_comp,
+					 gUmedComp.sigla_umedida as sigla_unidade_medida_comp
+	from ope_centro2_ord_itemserv opItemServ
+		inner join  ope_centro2_ord_ativ opOrdAtiv
+		on opItemServ.ope_centro2_ord_ativ_id = opOrdAtiv.id
+		left join ger_itemserv gItem
+		on opItemServ.ger_itemserv_id = gItem.id
+		left join ger_umedida gUmed
+		on gItem.ger_umedida_id = gUmed.id
+		-- Alteração com comp
+		left join ctb_comp gItemComp
+		on opItemServ.ctb_comp_id = gItemComp.id
+		left join ger_umedida gUmedComp
+		on gItemComp.ger_umedida_id = gUmedComp.id	
+		where opItemServ.ope_centro2_ord_ativ_id =  $P{pParIdAtiv}]]>
+	</queryString>
+	<field name="id_item_serv" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_item_serv"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="observacao_interna" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="observacao_interna"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="observacao_externa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="observacao_externa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="qnt_rend" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="qnt_rend"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="perc_util" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="perc_util"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="qnt_total_util" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="qnt_total_util"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="valor_unit_util" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_unit_util"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="valor_total_util" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_total_util"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="ope_centro2_ord_ativ_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ope_centro2_ord_ativ_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_itemserv"/>
+	</field>
+	<field name="id_ger_item" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_ger_item"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_itemserv"/>
+	</field>
+	<field name="nome_item_serv" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_item_serv"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_itemserv"/>
+	</field>
+	<field name="sigla_itemserv" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_itemserv"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_itemserv"/>
+	</field>
+	<field name="id_unidade_medida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_unidade_medida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_umedida"/>
+	</field>
+	<field name="nome_unidade_medida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_unidade_medida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_umedida"/>
+	</field>
+	<field name="sigla_unidade_medida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_unidade_medida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_umedida"/>
+	</field>
+	<field name="id_ctb_comp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_ctb_comp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ctb_comp"/>
+	</field>
+	<field name="nome_comp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_comp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ctb_comp"/>
+	</field>
+	<field name="sigla_comp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_comp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ctb_comp"/>
+	</field>
+	<field name="id_unidade_medida_comp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_unidade_medida_comp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_umedida"/>
+	</field>
+	<field name="nome_unidade_medida_comp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_unidade_medida_comp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_umedida"/>
+	</field>
+	<field name="sigla_unidade_medida_comp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_unidade_medida_comp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_umedida"/>
+	</field>
+	<variable name="valor_total_util1" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_total_util}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{ope_centro2_ord_ativ_id}]]></groupExpression>
+		<groupHeader>
+			<band height="26">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#EDEDED" uuid="a0f7cfcb-b642-4310-b6e0-1d1cc21406e5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</frame>
+				<frame>
+					<reportElement x="0" y="14" width="555" height="12" uuid="187fc742-ccd2-4904-886b-c7f3a98669f0">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="20" y="0" width="159" height="12" uuid="8de33779-fed9-4ae3-92be-9d81bcf42848">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Comp/Item]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="188" y="0" width="61" height="12" uuid="ad62dc24-7475-4d38-9d69-067ed7a045e6">
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[U.Med]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="249" y="0" width="76" height="12" uuid="07fa56b2-35c7-48c6-8a51-f78d18a183ba">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Rend. / Dose.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="327" y="0" width="45" height="12" uuid="797582e5-ae14-466d-a6c5-7eacd01959c7">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Perc. Util]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="383" y="0" width="50" height="12" uuid="36f550a4-bca1-40b3-bb3c-948967a9ea13">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Qnt Tot Util]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="435" y="0" width="50" height="12" uuid="e3622af7-c7f2-4a92-a4b1-5ce66740db71">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Vr U. Util]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="485" y="0" width="64" height="12" uuid="d348e223-1fbe-4d0f-9b76-21db2f34ff91">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Bottom">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Vr Tot Util]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement mode="Transparent" x="16" y="0" width="540" height="14" backcolor="#EDEDED" uuid="58fa1d25-5349-4d6a-8267-26d59166cf11">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ITEM/SERV]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{ope_centro2_ord_ativ_id}]]></groupExpression>
+		<groupFooter>
+			<band height="12">
+				<frame>
+					<reportElement mode="Transparent" x="0" y="1" width="555" height="11" backcolor="#EDEDED" uuid="6a16109b-5fc4-4e1d-a142-730646bebfc4">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="461" y="0" width="30" height="11" uuid="2cc403eb-f3dd-4f17-b61b-92be1599db86">
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Total:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="500" y="0" width="49" height="11" uuid="f4c726f5-4543-41ec-bfc1-3a52d013b287">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<printWhenExpression><![CDATA[$V{valor_total_util1} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="SansSerif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($V{valor_total_util1})]]></textFieldExpression>
+					</textField>
+					<line>
+						<reportElement x="461" y="0" width="90" height="1" uuid="119a234e-1044-459b-9b22-36478eccdc1d">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+					</line>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="13" width="555" height="11" uuid="af073423-9be1-41c3-b12b-43f4691491b7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="188" y="0" width="60" height="11" isRemoveLineWhenBlank="true" uuid="ac740d12-41c8-4e33-bed3-a89635978d70">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<printWhenExpression><![CDATA[$F{sigla_unidade_medida} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sigla_unidade_medida}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="20" y="0" width="160" height="11" isRemoveLineWhenBlank="true" uuid="bbae1389-0dba-4a09-af4c-3a5fb36d8673">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$F{nome_item_serv} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sigla_itemserv}+"-"+$F{nome_item_serv}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="188" y="1" width="60" height="11" isRemoveLineWhenBlank="true" uuid="b327defd-6fdc-4bc5-81ca-7aea9eee6731">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{sigla_unidade_medida_comp} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sigla_unidade_medida_comp}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="20" y="1" width="159" height="11" isRemoveLineWhenBlank="true" uuid="23f64ef8-6cc1-42c0-a500-199fef5bd349">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<printWhenExpression><![CDATA[$F{nome_comp} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sigla_comp}+" - "+$F{nome_comp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="1" width="50" height="11" isRemoveLineWhenBlank="true" uuid="34b9adfe-a12d-47a8-ba85-b4d0b302a2fa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{valor_total_util} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($F{valor_total_util})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="1" width="50" height="11" isRemoveLineWhenBlank="true" uuid="e44f6bd8-3e50-4785-a94f-28c9ef675457">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{valor_unit_util} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($F{valor_unit_util})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="1" width="50" height="11" isRemoveLineWhenBlank="true" uuid="5dd499ba-354c-4f38-b736-5a45bd3fa6cb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{qnt_total_util} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($F{qnt_total_util})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="1" width="76" height="11" isRemoveLineWhenBlank="true" uuid="064353ee-5d40-4433-87a3-c37f1c2c73e0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{qnt_rend} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($F{qnt_rend})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="1" width="45" height="11" isRemoveLineWhenBlank="true" uuid="de4dd17d-9b08-4157-b1bc-961cf78f06d9">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{perc_util} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.0").format($F{perc_util})+"%"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

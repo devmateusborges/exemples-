@@ -1,0 +1,13 @@
+POST https://fcm.googleapis.com/fcm/send HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer AIzaSyCHXqDSX8Bmnc3lLhV6lwqPAKf65nq5CIA
+
+{
+   "message":{
+      "token":"dy5Yed99Dl8mFNjfQdu044:APA91bFIAVuR4PnPvSuR7ELmMtp_Py97lwz0_CpheMs_lU_D2Zn6SjE86dvEFTvNZBsc5E629LH9D39ngFKxkT55NcybuU3f_LNkifYy_yVFjv3JzE2919kj4Yf_VajkW5WKUZcAxsbJ",
+      "notification":{
+        "body":"This is an FCM notification message!",
+        "title":"FCM Message"
+      }
+   }
+}

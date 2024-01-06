@@ -1,0 +1,40 @@
+[
+  {
+    "name": "development",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "rfdadoslocal1",
+    "entities": ["../**/*.entity{.ts,.js}"],
+    "migrations": ["../**/*.migration{.ts,.js}"],
+    "migrationsTableName": "sys_migration",
+    "subscribers": ["../**/*.subscriber{.ts,.js}"],
+    "cli": {
+      "entitiesDir": "src/entities",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    },
+    "logging": true
+  },
+  {
+    "name": "production",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "rfdadoslocal1",
+    "entities": ["../**/*.entity{.ts,.js}"],
+    "migrations": ["../**/*.migration{.ts,.js}"],
+    "migrationsTableName": "sys_migration",
+    "subscribers": ["../**/*.subscriber{.ts,.js}"],
+    "cli": {
+      "entitiesDir": "src/entities",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    },
+    "logging": false
+  }
+]

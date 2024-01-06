@@ -1,0 +1,41 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"c9d4f32b-113c-4eb9-9293-4399749733b7"
+}
+
+### 
+
+GET {{HOSTAPI}}/api/sysuercmsgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/sysuercmsgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+    "cms_grupo_id": "b7875ee0-fdf7-4346-8ae3-afd487562aaf",
+    "sys_user_id": "4e1a831f-b877-4bf1-ad4d-e12079d709f6"
+}
+
+
+### 
+
+

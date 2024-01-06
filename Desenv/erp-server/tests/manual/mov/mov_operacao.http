@@ -1,0 +1,57 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+###
+
+
+GET {{HOSTAPI}}/api/movoperacaoHTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/movoperacao HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "finalidade_doc":"1",
+    "ger_numeracao_id":"462f25c9-9cef-4f9f-af88-64e99e45d363",
+    "tipo_es":"E",
+    "ativo":"S",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "nome":"tst",
+    "configuracao":"tst",
+    "mov_tipo_id":"c813f472-c84c-4480-9e7d-8c944ffb541f",
+    "sigla_mov_operacao":"tst",
+    "mov_operacao_status_childs": [{
+        "mov_status_id": "f5618fbc-308d-483a-82ba-e70715aa6fad",
+        "mov_operacao_id_prox": "28b79ab9-1a8e-4cfa-bd30-41aabb6d7f7f",
+        "unit_id": "b5c8a5c0-7bcc-45da-978b-278774f41fa4",
+        "mov_status_id_prox": "f5618fbc-308d-483a-82ba-e70715aa6fad"
+    }]
+  
+}
+
+
+### 
+
+
+
+

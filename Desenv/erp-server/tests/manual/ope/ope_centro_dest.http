@@ -1,0 +1,52 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/opecentrodest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/opecentrodest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "ope_periodo_id_desc_sec": "0fee9c94-de51-4bac-a6de-315ea89a49a6",
+    "ope_compart_id_pri": "e90c3fa2-ba9c-42c5-9120-38d031251839",
+    "ope_periodo_id_desc_pri": "0fee9c94-de51-4bac-a6de-315ea89a49a6",
+    "ope_atividade_id": "911f88df-a4fd-4b56-a03d-2e66448401e9",
+    "fin_pagrec_banco_id": "2a368fff-d02e-4131-add5-366ea66ca8c4",
+    "ope_compart_id_sec": "e90c3fa2-ba9c-42c5-9120-38d031251839",
+    "ope_centro2_id": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "fin_pagrec_id": "1e91aef1-2d96-4d4d-9fd2-5605d2554f4a",
+    "ope_centro2_id_dest_sec": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "f3996813-838e-49af-9649-8dc44e24bc75"
+    "valor": "5",
+    "ope_centro2_id_dest_pri": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "tipo_es": "E",
+    "ope_centro1_id_dest_pri": "080d0a07-0171-4ba0-a825-442ab8d7b89a",
+    "ope_centro1_id_dest_sec": "080d0a07-0171-4ba0-a825-442ab8d7b89a",
+    "ope_centro1_id": "080d0a07-0171-4ba0-a825-442ab8d7b89a",
+    "qnt": "5"
+}
+
+
+### 
+

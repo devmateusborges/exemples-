@@ -1,0 +1,30 @@
+
+.sidebar {
+    background-color: #5c2484 !important;
+}
+
+.login-page, .register-page{
+    background-color: #fff !important;
+}
+
+.card-header .panel-heading {
+    border-top: 0px !important;
+}
+
+.card.panel[widget='bootstrapformbuilder'] > .panel-heading, #chart-box > .panel-heading {
+    border-top: 0px;
+}
+
+#login-wrapper  .card > .panel-heading {
+    border-top: 0px;
+    background-color: #5c2484 !important;
+    color: #fff !important;
+}
+
+.nav-link.active { 
+    background-color: #5c2484 !important;
+    border-radius: 0px !important;
+    margin-top: -2px !important;
+    
+}
+

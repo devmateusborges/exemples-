@@ -1,0 +1,54 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/crm/crmmov HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/crm/crmmov HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "crm_etapa_id": "d59de768-55b8-4cc7-b9c7-33089b10fb17",
+  "crm_prioridade_id": "d00e706a-bc51-4808-b73d-3cd7af9271fe",
+  "crm_status_id": "19ccb897-6528-45db-91d9-f0dad465c5c1",
+  "data_mov": "07/07/2022",
+  "data_status": "07/07/2022",
+  "descritivo_ext": "t",
+  "descritivo_int": "t",
+  "envia_email_ext": "t",
+  "numero": "5",
+  "sys_user_id_atend_ant": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+  "sys_user_id_atend_atu": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+  "sys_user_id_solic": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+  "titulo": "tst",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+
+### 
+
+
+
+

@@ -1,0 +1,45 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/crm/crmstatus HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/crm/crmstatusprox HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "crm_status_id": "ecd30597-d604-4957-8989-2c4db9f78153",
+  "crm_status_id_prox": "c6b26aa1-2755-43ed-8177-4dca0602c830",
+  "ordem": "1",
+  "tipo_status_ant": "FM"
+  
+}
+
+
+### 
+
+
+
+

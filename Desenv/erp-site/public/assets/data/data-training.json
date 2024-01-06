@@ -1,0 +1,8 @@
+{
+    "data": [
+        { "key": "0", "data": { "descricao": "Descriçao ", "horas": "08:00", "tipo": "Cadastros" }, "children": [{ "key": "0-0", "data": { "descricao": "Descriçao filho ", "horas": "12:40", "tipo": "Cadastros" } }] },
+        { "key": "1", "data": { "descricao": "Descriçao ", "horas": "14:00", "tipo": "Cadastros" } }
+
+
+    ]
+}

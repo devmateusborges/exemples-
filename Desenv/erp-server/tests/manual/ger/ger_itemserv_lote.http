@@ -1,0 +1,63 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/geritemservlote HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+###
+
+POST {{HOSTAPI}}/api/geritemservlote HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+  "data_fin": "05/05/2022",
+  "data_ini": "05/05/2022",
+  "data_validade": "05/05/2022",
+  "observacao": "tst",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+   "sigla_ger_itemserv_lote": "tst"
+
+}
+
+### 
+POST {{HOSTAPI}}/api/geritemservlote HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+     "contato": "",
+  "email": "",
+  "end_bairro": "",
+  "end_cep": "",
+  "end_complemento": "",
+  "end_ger_cidade_id": "",
+  "end_logradouro": "",
+  "end_logradouro_nr": "",
+  "fone": "",
+  "ger_pessoa_id": "",
+  "padrao": "",
+  "tipo": "",
+  "unit_id":""
+}
+
+### 
+
+
+

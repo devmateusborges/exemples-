@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ordemservicoSub2" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="84bb2557-311f-4c12-ae10-a66a53be1ab1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParIdOrdem" class="java.lang.String">
+		<defaultValueExpression><![CDATA["94ffbb47-a6ea-4e1d-8339-a3b98cff2a31"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select  opOrdAtiv.id,
+			 opativ.nome as nome_atividade,
+			 opativ.sigla_atividade,
+			 opCOrd.id as id_ord,
+			 opAtivGrupo.nome as nome_grupo,
+ 			 opAtivGrupo.sigla_atividade_grupo as sigla_grupo
+from ope_centro2_ord_ativ opOrdAtiv
+inner join ope_centro2_ord opCOrd
+on opOrdAtiv.ope_centro2_ord_id = opCOrd.id
+inner join ope_atividade opAtiv
+on opOrdAtiv.ope_atividade_id  = opativ.id
+inner join ope_atividade_grupo opAtivGrupo
+on opAtiv.ope_atividade_grupo_id  = opAtivGrupo.id
+where opOrdAtiv.ope_centro2_ord_id = $P{pParIdOrdem}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord_ativ"/>
+	</field>
+	<field name="nome_atividade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_atividade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_atividade"/>
+	</field>
+	<field name="sigla_atividade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_atividade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_atividade"/>
+	</field>
+	<field name="id_ord" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id_ord"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_centro2_ord"/>
+	</field>
+	<field name="nome_grupo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_grupo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_atividade_grupo"/>
+	</field>
+	<field name="sigla_grupo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sigla_grupo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ope_atividade_grupo"/>
+	</field>
+	<variable name="ID_ATIV" class="java.lang.String" calculation="System">
+		<initialValueExpression><![CDATA[$F{id}]]></initialValueExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="28">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#EDEDED" uuid="c3554b37-6dc9-4eb1-bcc4-1ac2547faa74">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="4" y="0" width="34" height="14" uuid="460c246d-ab98-4e28-8219-36e763103021">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Grupo:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="38" y="0" width="214" height="14" uuid="703d190b-11b9-4358-b93d-15ec485c6368">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{sigla_grupo}+" - "+$F{nome_grupo}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="262" y="0" width="49" height="14" uuid="85956cca-2942-4a47-82ab-1b26906bdb14">
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Atividade:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="311" y="0" width="230" height="14" uuid="6529b6e5-53e4-4a91-8d84-facd12790745"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{sigla_atividade}+" - "+$F{nome_atividade}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="84">
+			<subreport>
+				<reportElement x="0" y="-13" width="555" height="47" uuid="b847035f-9dfd-4e05-b3df-97f74c34c763">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParAtivId">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"report0011OpeCentro2OrdRec.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="37" width="555" height="47" uuid="010c4ccb-41bb-410e-842c-9ccfd183c615">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParIdAtiv">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"report0011OpeCentro2OrdItemserv.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

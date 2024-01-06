@@ -1,0 +1,51 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/ger/geruf/db1bc4b5-535b-4714-abfb-9ea4a897ef13 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/ger/geruf HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+   "nome":"TST",
+  "nr_uf":"5",
+  "sigla_uf":"P",
+  "ger_pais_id":"99c4bfa5-06bd-40b2-8432-61d284af7586"
+}
+
+
+### 
+
+
+### 
+
+DELETE {{HOSTAPI}}/api/ger/geruf/4ef16b8a-3d7c-478e-9644-1004a6fb8f54 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+
+

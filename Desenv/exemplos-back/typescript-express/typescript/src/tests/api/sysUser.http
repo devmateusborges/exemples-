@@ -1,0 +1,38 @@
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+POST {{ baseURL }}/login
+Content-Type: application/json
+
+{
+  "email": "example@email.com",
+	"password": "password"
+}
+
+###
+GET {{ baseURL }}/sys/sysuser
+
+###
+GET {{ baseURL }}/sys/sysuser/062dddad-4ca3-4956-aa75-6f6cf368b05b
+
+###
+POST {{ baseURL }}/sys/sysuser
+Content-Type: application/json
+
+{
+  "email": "example@email.com",
+	"password": "password"
+}
+
+###
+PUT {{ baseURL }}/sys/sysuser/062dddad-4ca3-4956-aa75-6f6cf368b05b
+Content-Type: application/json
+
+{
+    "email": "example@email.com",
+	"password": "password"
+}
+
+###
+DELETE {{ baseURL }}/sys/sysuser/062dddad-4ca3-4956-aa75-6f6cf368b05b

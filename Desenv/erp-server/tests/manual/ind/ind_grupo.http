@@ -1,0 +1,49 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+   "login":"admin",
+   "password":"123",
+   "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/ind/indgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+POST {{HOSTAPI}}/api/ind/indgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "nome":"TST1",
+    "ativo":"S",
+    "sigla_grupo":"TST1",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "ordem_exibicao":"2",
+    "ind_gruposub_childs": [{
+        "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+        "ind_grupo_id":"d333ab3a-2b45-450f-8e2e-913310a50bb1",
+        "ind_id_subgrupo":"1bde8cd3-262b-4eb7-a052-e2259865f543"
+    }]
+
+   
+
+}
+
+
+ 

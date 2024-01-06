@@ -1,0 +1,47 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finpagrecbaixavar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finpagrecbaixavar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "data_valid": "05/05/2021",
+  "fin_pagrec_baixa_id": "c7d87a88-3045-4c25-9431-349ef02b5c93",
+  "fin_tipo_variacao_id": "f66da585-24f1-4b6c-9ffc-01c803eca9a3",
+  "observacao": "TST",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+  "valor": "0"
+  
+}
+
+
+### 
+
+
+
+

@@ -1,0 +1,91 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+
+### 
+GET {{HOSTAPI}}/api/ger/gerpessoa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+POST {{HOSTAPI}}/api/gerpessoa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "ativo":"S",
+  "contato_1": "tst",
+  "contato_2": "sts",
+  "contato_3": "tst",
+  "contrib_icms":"1" ,
+  "data_abertura": "07/05/2022",
+  "data_valid": "07/05/2022",
+  "doc_cnae": "tst",
+  "doc_cnpj": "tst",
+  "doc_cpf": "tst",
+  "doc_crc_org_exp": "tst",
+  "doc_crc_seq": "sts",
+  "doc_ie": "sts",
+  "doc_im": "tst",
+  "doc_junta": "tst",
+  "doc_rg": "sts",
+  "doc_rg_org_exp": "st",
+  "doc_taf": "st",
+  "fis_regime": "st",
+  "fone_1": "st",
+  "fone_2": "stst",
+  "fone_3": "st",
+  "nome": "st",
+  "nr_registro_est_cte": "st",
+  "nr_rntrc": "1",
+  "razao_social": "st",
+  "sigla_pes": "st",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "ger_pessoa_conta_banco_childs": [{
+        "conta": "TST1",
+        "fin_banco_id": "63c667d9-0c68-4c47-a87e-6a432dbb12be",
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "observacao": "TST1",
+        "agencia": "15"
+  }],
+  "ger_pessoa_endereco_childs": [{
+        "fone":"8888888888",
+        "end_logradouro_nr":"5",
+        "end_bairro":"TST1",
+        "end_complemento":"TST1",
+        "contato":"888888",
+        "tipo":"F",
+        "end_logradouro":"TST1",
+        "end_ger_cidade_id":"e1a04a0a-6eda-4339-8dff-dc58f6995b01",
+        "end_cep":"14600000",
+        "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+        "email":"TST1",
+        "padrao":"S"
+  }]
+}
+
+
+### 
+
+
+
+Delete {{HOSTAPI}}/api/gerpessoa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+
+

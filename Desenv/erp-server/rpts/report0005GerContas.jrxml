@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repoort0005Contas" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b87860fa-0559-455f-adcc-daefd57d2f24">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="idPessoa" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from ger_pessoa_conta_banco gpc
+where gpc.ger_pessoa_id = $P{idPessoa} or  $P{idPessoa} is null]]>
+	</queryString>
+	<field name="unit_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="unit_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="fin_banco_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fin_banco_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="agencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="agencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="conta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="conta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="observacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="observacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="ger_pessoa_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ger_pessoa_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="log_user_ins" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="log_date_ins" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="log_user_upd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<field name="log_date_upd" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_conta_banco"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+	</group>
+	<group name="Group2"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="12">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="800" height="12" backcolor="#EDEDED" uuid="a03527c7-2599-4c31-b667-d5b0901c890f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="30" y="0" width="120" height="12" isRemoveLineWhenBlank="true" uuid="0b62987a-a914-43fd-8627-253673ea2226">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d411ee7-ab84-4ad8-9741-549491de5fcf"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{agencia} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Justified" markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="150" y="0" width="376" height="12" uuid="f95aa897-d02e-4b37-ad37-a8f23ef150c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f049c372-c67c-4209-83f1-adff46362752"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{conta} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Conta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="150" y="0" width="342" height="11" isRemoveLineWhenBlank="true" uuid="2f3d8aeb-b5ee-4e8d-9437-8d00a603db61">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f049c372-c67c-4209-83f1-adff46362752"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{conta} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conta}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="40" y="0" width="100" height="11" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" uuid="3fbb42e6-6352-449e-97e6-d13f9bb0ba68">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9d411ee7-ab84-4ad8-9741-549491de5fcf"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{agencia} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Justified">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

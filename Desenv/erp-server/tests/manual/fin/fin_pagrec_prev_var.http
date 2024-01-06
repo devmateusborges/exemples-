@@ -1,0 +1,76 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finpagrecprevvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finpagrecprevvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "data_valid": "2022-02-15T00:00:00",
+  "fin_pagrec_prev_id": "3afb7be6-6b87-4e00-a131-4c7c4cdfb48c",
+  "fin_tipo_variacao_id": "f66da585-24f1-4b6c-9ffc-01c803eca9a3",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+  "valor01": "12",
+  "valor02": "12",
+  "valor03": "12",
+  "valor04": "12",
+  "valor05": "12",
+  "valor06": "12",
+  "valor07": "12",
+  "valor08": "12",
+  "valor09": "12",
+  "valor10": "12",
+  "valor11": "12",
+  "valor12": "12",
+  "valor13": "12",
+  "valor14": "12",
+  "valor15": "12",
+  "valor16": "12",
+  "valor17": "12",
+  "valor18": "12",
+  "valor19": "12",
+  "valor20": "12",
+  "valor21": "12",
+  "valor22": "12",
+  "valor23": "12",
+  "valor24": "12",
+  "valor25": "12",
+  "valor26": "12",
+  "valor27": "12",
+  "valor28": "12",
+  "valor29": "12",
+  "valor30": "12",
+  "valor31": "12"
+  
+}
+
+
+### 
+
+
+
+

@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-family);
+    font-size: $fontSize;
+    background-color: $bodyBgColor;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: #2196f3;
+}
+
+.bluew {
+    background: $colorBlueW;
+}
+
+.blue {
+    background: $colorBlue;
+}
+
+.blueh {
+    background: $colorBlueH;
+}
+
+.blues {
+    background: $colorBlueS;
+}
+
+.green {
+    background: $colorGreen;
+}
+
+.greenh {
+    background: $colorGreenH;
+}
+
+.yellow {
+    background: $colorYellow;
+}
+
+.yellowh {
+    background: $colorYellowH;
+}
+
+.black {
+    background: $colorBlack;
+}
+
+.gray {
+    background: $colorGray;
+}
+
+.grayh {
+    background: $colorGrayH;
+}
+
+.white {
+    background: $colorWhite;
+}
+
+.whiteh {
+    background: $colorWhiteH;
+}
+
+.whiteb {
+    background: $bodyBgColor;
+}
+
+.border-radius {
+    border-radius: $borderRadius;
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.sub-topbar {
+    padding-top: 88.4px !important;
+}
+
+.img-1 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/data_report.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-2 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/project_completed.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-4 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/site_content.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-5 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/mobile_messages.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-6 {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/co-working.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-interview {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/interview.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-benefit {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/personal_finance.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-space {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/winners.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.sm-visible {
+    display: none;
+}
+
+.img-analytics {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/laptop.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.img-superhero {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/trator.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.border-round {
+    border-radius: $borderRadius !important;
+}

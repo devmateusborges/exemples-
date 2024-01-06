@@ -1,0 +1,72 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/opecentroprevdest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/opecentroprevdest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "qnt07": "01",
+    "qnt20": "01",
+    "qnt22": "01",
+    "qnt24": "01",
+    "qnt14": "01",
+    "qnt03": "01",
+    "ctb_comp_id": "71a08169-5dc8-4b24-b3c6-d6b985eed333",
+    "ope_centro_prev_id": "12bbc881-3660-438e-bec4-9601442262c9",
+    "ope_centro1_id": "080d0a07-0171-4ba0-a825-442ab8d7b89a",
+    "qnt06": "01",
+    "qnt05": "01",
+    "qnt21": "01",
+    "tipo_prev": "1",
+    "qnt04": "01",
+    "qnt12": "01",
+    "qnt16": "01",
+    "qnt11": "01",
+    "qnt28": "01",
+    "qnt29": "01",
+    "qnt23": "01",
+    "ger_itemserv_id": "c20340e9-f611-4c95-8be1-a104af19b07f",
+    "process_id": "e49f3f74-8f78-43fa-b4d8-9ea3bf0191b3",
+    "qnt18": "01",
+    "qnt27": "01",
+    "qnt19": "01",
+    "qnt30": "01",
+    "ope_centro2_id": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "f3996813-838e-49af-9649-8dc44e24bc75"
+    "qnt17": "01",
+    "qnt08": "01",
+    "qnt10": "01",
+    "qnt09": "01",
+    "qnt26": "01",
+    "qnt01": "01",
+    "qnt13": "01",
+    "qnt31": "01",
+    "qnt02": "01",
+    "qnt15": "01",
+    "qnt25": "01"
+}
+###  
+
+
+

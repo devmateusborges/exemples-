@@ -1,0 +1,46 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finconta HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finconta HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "fin_banco_id": "3e642cb4-ffcc-422d-867c-5b980a9d8711",
+  "ger_empresa_id": "4290a725-23c1-48dd-b6dc-3425885792c1",
+  "nome": "tst",
+  "nr_agencia": "tst",
+  "nr_conta": "5",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+
+### 
+
+
+
+

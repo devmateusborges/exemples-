@@ -1,0 +1,44 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/movciot HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/movciot HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "nr_ciot": "5",
+    "ger_pessoa_id_responsavel": "25cfa280-6933-4dd3-8471-8f2f7a0daeaf",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "mov_id": "36697e07-7f31-4f95-a699-9917ca6a0363"
+}
+
+
+### 
+
+
+
+

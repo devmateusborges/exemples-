@@ -1,0 +1,236 @@
+<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+    <NFe>
+        <infNFe Id="NFe52190501409655000180558900135506271617900473" versao="4.00">
+            <ide>
+                <cUF>52</cUF>
+                <cNF>61790047</cNF>
+                <natOp>VENDA</natOp>
+                <mod>55</mod>
+                <serie>890</serie>
+                <nNF>13550627</nNF>
+                <dhEmi>2019-05-09T14:59:26-03:00</dhEmi>
+                <dhSaiEnt>2019-05-09T00:00:00-03:00</dhSaiEnt>
+                <tpNF>1</tpNF>
+                <idDest>1</idDest>
+                <cMunFG>5210109</cMunFG>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>3</cDV>
+                <tpAmb>1</tpAmb>
+                <finNFe>1</finNFe>
+                <indFinal>0</indFinal>
+                <indPres>9</indPres>
+                <procEmi>1</procEmi>
+                <verProc>1</verProc>
+            </ide>
+            <emit>
+                <CPF>02067731882</CPF>
+                <xNome>SHUICHI HAYASHI</xNome>
+                <enderEmit>
+                    <xLgr>RODOVIA BR 050</xLgr>
+                    <nro>S/N</nro>
+                    <xCpl>KM 156 A DIREITA 1 KM.</xCpl>
+                    <xBairro>ZONA RURAL</xBairro>
+                    <cMun>5210109</cMun>
+                    <xMun>IPAMERI</xMun>
+                    <UF>GO</UF>
+                    <CEP>75780000</CEP>
+                    <fone>00006136121828</fone>
+                </enderEmit>
+                <IE>111737257</IE>
+                <CRT>3</CRT>
+            </emit>
+            <avulsa>
+                <CNPJ>01409655000180</CNPJ>
+                <xOrgao>SECRETARIA DA FAZENDA DE GOIAS</xOrgao>
+                <matr>250937</matr>
+                <xAgente>SHUICHI HAYASHI</xAgente>
+                <fone>6232692002</fone>
+                <UF>GO</UF>
+                <nDAR>0</nDAR>
+                <dEmi>2019-05-09</dEmi>
+                <vDAR>0.00</vDAR>
+                <repEmi>SECRETARIA DA FAZENDA</repEmi>
+            </avulsa>
+            <dest>
+                <CPF>00100123112</CPF>
+                <xNome>DANIEL DE SOUZA QUEIROZ</xNome>
+                <enderDest>
+                    <xLgr>RODOVIA BR 040</xLgr>
+                    <nro>S/N</nro>
+                    <xCpl>KM 66 Q ESQ 09 KM.</xCpl>
+                    <xBairro>ZONA RURAL</xBairro>
+                    <cMun>5212501</cMun>
+                    <xMun>LUZIANIA</xMun>
+                    <UF>GO</UF>
+                    <CEP>72800001</CEP>
+                </enderDest>
+                <indIEDest>1</indIEDest>
+                <IE>113219946</IE>
+            </dest>
+            <det nItem="1">
+                <prod>
+                    <cProd>1</cProd>
+                    <cEAN>SEM GTIN</cEAN>
+                    <xProd>MILHO DEBULHADO KG PRODUTOR/EXTRATOR</xProd>
+                    <NCM>10059010</NCM>
+                    <CFOP>5101</CFOP>
+                    <uCom>KG</uCom>
+                    <qCom>14000.0</qCom>
+                    <vUnCom>0.5100</vUnCom>
+                    <vProd>7140.00</vProd>
+                    <cEANTrib>SEM GTIN</cEANTrib>
+                    <uTrib>KG</uTrib>
+                    <qTrib>14000.0</qTrib>
+                    <vUnTrib>0.5100</vUnTrib>
+                    <indTot>1</indTot>
+                </prod>
+                <imposto>
+                    <ICMS>
+                        <ICMS40>
+                            <orig>0</orig>
+                            <CST>40</CST>
+                        </ICMS40>
+                    </ICMS>
+                    <PIS>
+                        <PISNT>
+                            <CST>08</CST>
+                        </PISNT>
+                    </PIS>
+                    <COFINS>
+                        <COFINSNT>
+                            <CST>08</CST>
+                        </COFINSNT>
+                    </COFINS>
+                </imposto>
+            </det>
+            <total>
+                <ICMSTot>
+                    <vBC>0.00</vBC>
+                    <vICMS>0.00</vICMS>
+                    <vICMSDeson>0.00</vICMSDeson>
+                    <vFCP>0.00</vFCP>
+                    <vBCST>0.00</vBCST>
+                    <vST>0.00</vST>
+                    <vFCPST>0.00</vFCPST>
+                    <vFCPSTRet>0.00</vFCPSTRet>
+                    <vProd>7140.00</vProd>
+                    <vFrete>0.00</vFrete>
+                    <vSeg>0.00</vSeg>
+                    <vDesc>0.00</vDesc>
+                    <vII>0.00</vII>
+                    <vIPI>0.00</vIPI>
+                    <vIPIDevol>0.00</vIPIDevol>
+                    <vPIS>0.00</vPIS>
+                    <vCOFINS>0.00</vCOFINS>
+                    <vOutro>0.00</vOutro>
+                    <vNF>7140.00</vNF>
+                </ICMSTot>
+            </total>
+            <transp>
+                <modFrete>1</modFrete>
+                <transporta>
+                    <CPF>78942446604</CPF>
+                    <xNome>MAURO DE FATIMA DA CONCEICAO</xNome>
+                    <xEnder>RODOVIA BR 040 S/N, ZONA RURAL ZONA RURAL</xEnder>
+                    <xMun>LUZIANIA</xMun>
+                    <UF>GO</UF>
+                </transporta>
+                <veicTransp>
+                    <placa>KCL9137</placa>
+                    <UF>GO</UF>
+                </veicTransp>
+                <vol>
+                    <qVol>1</qVol>
+                    <pesoL>14000.000</pesoL>
+                    <pesoB>14000.000</pesoB>
+                </vol>
+            </transp>
+            <pag>
+                <detPag>
+                    <indPag>0</indPag>
+                    <tPag>90</tPag>
+                    <vPag>7140.00</vPag>
+                </detPag>
+            </pag>
+            <infAdic>
+                <infCpl>CV MILHO 006 - 2019</infCpl>
+            </infAdic>
+        </infNFe>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <Reference URI="#NFe52190501409655000180558900135506271617900473">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <DigestValue>/AP+U7e645Mlj5RTteLIuQlcTMw=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>
+                2rbz7ROWdlPm59d+TAxnXwdA6DorlfULXoFvlWGBmRWWTx/VHdWY+Aby3KmMbhh4SPXKJpgZfQpS
+                90XDbY7TkszQBdkze6m+3XUJSjR4GIjLogeQfjYuqoj5Kg4YfrlJ7yso2SZ2Mo3+3aVBHjbs8eGj
+                hPDs+DF20QM4yzL+ThN3d1jl+UsdtDXteR7HDwPMX1sxakBDQGe8kWOu/gkWtx35PuA7EbC3YnaL
+                ED/QFtyCPNw2Ms4EGzfr4FU/lehbcq7/7pkNnY1D3PBQKg76IPO8J8gC+uVognZQmOs+2ml8CtZm
+                ROjT4BgqgMG6GMTrjiPtaB8+zf47RTP0gmCtoA==
+            </SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>
+                        MIIH6DCCBdCgAwIBAgIQCpXlmpboOf+6EOZ7ngA16DANBgkqhkiG9w0BAQsFADB1MQswCQYDVQQG
+                        EwJCUjETMBEGA1UEChMKSUNQLUJyYXNpbDEtMCsGA1UECxMkQ2VydGlzaWduIENlcnRpZmljYWRv
+                        cmEgRGlnaXRhbCBTLkEuMSIwIAYDVQQDExlBQyBDZXJ0aXNpZ24gTXVsdGlwbGEgU1NMMB4XDTE4
+                        MDYyNTIwNTYyM1oXDTE5MDYyNTIwNTYyM1owgY4xCzAJBgNVBAYTAkJSMRMwEQYDVQQKDApJQ1At
+                        QnJhc2lsMS4wLAYDVQQLDCVBdXRlbnRpY2FkbyBwb3IgQVIgTWV0YSBDZXJ0aWZpY2Fkb3JhMRsw
+                        GQYDVQQLDBJBc3NpbmF0dXJhIFRpcG8gQTExHTAbBgNVBAMMFG5mYWUuc2VmYXouZ28uZ292LmJy
+                        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9fAUwStjbeGQZ45ml0eReRK3VSYNa9dO
+                        DGVeZ/0ozNp/P8+sObSu3vs/ZbSC76IeFlsEdr4ZhC/uwdCyUUbFtpjA8rVRG6u39DbQ6dIdT+Ct
+                        fFJbX6IeR2tvbGpNhbPD4kaLOfjzTf6cD0ARSwsvJtfQ9yW+CkrzVETZbtkB+XscDLfXuNbXJ/4i
+                        pj7R/AzAR0gpJyHzAo9EyydN2yJdyDu6wLXqtbnQeFfK3qzDrtz5fLRqCvkv56jBbW5v6urpnc9y
+                        wymQO76TVcisKcAWyQpDHaKAqFoPWZVypMpdXgmukXOjy1wtW6o2mkj7BJrBLyrR5etpl0Tops1C
+                        1veDgQIDAQABo4IDWDCCA1QwgdIGA1UdEQSByjCBx6AqBgVgTAEDCKAhBB9TRUNSRVRBUklBIERF
+                        IEVTVEFETyBEQSBGQVpFTkRBoBkGBWBMAQMDoBAEDjAxNDA5NjU1MDAwMTgwoCkGBWBMAQMCoCAE
+                        HkxVSVogQU5UT05JTyBGQVVTVElOTyBNQVJPTkVaSaA9BgVgTAEDBKA0BDIxNTExMTk0NzIxNTky
+                        NjY3ODcyMDAwMDAwMDAwMDAwMDAwMDAwMDkzOTMzNDZTU1BTUIIUbmZhZS5zZWZhei5nby5nb3Yu
+                        YnIwCQYDVR0TBAIwADAfBgNVHSMEGDAWgBSoxIxvjVlPc4BKxH9kqsydgHsRhTCBlQYDVR0gBIGN
+                        MIGKMIGHBgZgTAECAUgwfTB7BggrBgEFBQcCARZvaHR0cDovL2ljcC1icmFzaWwuY2VydGlzaWdu
+                        LmNvbS5ici9yZXBvc2l0b3Jpby9kcGMvQUNfQ2VydGlzaWduX01VTFRJUExBX1NTTC9EUENfQUNf
+                        Q2VydGlzaWduXyBNVUxUSVBMQV9TU0wucGRmMIHIBgNVHR8EgcAwgb0wXaBboFmGV2h0dHA6Ly9p
+                        Y3AtYnJhc2lsLmNlcnRpc2lnbi5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL0FDQ2VydGlzaWduTXVs
+                        dGlwbGFTc2wvTGF0ZXN0Q1JMLmNybDBcoFqgWIZWaHR0cDovL2ljcC1icmFzaWwub3V0cmFsY3Iu
+                        Y29tLmJyL3JlcG9zaXRvcmlvL2xjci9BQ0NlcnRpc2lnbk11bHRpcGxhU3NsL0xhdGVzdENSTC5j
+                        cmwwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjCBvgYIKwYB
+                        BQUHAQEEgbEwga4waAYIKwYBBQUHMAKGXGh0dHA6Ly9pY3AtYnJhc2lsLmNlcnRpc2lnbi5jb20u
+                        YnIvcmVwb3NpdG9yaW8vY2VydGlmaWNhZG9zL0FDX0NlcnRpc2lnbl9NVUxUSVBMQV9TU0xfRzEu
+                        cDdjMEIGCCsGAQUFBzABhjZodHRwOi8vb2NzcC1hYy1jZXJ0aXNpZ24tbXVsdGlwbGEtc3NsLmNl
+                        cnRpc2lnbi5jb20uYnIwDQYJKoZIhvcNAQELBQADggIBAEXzTpFElfXLWVt8w3kEbtCdU6uWCQC6
+                        j+otllwFRxsj9LpBOhF08g/dBpaIx0zxoNQHqPsGolNUmq/U96oHbJbRhchXgEgKjcD35iUE4tey
+                        SXKBYxZUyYdEUdOt+CyNxNiWsZAXVMpUUc11skZpa4BVF2gUO0uwXSrXIxAScPqrQxWMKeMzJHfJ
+                        4zCQ+VQfUQHtjRQtFdimBRMCntYNN/e2hSGF7RP6UIfbVYDoa6GT1FoCxilkmGZkvOec3J/eAZJX
+                        V5+cz5AcEEIHu7a029ox4HTEm7CelL+P+2L4M/uV1UGwDs06Bju1YQeGZoiBijWaoHkVKr5B+2tT
+                        zZPkMR/6KV1t+ZcazSNHV1IVxdIwYSVOXthJYuuFST9j2JcV3/2OoYep557of8MKq7vh4dskqtII
+                        Q0TLKSKdkM008Hmo1HXHUlCKyYICqbrM2cAcsZs+zMj7TudPr0PAhoclwZ5TWxIZZv2uAAbFLwQy
+                        yzCM8VmcAIwEPEYuayRNF6kqj1U+Sdo6oaFCz4eiFgA4lVbKQGe/VeMRZhtTmGiTf3Wff7RTbwSV
+                        1JSh0LyvT7vryQfs9K/xzc/6XcrpU+xav85e/pPacfLFHTZqbd7oVnCTxm05NCtgLHqf+avIQfzq
+                        PT/wE904frd/U9sB8nLGL/nPSFT86ZHBTdKTI0M6AWJH
+                    </X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+    </NFe>
+    <protNFe versao="4.00">
+        <infProt Id="ID152192182303120">
+            <tpAmb>1</tpAmb>
+            <verAplic>0.0.1</verAplic>
+            <chNFe>52190501409655000180558900135506271617900473</chNFe>
+            <dhRecbto>2019-05-09T14:59:32-03:00</dhRecbto>
+            <nProt>152192182303120</nProt>
+            <digVal>/AP+U7e645Mlj5RTteLIuQlcTMw=</digVal>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso da NF-e</xMotivo>
+        </infProt>
+    </protNFe>
+</nfeProc>

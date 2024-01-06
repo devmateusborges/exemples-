@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0005" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="91d2fac4-615c-472f-8413-6397509ebf47">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParPessoaNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParPessoaSigla" class="java.lang.String"/>
+	<parameter name="pParPessoaAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParPessoaId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["070adfa9-cc6c-4b4a-992b-6a49b328d231"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("(GER) - PESSOAS > ENDEREÇO > CONTA BANCÁRIA")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Admin")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["02ad9cdb-2ff9-47ea-9248-abdfbe857d5a"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[Select * From ger_pessoa gp
+where gp.id like $P{pParPessoaId}
+and gp.nome like $P{pParPessoaNome}
+and gp.sigla_pes in (select fnutil_table_id($P{pParPessoaSigla},gp.sigla_pes))
+and gp.ativo like $P{pParPessoaAtivo}
+order by gp.sigla_pes]]>
+	</queryString>
+	<field name="unit_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="unit_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="unit_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[ID de Unidade]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[ID da Pessoa]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Nome]]></fieldDescription>
+	</field>
+	<field name="razao_social" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="razao_social"/>
+		<property name="com.jaspersoft.studio.field.label" value="razao_social"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Razão Social]]></fieldDescription>
+	</field>
+	<field name="ativo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ativo"/>
+		<property name="com.jaspersoft.studio.field.label" value="ativo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Ativo]]></fieldDescription>
+	</field>
+	<field name="doc_cnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_cnpj"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_cnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. CNPJ]]></fieldDescription>
+	</field>
+	<field name="doc_cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. CPF]]></fieldDescription>
+	</field>
+	<field name="doc_ie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_ie"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_ie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. Ins.Estadual]]></fieldDescription>
+	</field>
+	<field name="doc_im" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_im"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_im"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. Ins.Municipal]]></fieldDescription>
+	</field>
+	<field name="doc_cnae" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_cnae"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_cnae"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. CNAE]]></fieldDescription>
+	</field>
+	<field name="data_abertura" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="data_abertura"/>
+		<property name="com.jaspersoft.studio.field.label" value="data_abertura"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Data Abertura]]></fieldDescription>
+	</field>
+	<field name="doc_junta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_junta"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_junta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. Junta]]></fieldDescription>
+	</field>
+	<field name="fis_regime" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fis_regime"/>
+		<property name="com.jaspersoft.studio.field.label" value="fis_regime"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Regime]]></fieldDescription>
+	</field>
+	<field name="fone_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fone_1"/>
+		<property name="com.jaspersoft.studio.field.label" value="fone_1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Tefone 1]]></fieldDescription>
+	</field>
+	<field name="fone_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fone_2"/>
+		<property name="com.jaspersoft.studio.field.label" value="fone_2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Tefone 2]]></fieldDescription>
+	</field>
+	<field name="fone_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fone_3"/>
+		<property name="com.jaspersoft.studio.field.label" value="fone_3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Tefone 3]]></fieldDescription>
+	</field>
+	<field name="contato_1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contato_1"/>
+		<property name="com.jaspersoft.studio.field.label" value="contato_1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Contato 1]]></fieldDescription>
+	</field>
+	<field name="contato_2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contato_2"/>
+		<property name="com.jaspersoft.studio.field.label" value="contato_2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Contato 2]]></fieldDescription>
+	</field>
+	<field name="contato_3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contato_3"/>
+		<property name="com.jaspersoft.studio.field.label" value="contato_3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Contato 3]]></fieldDescription>
+	</field>
+	<field name="contrib_icms" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="contrib_icms"/>
+		<property name="com.jaspersoft.studio.field.label" value="contrib_icms"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Tipo de Contribuinte ICMS]]></fieldDescription>
+	</field>
+	<field name="nr_rntrc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nr_rntrc"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_rntrc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Numero RNTRC]]></fieldDescription>
+	</field>
+	<field name="doc_rg" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_rg"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_rg"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. R.G]]></fieldDescription>
+	</field>
+	<field name="doc_rg_org_exp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_rg_org_exp"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_rg_org_exp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. R.G Orgão Exp.]]></fieldDescription>
+	</field>
+	<field name="doc_crc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_crc"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_crc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. C.R.C]]></fieldDescription>
+	</field>
+	<field name="doc_crc_seq" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_crc_seq"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_crc_seq"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. C.R.C Seq.]]></fieldDescription>
+	</field>
+	<field name="doc_crc_org_exp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_crc_org_exp"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_crc_org_exp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Doc. C.R.C Orgão Exp.]]></fieldDescription>
+	</field>
+	<field name="log_user_ins" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Log - Usuário de Inserção]]></fieldDescription>
+	</field>
+	<field name="log_date_ins" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Log - Data de Inserção]]></fieldDescription>
+	</field>
+	<field name="log_user_upd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Log - Usuário de Alteração]]></fieldDescription>
+	</field>
+	<field name="log_date_upd" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Log - Data de Alteração]]></fieldDescription>
+	</field>
+	<field name="sigla_pes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla_pes"/>
+		<property name="com.jaspersoft.studio.field.label" value="sigla_pes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Sigla]]></fieldDescription>
+	</field>
+	<field name="doc_taf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_taf"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_taf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Termo de autorização de fretamento]]></fieldDescription>
+	</field>
+	<field name="nr_registro_est_cte" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nr_registro_est_cte"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_registro_est_cte"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Número do registro estadual de CTE]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="800" height="40" uuid="9781f244-2063-46a0-b3ac-a3b72628bbb2">
+					<property name="net.sf.jasperreports.export.xls.print.page.left.margin" value="0"/>
+					<property name="net.sf.jasperreports.export.xls.print.page.bottom.margin" value="0"/>
+					<property name="net.sf.jasperreports.style.box.topPadding" value="0"/>
+				</reportElement>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA["[{#pParPessoaNome#:#"+$P{pParPessoaNome}+"#},"+"{#pParPessoaSigla#:#"+$P{pParPessoaSigla}+"#},"+"{#pParPessoaAtivo#:#"+$P{pParPessoaAtivo}+"#}]"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoPaisagem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="75">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="800" height="12" backcolor="#EDEDED" uuid="85ecb2ae-0d78-4aa1-9b59-c9501cc45957">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textField>
+					<reportElement x="43" y="0" width="50" height="12" isRemoveLineWhenBlank="true" uuid="6e4ff85d-e0b4-4351-a087-d0fab4ea9cf7">
+						<printWhenExpression><![CDATA[$F{sigla_pes} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sigla_pes}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="405" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="8da12b46-50b4-4df1-8f6c-cf9f9f6a4da2">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{doc_cpf} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{doc_cpf}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="494" y="0" width="25" height="12" isRemoveLineWhenBlank="true" uuid="c475cef3-dca1-44f5-af3c-26bc1df727db">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{doc_cnpj} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cnpj:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="519" y="0" width="80" height="12" isRemoveLineWhenBlank="true" uuid="29359a67-6a26-492d-8b18-96edea5de7e8">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<printWhenExpression><![CDATA[$F{doc_cnpj} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{doc_cnpj}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="15" y="0" width="28" height="12" isRemoveLineWhenBlank="true" uuid="9303fcea-b70f-4087-9bda-af50db375eb4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{sigla_pes} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sigla:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="0" width="160" height="12" isRemoveLineWhenBlank="true" uuid="00bd4bd4-731d-40f3-999c-244dfa9d7469">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{nome} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="108" y="0" width="32" height="12" isRemoveLineWhenBlank="true" uuid="596d8e8d-9885-46bd-8529-4eabbb38fd4a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$F{nome} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="338" y="0" width="30" height="12" isRemoveLineWhenBlank="true" uuid="b2d5a403-f26c-476b-a1ab-336a00b1e3b1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{ativo} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ativo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="0" width="30" height="12" isRemoveLineWhenBlank="true" uuid="8cc463ea-1851-4d13-93c6-002f153e0845">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ativo} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ativo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="20" height="12" isRemoveLineWhenBlank="true" uuid="21f6d0d0-9fdc-4dde-948c-c94defb586ec">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cpf:]]></text>
+			</staticText>
+			<subreport isUsingCache="false" runToBottom="false" overflowType="Stretch">
+				<reportElement key="" mode="Transparent" x="0" y="15" width="800" height="30" isRemoveLineWhenBlank="true" uuid="4129a969-5b2d-4672-a2bf-e77736ee5a9f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="idPessoa">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"report0005GerContas.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="false" runToBottom="false">
+				<reportElement positionType="Float" x="0" y="45" width="800" height="30" isRemoveLineWhenBlank="true" uuid="e6fe3f4f-7137-4a7d-9fa5-190c3aecf2d4">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="id_pessoa">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"report0005GerEnderecos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="710" y="0" width="50" height="18" uuid="15cac9da-e6fb-4d47-971c-1f83db994d60">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="760" y="0" width="40" height="18" uuid="0bf76456-5e32-42c1-a2ca-7fc75fae514f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="710" height="18" uuid="8341b6aa-43d3-4970-b6f1-b7ef8a06c72e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA[new String("report0005")]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>

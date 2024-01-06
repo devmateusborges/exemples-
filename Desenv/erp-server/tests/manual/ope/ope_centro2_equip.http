@@ -1,0 +1,62 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/opecentro2equip HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/opecentro2equip HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "placa": "4546",
+    "capacidade_m3": "5",
+    "largura": "4545",
+    "nr_registro_estadual": "45",
+    "tipo_carroceria": "02",
+    "potencia": "5",
+    "liberado_abastec": "S",
+    "data_venc_licenciamento": "15/07/2001",
+    "ope_centro2_id": "05506f32-652b-4ac9-80d4-e7d387d6d140",
+    "capacidade_kg": "5",
+    "data_venc_imposto": "15/07/2022",
+    "tipo_rodado": "S",
+    "f3996813-838e-49af-9649-8dc44e24bc75"
+    "tipo_tracao": "0",
+    "ger_cidade_id": "e4b72afb-2fd1-4d40-a652-990b03433d03",
+    "renavam": "tst",
+    "tipo_transp_auto_carga": "0",
+    "ope_frente_trabalho_id": "e39b9741-1b1e-4498-b1e2-cbaaa259d57f",
+    "altura": "5",
+    "tara": "5",
+    "nr_chassi": "5",
+    "nr_serie": "5"
+}
+
+
+### 
+
+
+
+

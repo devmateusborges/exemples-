@@ -1,0 +1,28 @@
+.p-component {
+  border-radius: $borderRadius;  
+}
+
+.p-button {
+  background: $colorBlue;
+}
+
+.p-button-success {
+  background: $colorGreen !important;
+}
+
+@keyframes p-progress-spinner-color {
+  100%,
+  0% {
+      stroke: $colorBlue;
+  }
+  40% {
+      stroke: $colorBlue;
+  }
+  66% {
+      stroke: $colorBlue;
+  }
+  80%,
+  90% {
+      stroke: $colorBlue;
+  }
+}

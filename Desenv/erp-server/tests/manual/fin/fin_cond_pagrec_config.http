@@ -1,0 +1,45 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/fincondpagrecconfig HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/fincondpagrecconfig HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+  "fin_cond_pag_rec_id": "5c614692-a184-4b57-aab2-5feace4be398",
+  "qnt_dia": "5",
+  "unit_id":self.session.get("sys_unit_id1").decode()
+  
+}
+
+
+### 
+
+
+
+

@@ -1,0 +1,55 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+
+### 
+GET {{HOSTAPI}}/api/geritemservgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/geritemservgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+    "sigla_ger_itemserv_grupo": "TST1",
+    "nome": "TST1",
+    "ger_itemserv_subgrupo_childs": [
+      {
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "nome": "TST1",
+        "ctb_comp_id": "647b7389-5029-4f56-8f02-20962b4a3829",
+        "sigla_ger_itemserv_subgrupo": "TST1"
+      }
+    ]
+
+}
+###  
+
+
+
+Delete {{HOSTAPI}}/api/geritemservgrupo/bb60e8ab-5fa2-4d74-9ae9-3e3c4954bf48 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+### 
+
+
+

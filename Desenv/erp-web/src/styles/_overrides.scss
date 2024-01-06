@@ -1,0 +1,105 @@
+.p-component {
+  border-radius: $borderRadius;
+}
+
+.p-inputtext {
+  padding: 1.0rem ;
+}
+
+
+
+
+.p-dropdown {
+  padding: 0rem  !important
+}
+
+.p-dropdown .p-inputtext {
+  padding: 0.7rem  !important
+}
+
+
+.p-dropdown-panel {
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+}
+
+.p-dropdown-panel .p-dropdown-header {
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+}
+
+.p-dropdown-panel .p-dropdown-header {
+  padding: 0px !important;
+}
+
+
+.p-dialog {
+  border-radius: $borderRadius !important;
+}
+
+.p-paginator {
+  border-bottom-left-radius: $borderRadius !important;
+  border-bottom-right-radius: $borderRadius !important;
+}
+
+.p-button {
+  background: $colorBlue;
+}
+
+.p-button-success {
+  background: $colorGreen !important;
+}
+
+.p-datatable .p-datatable-header {
+  background-color: transparent;
+}
+
+@keyframes p-progress-spinner-color {
+
+  100%,
+  0% {
+    stroke: #d62d20;
+  }
+
+  40% {
+    stroke: #0057e7;
+  }
+
+  66% {
+    stroke: #008744;
+  }
+
+  80%,
+  90% {
+    stroke: #ffa700;
+  }
+}
+
+.p-fieldset-legend {
+  font-size: 1.2rem;
+
+}
+
+.p-fieldset .p-fieldset-legend {
+  background-color: #fff;
+}
+
+.p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
+  padding: 5px !important;
+}
+
+
+
+.p-button.p-component.p-splitbutton-menubutton {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.p-password input {
+  width: 100% !important;
+}
+
+
+.p-paginator .p-dropdown {
+  height: 3.5rem !important;
+}

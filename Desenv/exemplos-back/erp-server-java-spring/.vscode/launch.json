@@ -1,0 +1,20 @@
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "JAVA - FILE",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "JAVA - DEV",
+            "request": "launch",
+            "mainClass": "br.com.resultfacil.resultserver.ResultServerApplication",
+            "projectName": "result-server",
+            "vmArgs": " -Dspring.profiles.active=dev"
+        }
+    ]
+}

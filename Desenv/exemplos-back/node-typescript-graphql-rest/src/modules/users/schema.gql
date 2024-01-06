@@ -1,0 +1,26 @@
+scalar Date
+
+type User {
+  id: String
+  firstname: String
+  lastname: String
+  username: String
+  email:String
+  password:String
+}
+
+type Query {
+  getAllUsers: [User]
+}
+
+input UserInput {
+  firstname: String
+  lastname: String
+  username: String
+  email:String
+  password:String
+}
+
+type Mutation {
+  createUser(input: UserInput): User
+}

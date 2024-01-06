@@ -1,0 +1,72 @@
+
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+###
+
+
+GET {{HOSTAPI}}/api/opecentro2area HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/opecentro2area HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+   "qnt_area_improd":"5",
+    "long_y":"5",
+    "ger_itemserv_id_ult":"dbafdbe9-2bfc-4898-a3df-5089c6d0872c",
+    "data_ult_col":"15/07/2022",
+    "ope_atividade_sistema_id_col":"b2bc830a-7b51-4888-9a88-37eab5e7616f",
+    "ope_centro2_id":"4a5f22ef-9932-4aca-9560-7a7ae0a5a88a",
+    "data_florada_1":"15/07/2022",
+    "ope_atividade_sistema_id_cult":"b2bc830a-7b51-4888-9a88-37eab5e7616f",
+    "ger_itemserv_id":"ecaf3c09-ccd7-4de7-a291-26a3a0a0993a",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "data_ini_col":"15/07/2001",
+    "ope_tipo_solo_id":"7d7cc981-56f3-45c3-b6fd-af07dfc0e30b",
+    "lat_x":"15",
+    "alt_z":"51",
+    "data_emerg":"15/07/2001",
+    "ger_itemserv_var_id_ult":"12bf6d1b-be1c-4d32-96ec-f5e27cd048a0",
+    "ope_atividade_sistema_id_plan":"b2bc830a-7b51-4888-9a88-37eab5e7616f",
+    "ope_periodo_id":"b0c97300-113d-4a76-a035-d696134ecd3e",
+    "ger_itemserv_var_id":"12bf6d1b-be1c-4d32-96ec-f5e27cd048a0",
+    "bloco_col":"5",
+    "data_fin_col":"15/05/2021",
+    "data_fin_plan":"15/05/2021",
+    "qnt_area_prod":"5",
+    "qnt_plantas_estande":"10",
+    "observacao":"tst",
+    "data_ult_plan":"15/05/2021",
+    "ger_umedida_id":"77a8144c-2010-4120-ab76-7165a0437900",
+    "ope_espac_id":"237f57a6-37b7-4fa8-85c3-48189f3c939b",
+    "data_ini_plan":"15/05/2021",
+    "ope_estagio_id":"6fb5af25-3627-4aea-965f-87583aa3ccd1"
+}
+
+
+### 
+
+
+
+

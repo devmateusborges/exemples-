@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0022GerItemServ" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ec4e4f8-9d65-4385-8d0d-4c11f3d92093">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["7ce1666f-4df4-4e17-8376-ce7305ee6d6e"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA["(GER) - ITEM/SERVIÇO"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA["admin"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVart01" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ger_itemserv_nome"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVard01" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Nome"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVart02" class="java.lang.String"/>
+	<parameter name="pVard02" class="java.lang.String"/>
+	<parameter name="pVart03" class="java.lang.String"/>
+	<parameter name="pVard03" class="java.lang.String"/>
+	<parameter name="pVart04" class="java.lang.String"/>
+	<parameter name="pVard04" class="java.lang.String"/>
+	<parameter name="pVart05" class="java.lang.String"/>
+	<parameter name="pVard05" class="java.lang.String"/>
+	<parameter name="pParParam" class="java.lang.String">
+		<defaultValueExpression><![CDATA["[{}]"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParItemServId" class="java.lang.String"/>
+	<parameter name="pParItemServNome" class="java.lang.String"/>
+	<parameter name="pParItemServAtivo" class="java.lang.String"/>
+	<parameter name="pParItemServTipo" class="java.lang.String"/>
+	<parameter name="pParItemServOrigemFiscal" class="java.lang.String"/>
+	<parameter name="pParItemServTipoComposi" class="java.lang.String"/>
+	<parameter name="pParItemServTipoCtbComp" class="java.lang.String"/>
+	<parameter name="pParItemServDocCnaeNfs" class="java.lang.String"/>
+	<parameter name="pParItemServSubGrupoId" class="java.lang.String"/>
+	<parameter name="pParItemServSubGrupoNome" class="java.lang.String"/>
+	<parameter name="pParItemServSubGrupoAtivo" class="java.lang.String"/>
+	<parameter name="pParItemServGrupoId" class="java.lang.String"/>
+	<parameter name="pParItemServGrupoNome" class="java.lang.String"/>
+	<parameter name="pParItemServGrupoAtivo" class="java.lang.String"/>
+	<parameter name="pParFisNcmId" class="java.lang.String"/>
+	<parameter name="pParFisNcmNome" class="java.lang.String"/>
+	<parameter name="pParFisNcmAtivo" class="java.lang.String"/>
+	<parameter name="pParFisNcmDataValidadeIni" class="java.lang.String"/>
+	<parameter name="pParFisNcmDataValidadeFin" class="java.lang.String"/>
+	<parameter name="pParFisNcmNumero" class="java.lang.String"/>
+	<parameter name="pParUnidadeMedId" class="java.lang.String"/>
+	<parameter name="pParUnidadeMedNome" class="java.lang.String"/>
+	<parameter name="pParUnidadeMedAtivo" class="java.lang.String"/>
+	<parameter name="pParFisCestId" class="java.lang.String"/>
+	<parameter name="pParFisCestNome" class="java.lang.String"/>
+	<parameter name="pParFisCestAtivo" class="java.lang.String"/>
+	<parameter name="pParFisCestDataValidadeIni" class="java.lang.String"/>
+	<parameter name="pParFisCestDataValidadeFin" class="java.lang.String"/>
+	<parameter name="pParFisCestNumero" class="java.lang.String"/>
+	<parameter name="pParFisNbsId" class="java.lang.String"/>
+	<parameter name="pParFisNbsNome" class="java.lang.String"/>
+	<parameter name="pParFisNbsAtivo" class="java.lang.String"/>
+	<parameter name="pParFisNbsDataValidadeIni" class="java.lang.String"/>
+	<parameter name="pParFisNbsDataValidadeFin" class="java.lang.String"/>
+	<parameter name="pParFisNbsNumero" class="java.lang.String"/>
+	<parameter name="pParCtbId" class="java.lang.String"/>
+	<parameter name="pParCtbNome" class="java.lang.String"/>
+	<parameter name="pParCtbAtivo" class="java.lang.String"/>
+	<parameter name="pParLogUserIns" class="java.lang.String"/>
+	<parameter name="pParLogDateInsIni" class="java.lang.String"/>
+	<parameter name="pParLogDateInsFin" class="java.lang.String"/>
+	<parameter name="pParLogUserUpd" class="java.lang.String"/>
+	<parameter name="pParLogDateUpdIni" class="java.lang.String"/>
+	<parameter name="pParLogDateUpdFin" class="java.lang.String"/>
+	<parameter name="vars_01" class="java.lang.String"/>
+	<parameter name="vars_02" class="java.lang.String"/>
+	<parameter name="vars_03" class="java.lang.String"/>
+	<parameter name="vars_04" class="java.lang.String"/>
+	<parameter name="vars_05" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from fnreport0022($P{pParUnitId},$P{pParIndRelId},$P{pVart01},$P{pVard01},$P{pVart02},$P{pVard02},$P{pVart03},$P{pVard03},$P{pVart04},$P{pVard04},$P{pVart05},$P{pVard05},$P{pParItemServId},$P{pParItemServNome},$P{pParItemServAtivo},$P{pParItemServTipo},$P{pParItemServOrigemFiscal},$P{pParItemServTipoComposi},$P{pParItemServTipoCtbComp},$P{pParItemServDocCnaeNfs},$P{pParItemServSubGrupoId},$P{pParItemServSubGrupoNome},$P{pParItemServSubGrupoAtivo},$P{pParItemServGrupoId},$P{pParItemServGrupoNome},$P{pParItemServGrupoAtivo},$P{pParFisNcmId},$P{pParFisNcmNome},$P{pParFisNcmAtivo},$P{pParFisNcmDataValidadeIni},$P{pParFisNcmDataValidadeFin},$P{pParFisNcmNumero},$P{pParUnidadeMedId},$P{pParUnidadeMedNome},$P{pParUnidadeMedAtivo},$P{pParFisCestId},$P{pParFisCestNome},$P{pParFisCestAtivo},$P{pParFisCestDataValidadeIni},$P{pParFisCestDataValidadeFin},$P{pParFisCestNumero},$P{pParFisNbsId},$P{pParFisNbsNome},$P{pParFisNbsAtivo},$P{pParFisNbsDataValidadeIni},$P{pParFisNbsDataValidadeFin},$P{pParFisNbsNumero},$P{pParCtbId},$P{pParCtbNome},$P{pParCtbAtivo},$P{pParLogUserIns},$P{pParLogDateInsIni},$P{pParLogDateInsFin},$P{pParLogUserUpd},$P{pParLogDateUpdIni},$P{pParLogDateUpdFin})]]>
+	</queryString>
+	<field name="ind_rel_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_id"/>
+	</field>
+	<field name="ind_rel_par1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par1"/>
+	</field>
+	<field name="ind_rel_par2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par2"/>
+	</field>
+	<field name="ind_rel_par3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par3"/>
+	</field>
+	<field name="vart_01" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_01"/>
+	</field>
+	<field name="vard_01" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_01"/>
+	</field>
+	<field name="vart_02" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_02"/>
+	</field>
+	<field name="vard_02" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_02"/>
+	</field>
+	<field name="vart_03" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_03"/>
+	</field>
+	<field name="vard_03" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_03"/>
+	</field>
+	<field name="vart_04" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_04"/>
+	</field>
+	<field name="vard_04" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_04"/>
+	</field>
+	<field name="vart_05" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_05"/>
+	</field>
+	<field name="vard_05" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_05"/>
+	</field>
+	<field name="valor_01" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_01"/>
+	</field>
+	<field name="valor_02" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_02"/>
+	</field>
+	<field name="valor_03" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_03"/>
+	</field>
+	<field name="valor_04" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_04"/>
+	</field>
+	<field name="valor_05" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_05"/>
+	</field>
+	<field name="valor_06" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_06"/>
+	</field>
+	<field name="valor_07" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_07"/>
+	</field>
+	<field name="valor_08" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_08"/>
+	</field>
+	<field name="valor_09" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_09"/>
+	</field>
+	<field name="valor_10" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_10"/>
+	</field>
+	<variable name="valor_011" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_012" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{vart_01}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="2e446824-585e-4556-b0a4-acbf11133d2d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_01}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="60" y="0" width="180" height="12" isRemoveLineWhenBlank="true" uuid="76efeda1-dce5-47a0-8013-b188def621db">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_01}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="280" y="0" width="100" height="12" uuid="c47ad9ea-0e3c-4257-9ef8-e6a9cf1edfc3">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qntd]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="12">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="801" height="12" backcolor="#F0F0F0" uuid="496f89de-398d-4509-99ae-5798e5d149a6">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+					</box>
+					<textField>
+						<reportElement x="278" y="0" width="102" height="12" uuid="30088b7b-fa9e-40df-9213-16c43c76d11c">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$V{valor_011}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="227" y="0" width="50" height="12" uuid="05b52bb9-9a6b-48bf-8f1a-eae00ffade4c">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Total: ]]></text>
+					</staticText>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{vart_02}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<printWhenExpression><![CDATA[$F{vard_02} != null]]></printWhenExpression>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="10" y="0" width="70" height="12" isRemoveLineWhenBlank="true" printWhenGroupChanges="Group1" uuid="de79345d-e08b-4808-be91-0416beafcdba">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_02}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="80" y="0" width="160" height="12" isRemoveLineWhenBlank="true" uuid="bfc7d7df-d1cc-4a81-812a-96b197556898">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_02}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="280" y="-2" width="100" height="12" uuid="c144d161-9735-46df-8e7d-e892e1fcd1a9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor_01}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{vart_03}]]></groupExpression>
+		<groupHeader>
+			<band height="13">
+				<printWhenExpression><![CDATA[$F{vard_03} != null]]></printWhenExpression>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="20" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="0e6344c7-eb58-45fb-85a8-0d03fd2ec4f4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_03}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="80" y="0" width="160" height="12" isRemoveLineWhenBlank="true" uuid="f17d35f9-c718-4111-8d34-41c052d62a4b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_03}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="280" y="1" width="100" height="12" uuid="e4d0b019-8778-49af-a5c9-d48d13028e84">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor_01}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{vart_04}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<printWhenExpression><![CDATA[$F{vard_04} != null]]></printWhenExpression>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="20" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="5489ef21-540c-4627-9f8f-28273919db1c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_04}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="80" y="0" width="160" height="12" isRemoveLineWhenBlank="true" uuid="ae0a9ccf-abb1-4a94-91a1-f454ead0ace8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_04}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="280" y="0" width="100" height="12" uuid="542afdf3-f448-490f-b217-917f5d422bb9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor_01}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group5">
+		<groupExpression><![CDATA[$F{vart_05}]]></groupExpression>
+		<groupHeader>
+			<band height="13">
+				<printWhenExpression><![CDATA[$F{vard_05} != null]]></printWhenExpression>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="20" y="0" width="60" height="12" isRemoveLineWhenBlank="true" uuid="36b85517-3f0e-4334-aca9-d332a56297d5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_05}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="80" y="0" width="160" height="12" isRemoveLineWhenBlank="true" uuid="7b1a4fa6-aee3-4e6c-8dfc-f6007e629d63">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_05}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="280" y="1" width="100" height="12" uuid="1d7d530f-fa57-460b-853f-e4ac9f509b6e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor_01}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="30" uuid="59942c52-08c2-45b1-a370-6eb018cb02fc"/>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA[$P{pParParam}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoPaisagem.jasper"]]></subreportExpression>
+			</subreport>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="31" width="268" height="47" uuid="9579f703-aaff-4f69-bf8c-04a7ae306245"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#F0F0F0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par1}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="268" y="31" width="267" height="47" uuid="44d6e1a6-1d6a-4c46-bcd1-7e592191eb9e"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#F0F0F0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par2}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="535" y="31" width="267" height="47" uuid="cbdc79f4-c581-4250-b750-a70ae270f040"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#F0F0F0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="12" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="712" height="18" uuid="888a03c3-a8d6-4eef-9dd7-fc662771a13c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["report0022"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="Float" x="712" y="0" width="50" height="18" uuid="6b847a82-5ca6-4e14-9951-c6756ce925da">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="0" width="40" height="18" uuid="d7e295ac-c2f1-4f67-bab4-f8fbba56e675">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="12">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="801" height="12" backcolor="#F0F0F0" uuid="b2a4a4b4-b230-4e8f-ae9d-8b344795a03d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="220" y="0" width="57" height="12" uuid="113c60f5-6550-4bcf-823d-4f0bdf880545">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Geral:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="278" y="0" width="102" height="12" uuid="fd905990-f1ad-4757-84da-949cbebbf56e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$V{valor_012}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

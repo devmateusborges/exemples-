@@ -1,0 +1,49 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/auth/getprogrambyuserlogin?pfilters={"filter" :{"and": {"login":"admin","admin":"N"}}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+### 
+
+
+POST {{HOSTAPI}}/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Eduardo1",
+    "login":"eduardo1",
+    "password":"123",
+    "phone":"16993246404",
+    "document":"22156039844",
+    "email":"junqueiraeduardo@gmail"
+}
+
+### 
+
+GET {{HOSTAPI}}/api/auth/registervalidate?token=3271fb66-e645-4f39-830d-d1238ba1019a HTTP/1.1
+Content-Type: application/json
+
+
+### 
+
+
+ca3ca77f-475f-4e0c-82f1-95b4a961879e

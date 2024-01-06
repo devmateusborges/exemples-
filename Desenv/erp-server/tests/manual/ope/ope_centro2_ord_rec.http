@@ -1,0 +1,53 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/opecentro2ordrec HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/opecentro2ordrec HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "observacao_interna": "5",
+    "qnt_rend": "5",
+    "data_valid": "2022-12-29T00:00:00",
+    "perc_util": "5",
+    "ctb_comp_id": "71a08169-5dc8-4b24-b3c6-d6b985eed333",
+    "qnt_total_util": "5",
+    "ope_compart_id": "e90c3fa2-ba9c-42c5-9120-38d031251839",
+    "ctb_comp_id_imp01": "71a08169-5dc8-4b24-b3c6-d6b985eed333",
+    "valor_unit_util": "5",
+    "observacao_externa": "tst",
+    "ope_centro1_id": "fc8add76-9e14-4c88-9a74-24cf36108346",
+    "ope_centro2_id": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "ope_centro2_ord_ativ_id": "d16534a3-f62d-418d-80f8-a7fcc840fb51",
+    "valor_total_util": "5",
+    "ger_pessoa_endereco_id_exec": "1989dc4c-c4a6-4d13-bdd2-06843af4d6f7",
+    "f3996813-838e-49af-9649-8dc44e24bc75",
+    "ope_centro1_id_imp01": "fc8add76-9e14-4c88-9a74-24cf36108346",
+    "ope_centro2_id_imp01": "b703d56e-051c-4a8e-8987-5a27349412da"
+}
+
+
+### 
+

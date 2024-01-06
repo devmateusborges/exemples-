@@ -1,0 +1,95 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/mov HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/mov HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "tipo_umedida_carga": "1",
+    "ger_cidade_id_descarreg": "e1a04a0a-6eda-4339-8dff-dc58f6995b01",
+    "serie_mov": "5",
+    "fis_doc_tipo_id": "ee47d0e9-4624-4026-9168-26f5936494b5",
+    "observacao_fiscal": "5",
+    "ger_pessoa_endereco_id_dest": "47a2bbb1-8d21-4220-9188-c2eab89b9493",
+    "ger_pessoa_endereco_id_expe": "47a2bbb1-8d21-4220-9188-c2eab89b9493",
+    "qnt_carga": "5",
+    "tipo_carga": "07",
+    "observacao_item": "5",
+    "sys_user_id_resp": "e59fa8cb-6791-4880-8ea4-112f5283f1bf",
+    "tipo_frete": "2",
+    "ger_pessoa_id": "754a9ba0-d079-4050-927c-2a5720fd5893",
+    "cep_descarreg": "tst",
+    "ger_pessoa_endereco_id_fiscal": "47a2bbb1-8d21-4220-9188-c2eab89b9493",
+    "valor_item_frete_total": "5",
+    "fin_cond_pagrec_id": "5c614692-a184-4b57-aab2-5feace4be398",
+    "taf": "5",
+    "data_entrada_saida": "15/07/2001",
+    "ger_pessoa_endereco_id_entrega": "1989dc4c-c4a6-4d13-bdd2-06843af4d6f7",
+    "data_anulacao": "15/07/2001",
+    "fis_exig_iss_nfs": "1",
+    "data_emissao": "15/07/2001",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "serio_mov_pre": "5",
+    "fis_iss_retido_nfs": "S",
+    "fis_tipo_resp_reten": "1",
+    "valor_carga": "5",
+    "tipo_emissao_carga": "1",
+    "fis_nat_ope_nfs": "6",
+    "tipo_tomador_serv_frete": "5",
+    "observacao_serv": "tst",
+    "ger_pessoa_endereco_id_reme": "47a2bbb1-8d21-4220-9188-c2eab89b9493",
+    "ger_empresa_id": "c0979f4a-44f6-4de1-81ab-f26be9cc2c0a",
+    "data_mov": "15/07/2001",
+    "ger_pessoa_endereco_id_rece": "f7f8125b-b4c3-4ccd-90c4-40896318cc59",
+    "valor_total": "5",
+    "numero_mov_pre": "5",
+    "ger_cidade_id_carreg": "8ffd77b8-d8fc-4050-9f26-16eac5d74e2a",
+    "nr_externo": "5",
+    "observacao_transp": "5",
+    "ger_pessoa_endereco_id_inter": "c66217e6-9849-4aff-8a84-d52b83cc4c6f",
+    "numero_mov": "5",
+    "mov_operacao_id": "14bbd386-d488-4c46-9bba-5e8faa2f1f37",
+    "tipo_modal_carga": "5",
+    "tipo_fretamento": "5",
+    "tipo_transportador_carga": "5",
+    "tipo_serv_frete": "5",
+    "data_valid": "15/07/2001",
+    "valor_financeiro_total": "5",
+    "mov_status_id": "ffe70930-f11b-4c00-9fe1-2b3bedee9bc4",
+    "observacao": "tst",
+    "data_entrega": "15/07/2001",
+    "cep_carreg": "5"
+  
+}
+
+
+### 
+
+
+
+

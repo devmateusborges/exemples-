@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportlist" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eae00118-185f-46e1-8b36-85e01b04f204">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="422"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="564"/>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("f3996813-838e-49af-9649-8dc44e24bc75")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("c9b0c767-55de-4eaf-af26-14c76c731547")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParParams" class="java.lang.String">
+		<defaultValueExpression><![CDATA["{%22params%22:[{%22parNomeTec%22:%22pParGerEmpresaId%22,%22parValor%22:%22%%22},{%22parNomeTec%22:%22pParGerEmpresaNome%22,%22parValor%22:%22%%22},{%22parNomeTec%22:%22pParGerEmpresaSigla%22,%22parValor%22:%22%22},{%22parNomeTec%22:%22pParGerEmpresaAtivo%22,%22parValor%22:%22S%22},{%22parNomeTec%22:%22pParGerEmpresaDocCnpj%22,%22parValor%22:%22%%22},{%22parNomeTec%22:%22pParGerEmpresaDocCpf%22,%22parValor%22:%22%%22},{%22parNomeTec%22:%22pParLogUserIns%22,%22parValor%22:%22%%22},{%22parNomeTec%22:%22pParLogUserUpd%22,%22parValor%22:%22%%22},{%22parNomeTec%22:%22pParLogDateInsIni%22,%22parValor%22:%22%22},{%22parNomeTec%22:%22pParLogDateInsFin%22,%22parValor%22:%22%22},{%22parNomeTec%22:%22pParLogDateUpdIni%22,%22parValor%22:%22%22},{%22parNomeTec%22:%22pParLogDateUpdFin%22,%22parValor%22:%22%22}],%22cols%22:[{%22colNomeTec%22:%22nome%22,%22colNomeTecPrefixo%22:%22ger_empresa%22},{%22colNomeTec%22:%22ativo%22,%22colNomeTecPrefixo%22:%22ger_empresa%22}]}"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from fnreport_list($P{pParUnitId}, $P{pParIndRelId}, $P{pParParams})]]>
+	</queryString>
+	<field name="ind_rel_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_id"/>
+	</field>
+	<field name="ind_rel_par1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par1"/>
+	</field>
+	<field name="ind_rel_reportname" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_reportname"/>
+	</field>
+	<field name="ind_f1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f1"/>
+	</field>
+	<field name="ind_f2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f2"/>
+	</field>
+	<field name="ind_f3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f3"/>
+	</field>
+	<field name="ind_f4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f4"/>
+	</field>
+	<field name="ind_f5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f5"/>
+	</field>
+	<field name="ind_f6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f6"/>
+	</field>
+	<field name="ind_f7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f7"/>
+	</field>
+	<field name="ind_f8" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f8"/>
+	</field>
+	<field name="ind_f9" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f9"/>
+	</field>
+	<field name="ind_f10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_f10"/>
+	</field>
+	<field name="ind_fd1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd1"/>
+	</field>
+	<field name="ind_fd2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd2"/>
+	</field>
+	<field name="ind_fd3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd3"/>
+	</field>
+	<field name="ind_fd4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd4"/>
+	</field>
+	<field name="ind_fd5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd5"/>
+	</field>
+	<field name="ind_fd6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd6"/>
+	</field>
+	<field name="ind_fd7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd7"/>
+	</field>
+	<field name="ind_fd8" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd8"/>
+	</field>
+	<field name="ind_fd9" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd9"/>
+	</field>
+	<field name="ind_fd10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fd10"/>
+	</field>
+	<field name="ind_fl1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl1"/>
+	</field>
+	<field name="ind_fl2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl2"/>
+	</field>
+	<field name="ind_fl3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl3"/>
+	</field>
+	<field name="ind_fl4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl4"/>
+	</field>
+	<field name="ind_fl5" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl5"/>
+	</field>
+	<field name="ind_fl6" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl6"/>
+	</field>
+	<field name="ind_fl7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl7"/>
+	</field>
+	<field name="ind_fl8" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl8"/>
+	</field>
+	<field name="ind_fl9" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl9"/>
+	</field>
+	<field name="ind_fl10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_fl10"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{ind_fd1}]]></groupExpression>
+		<groupHeader>
+			<band height="17">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="802" height="12" isRemoveLineWhenBlank="true" backcolor="#EDEDED" uuid="48884dc0-252c-4e6f-b558-4697a73353a0">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</frame>
+				<textField>
+					<reportElement x="0" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="3f062d52-6102-48b5-a214-e8fe5fb69950">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="eb4525a4-12dc-4e48-acac-ca841dae1f94">
+						<printWhenExpression><![CDATA[$F{ind_fd2} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="848561f6-9c03-43cb-bebc-d343c55fb62c">
+						<printWhenExpression><![CDATA[$F{ind_fd3} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd3}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="" x="300" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="b88531b8-328c-452d-ae2a-bc9738790c83">
+						<printWhenExpression><![CDATA[$F{ind_fd4} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd4}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="" x="400" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="00e86b17-7f29-43be-ba57-271f18a7ca00">
+						<printWhenExpression><![CDATA[$F{ind_fd5} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd5}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="" x="500" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="33389a95-4e14-4590-840a-1a9327482049">
+						<printWhenExpression><![CDATA[$F{ind_fd6} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd6}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="600" y="0" width="80" height="12" isRemoveLineWhenBlank="true" uuid="cbd30e94-c64d-47dc-acfd-318b2047b96b">
+						<printWhenExpression><![CDATA[$F{ind_fd7} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd7}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="" x="680" y="0" width="70" height="12" isRemoveLineWhenBlank="true" uuid="3b14c08d-af24-411b-89de-81ab6fa40e00">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$F{ind_fd8} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd8}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="750" y="0" width="52" height="12" isRemoveLineWhenBlank="true" uuid="197cf8fd-6c96-4517-acae-503d3d805a0a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$F{ind_fd9} !=null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ind_fd9}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="30" uuid="cac68145-efba-4de3-9040-893927bc2d75"/>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$F{ind_rel_reportname}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[new String("Admin")]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoPaisagem.jasper"]]></subreportExpression>
+			</subreport>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="30" width="802" height="30" uuid="3adead60-1b8f-4c0e-9fc8-6bcfca629fb7"/>
+				<textFieldExpression><![CDATA[$F{ind_rel_par1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="96" height="11" isRemoveLineWhenBlank="true" uuid="c134ff5c-74ed-487b-a861-65e3f7c012ff">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f1}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement key="" x="100" y="0" width="96" height="11" isRemoveLineWhenBlank="true" uuid="28d1bb79-56d6-4ca5-82ea-283e98ca8b75">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd2} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f2}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement x="200" y="0" width="96" height="11" isRemoveLineWhenBlank="true" uuid="84c83332-e558-415a-a09b-a7fc83ffaa42">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd3} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f3}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement key="" x="300" y="0" width="96" height="11" isRemoveLineWhenBlank="true" uuid="1e110909-d0d9-476a-9e11-2aedb3985a20">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd4} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f4}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement key="" x="400" y="0" width="96" height="11" isRemoveLineWhenBlank="true" uuid="0236d560-4ba2-4a57-b0c7-0b6eb8d67a53">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd5} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f5}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement x="600" y="0" width="80" height="11" isRemoveLineWhenBlank="true" uuid="51436505-a555-4ead-aff5-4678a22cead3">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd7} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f7}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement key="" x="680" y="0" width="70" height="11" isRemoveLineWhenBlank="true" uuid="7e61673d-538d-4fbc-a552-ad32bfc3105d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd8} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f8}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="">
+				<reportElement x="500" y="0" width="100" height="11" isRemoveLineWhenBlank="true" uuid="2543caa4-9aad-4218-915f-77a406f9ced4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{ind_fd6} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ind_f6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="750" y="0" width="52" height="11" isRemoveLineWhenBlank="true" uuid="9557690e-899c-4206-924b-4e3e9cb1ae80">
+					<printWhenExpression><![CDATA[$F{ind_fd9} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ind_fd9}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="712" y="0" width="50" height="18" uuid="d1b0db68-25fe-4ca8-809f-dd51c4e97d38">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="0" width="40" height="18" uuid="8754ac78-1906-42ba-9d3e-4b845bac58b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="712" height="18" uuid="7540199f-31ec-4f8f-9f20-4abfa3aa6a5e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["reportlist"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>

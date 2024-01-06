@@ -1,0 +1,56 @@
+name: "Deploy ERP-SERVER"
+
+on:
+  push:
+    branches:
+      - master
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        shell: bash
+    name: "Deploy NUVEM"
+    steps:
+      - name: Task-erp-server - Define o ambiente caso o branch seja master
+        run: echo 'AMBIENTE=dev' >> $GITHUB_ENV
+        if: github.ref == 'refs/heads/master'
+
+      - name: Task-erp-server - Define o ambiente caso o branch seja production
+        run: echo 'AMBIENTE=prod' >> $GITHUB_ENV
+        if: github.ref == 'refs/heads/production'
+
+      - name: Task-erp-server - Criar chave ssh para acesso aos servidores SERVIDOR_NUVEM
+        run: 'echo "$TOKEN_SERVIDOR_NUVEM_DEV" > /tmp/servidor-nuvem-dev.pem && chmod 400 /tmp/servidor-nuvem-dev.pem'
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY_NUVEM: ${{secrets.TOKEN_SERVIDOR_NUVEM_DEV}}
+
+      - name: Task-erp-server - Checkout repositório erp-infra para rodar comandos ansible
+        uses: actions/checkout@v3
+        with:
+          repository: "resultfacil/erp-infra"
+          ref: master
+          token: ${{secrets.TOKEN_GITHUB}}
+
+      - name: Task-erp-server - Instalar ansible
+        run: |
+          cd ansible-do
+          python3 -m pip install -U pip
+          pip3 install setuptools wheel ansible>=2.8
+
+      - name: Task-erp-site - Executar Purge Cache CloudFlare
+        run: |
+          cd ansible-do/deploy
+          ansible-playbook task-purgeCacheCloudFlare.yml
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: False
+
+      - name: Task-erp-server - Executar deploy ansible erp-server
+        run: |
+          cd ansible-do/deploy
+          ansible-playbook -i ../servidor/inventario-${AMBIENTE} task-erp-server.yml --extra-vars "ansible_user=root ansible_password=TestDig987#a allow_world_readable_tmpfiles=true"
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: False

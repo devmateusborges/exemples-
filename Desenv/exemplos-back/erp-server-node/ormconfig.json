@@ -1,0 +1,57 @@
+[
+  {
+    "name": "local",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "teste2",
+    "entities": ["./**/*.entity.js"],
+    "migrations": ["dist/migration/*"],
+    "migrationsTableName": "system_migration",
+    "subscribers": ["dist/subscriber/**/*.js"],
+    "cli": {
+      "entitiesDir": "../entities",
+      "migrationsDir": "src/migration"
+    },
+    "logging": false,
+    "logger": false
+  },
+  {
+    "name": "development",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "teste",
+    "entities": ["./**/*.entity.js"],
+    "migrations": ["src/migration/*.ts"],
+    "migrationsTableName": "system_migration",
+    "subscribers": ["dist/subscriber/**/*.js"],
+    "cli": {
+      "entitiesDir": "../entities",
+      "migrationsDir": "src/migration"
+    },
+    "logging": true
+  },
+  {
+    "name": "production",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "teste",
+    "entities": ["./**/*.entity.js"],
+    "migrations": ["dist/migration/**/*.js"],
+    "migrationsTableName": "system_migration",
+    "subscribers": ["dist/subscriber/**/*.js"],
+    "cli": {
+      "entitiesDir": "entity",
+      "migrationsDir": "migration"
+    },
+    "logging": false
+  }
+]

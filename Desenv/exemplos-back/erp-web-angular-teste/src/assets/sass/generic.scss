@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+    font-size: $fontSize;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: $fontSize;
+    color: $textColor;
+    background-color: $bgColor;
+    height: 100vh;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.3;
+    
+    
+      
+}
+::-webkit-scrollbar-track {
+    background-color: $bgColor;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: $colorBlueH;
+    border-radius: 25px;
+}
+
+
+// BACKGROUND COLOR
+.bgBlue {
+    background-color: $colorBlue;
+}
+.bgBlueH {
+    background-color: $colorBlueH;
+}
+.bgBlueW {
+    background-color: $colorBlueW;
+}
+.bgGreen{
+    background-color: $colorGreen;
+}
+.bgGreenH{
+    background-color: $colorGreenH;
+}
+.bgYellow{
+    background-color: $colorYellow;
+}
+.bgYellowH{
+    background-color: $colorYellowH;
+}
+.bgBlack{
+    background-color: $colorBlack;
+}
+.bgGray{
+    background-color: $colorGray;
+}
+.bgGrayH{
+    background-color: $colorGrayH;
+}
+
+.bgWhite{
+    background-color: $bgColor;
+}
+.bgWhiteH{
+    background-color: $bgColorH;
+}
+.bgDividerColor{
+    background-color: $dividerColor;
+}
+
+
+// TEXT COLOR
+.txBlue {
+    color: $colorBlue;
+}
+.txBlueH {
+    color: $colorBlueH;
+}
+.txBlueW {
+    color: $colorBlueW;
+}
+.txGreen{
+    color: $colorGreen;
+}
+.txGreenH{
+    color: $colorGreenH;
+}
+.txYellow{
+    color: $colorYellow;
+}
+.txYellowH{
+    color: $colorYellowH;
+}
+.txBlack{
+    color: $colorBlack;
+}
+.txGray{
+    color: $colorGray;
+}
+.txGrayH{
+    color: $colorGrayH;
+}
+.txWhite{
+    color: $bgColor;
+}
+.txWhiteH{
+    color: $bgColorH;
+}
+
+.button-gray {
+    border: 1px solid $colorGray;
+    background: $colorGrayH !important;
+}
+
+.button-gray:enabled:hover {
+    border: 1px solid $dividerColor;
+    color: $dividerColor;
+}
+
+.button-gray:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem $dividerColor;
+}
+
+.button-white {
+    border: 1px solid $dividerColor;
+    background: $bgColorH !important;
+    color: $colorGrayH;
+
+}
+
+.button-white:enabled:hover {
+    border: 1px solid $dividerColor;
+    color: $colorGrayH;
+    background: $bgColor !important;
+
+}
+
+.button-white:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem $dividerColor;
+}

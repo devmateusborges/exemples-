@@ -1,0 +1,59 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/opecentroconfig  HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/opecentroconfig  HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "ope_centro_subtipo_id": "0781c9d7-158e-4a1e-bf02-3f5279b0a917",
+    "ope_compart_subgrupo_id": "ca8269f4-2195-4c62-beb0-ceb289eaa606",
+    "ope_estagio_id": "b3c99fc5-9e9c-4ed4-a740-5ed9b207008d",
+    "ope_compart_grupo_id": "92349c63-8898-4d01-aeba-101bc2308020",
+    "ger_itemserv_subgrupo_id": "c12031f2-1626-4a7a-b926-435351d27063",
+    "ope_centro_tipo_id": "0c03f7ab-94df-4571-8aa2-27eeaf6ba10c",
+    "f3996813-838e-49af-9649-8dc44e24bc75",
+    "ope_atividade_id": "911f88df-a4fd-4b56-a03d-2e66448401e9",
+    "observacao": "tst",
+    "ope_centro2_id": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "ger_itemserv_id": "c20340e9-f611-4c95-8be1-a104af19b07f",
+    "ope_centro1_id": "080d0a07-0171-4ba0-a825-442ab8d7b89a",
+    "tipo_regra": "E",
+    "ger_itemserv_grupo_id": "379ac353-087b-41f4-a04d-83a554b31ff7",
+    "ger_empresa_id": "4290a725-23c1-48dd-b6dc-3425885792c1",
+    "ope_compart_id": "e90c3fa2-ba9c-42c5-9120-38d031251839",
+    "ope_centro2_ord_tipo_id": "ba4ae693-130c-4a2a-868c-bf8d0b0c6a92",
+    "ope_centro_grupo_id": "309df269-cb03-404e-be58-6752be230a0b",
+    "ope_centro_subgrupo_id": "7c2803d7-56c6-4d6f-9f98-3d2f567e5fe5"
+}
+
+
+### 
+
+
+
+

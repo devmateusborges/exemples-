@@ -1,0 +1,59 @@
+[
+  {
+    "name": "test",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "node-ts",
+    "entities": ["*/entities/*.entity{.ts,.js}"],
+    "synchronize": false,
+    "migrationsTableName": "migrations",
+    "migrations": ["src/migrations/*"],
+    "subscribers": ["src/subscribers/*"],
+    "cli": {
+      "entitiesDir": "src/entities",
+      "migrationsDir": "src/migrations"
+    },
+    "logging": true
+  },
+  {
+    "name": "development",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "node-ts",
+    "entities": ["*/entities/*.entity{.ts,.js}"],
+    "synchronize": false,
+    "migrationsTableName": "migrations",
+    "migrations": ["src/migrations/*"],
+    "subscribers": ["src/subscribers/*"],    
+    "cli": {
+      "entitiesDir": "src/entities",
+      "migrationsDir": "src/migrations"
+    },
+    "logging": true
+  },
+  {
+    "name": "production",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres#",
+    "database": "node-ts",
+    "entities": ["*/entities/*.entity{.js}"],
+    "synchronize": false,
+    "migrationsTableName": "migrations",
+    "migrations": ["*/migrations/*{.js}"],
+    "subscribers": ["src/subscribers/*{.js}"],
+    "cli": {
+      "entitiesDir": "entities",
+      "migrationsDir": "migrations"
+    },
+    "logging": false
+  }
+]

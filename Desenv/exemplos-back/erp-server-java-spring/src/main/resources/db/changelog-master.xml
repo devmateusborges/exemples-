@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-master.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+    <changeSet id="20220322010600" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010600-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>
+    <changeSet id="20220322010601" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010601-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>
+    <changeSet id="20220322010602" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010602-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>   
+    <changeSet id="20220322010603" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010603-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>     
+    <changeSet id="20220322010604" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010604-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>       
+    <changeSet id="20220322010605" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010605-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>    
+    <changeSet id="20220322010606" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010606-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>  
+    <changeSet id="20220322010607" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220322010607-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>  
+    <changeSet id="20220328000001" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220328000001-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>    
+    <changeSet id="20220328000002" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220328000002-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>    
+    <changeSet id="20220416000001" author="migration">
+        <sqlFile dbms="postgresql" encoding="utf8" path="changelog/20220416000001-migration.sql" relativeToChangelogFile="true" endDelimiter=";;" />
+    </changeSet>                            
+</databaseChangeLog>

@@ -1,0 +1,77 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/movitemserv HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/movitemserv HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+    "qnt_orig": "5",
+    "valor_outros": "5",
+    "nome_itemserv": "tsy",
+    "fis_cfop_id": "89489165-9955-4ce7-a7b1-ce7e8d658163",
+    "valor_unit_orig": "5",
+    "ger_itemserv_lote_id": "e0c1ab04-3455-4cfc-9e72-babe373c7003",
+    "valor_acrecimo": "5",
+    "valor_desconto_cond": "5",
+    "f3996813-838e-49af-9649-8dc44e24bc75"
+    "fis_obra_cei": "tst",
+    "qnt_largura": "5",
+    "valor_outros_tributo_ret": "5",
+    "valor_liquido": "5",
+    "valor_unit_conv": "5",
+    "qnt_min_pessoa_cot": "5",
+    "fis_numero_proc_susp_nfs": "5",
+    "mov_id": "36697e07-7f31-4f95-a699-9917ca6a0363",
+    "data_valid": "15/07/2001",
+    "qnt_altura": "5",
+    "qnt_comprimento": "5",
+    "qnt_devolvida": "5",
+    "valor_frete": "5",
+    "ger_itemserv_id": "23eb3a91-7200-477e-9eb5-772e255928f3",
+    "valor_desconto": "5",
+    "fis_doc_cnae_nfs": "tst",
+    "qnt_conv": "5",
+    "valor_tributo_retido": "5",
+    "valor_bruto": "5",
+    "ger_itemserv_var_id": "94871497-10aa-4254-9bf6-dec7ffaf7230",
+    "valor_tributo_total": "5",
+    "valor_seguro": "5",
+    "valor_deducao": "5",
+    "observacao": "tst",
+    "ger_umedida_id_conv": "9b0839ce-d059-478a-93cc-c3bc06d87d9a",
+    "valor_desconto_incond": "5",
+    "fis_obra_art": "tst"
+}
+
+
+### 
+
+
+
+

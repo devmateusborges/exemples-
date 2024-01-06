@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0011Sumary" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7c4cf3d6-dd84-41a1-b89b-190094e38b48">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParOrdId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["94ffbb47-a6ea-4e1d-8339-a3b98cff2a31"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select 
+opAtivGrupo.sigla_atividade_grupo ||' - '||opAtivGrupo.nome as ope_grupo_atividade_id_desc,
+opAtiv.sigla_atividade||' - '||opAtiv.nome as ope_atividade_id_desc,
+'1' as tipo,
+'1-RECURSOS' as tipo_desc,
+opGrup.nome||' - '||opSubGrup.nome as vr_grupo_desc,
+SUM(opOrdR.valor_total_util) as vr_tot,
+(select sum(od1.qnt_prev_obj) from ope_centro2_ord_dest od1 where od1.ope_centro2_ord_id= opOrdAtiv.ope_centro2_ord_id) as qnt_prev_ob
+from ope_centro2_ord_rec opOrdR
+inner join ope_centro2_ord_ativ opOrdAtiv
+on opOrdR.ope_centro2_ord_ativ_id = opOrdAtiv.id
+inner join ope_atividade opAtiv
+on opOrdAtiv.ope_atividade_id = opAtiv.id 
+inner join ope_atividade_grupo opAtivGrupo
+on opAtiv.ope_atividade_grupo_id = opAtivGrupo.id
+inner join ope_centro2 opc2
+on opOrdR.ope_centro2_id = opc2.id
+inner join ope_centro_subgrupo opSubGrup
+on opc2.ope_centro_subgrupo_id = opSubGrup.id
+inner join ope_centro_grupo opGrup
+on opSubGrup.ope_centro_grupo_id = opGrup.id
+where opOrdAtiv.ope_centro2_ord_id = $P{pParOrdId}
+group by ope_grupo_atividade_id_desc, ope_atividade_id_desc,vr_grupo_desc, opOrdAtiv.ope_centro2_ord_id
+UNION ALL
+select  
+opAtivGrupo.sigla_atividade_grupo ||' - '||opAtivGrupo.nome as ope_grupo_atividade_id_desc,
+opAtiv.sigla_atividade||' - '||opAtiv.nome as ope_atividade_id_desc,
+'2' as tipo,
+'2-ITEM/SERV' as tipo_desc,
+gIServGrup.nome||' - '||gIServSub.nome as vr_grupo_desc,
+SUM(opOrdIServ.valor_total_util) as vr_tot,
+(select sum(od1.qnt_prev_obj) from ope_centro2_ord_dest od1 where od1.ope_centro2_ord_id= opOrdAtiv.ope_centro2_ord_id) as qnt_prev_obj
+from ope_centro2_ord_itemserv opOrdIServ
+inner  join ger_itemserv gIServ
+on opOrdIServ.ger_itemserv_id = gIServ.id
+inner join ger_itemserv_subgrupo gIServSub
+on  gIServ.ger_itemserv_subgrupo_id = gIServSub.id
+inner join ger_itemserv_grupo gIServGrup
+on gIServSub.ger_grupo_id  = gIServGrup.id
+inner join ope_centro2_ord_ativ opOrdAtiv
+on opOrdIServ.ope_centro2_ord_ativ_id = opOrdAtiv.id
+inner join ope_atividade opAtiv
+on opOrdAtiv.ope_atividade_id = opAtiv.id 
+inner join ope_atividade_grupo opAtivGrupo
+on opAtiv.ope_atividade_grupo_id = opAtivGrupo.id
+where opOrdAtiv.ope_centro2_ord_id =$P{pParOrdId}
+group by ope_grupo_atividade_id_desc, ope_atividade_id_desc,vr_grupo_desc,opOrdAtiv.ope_centro2_ord_id
+
+order by 2, 3,5]]>
+	</queryString>
+	<field name="ope_grupo_atividade_id_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ope_grupo_atividade_id_desc"/>
+	</field>
+	<field name="ope_atividade_id_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ope_atividade_id_desc"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+	</field>
+	<field name="tipo_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo_desc"/>
+	</field>
+	<field name="vr_grupo_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vr_grupo_desc"/>
+	</field>
+	<field name="vr_tot" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="vr_tot"/>
+	</field>
+	<field name="qnt_prev_ob" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="qnt_prev_ob"/>
+	</field>
+	<variable name="vr_tot1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{vr_tot}]]></variableExpression>
+	</variable>
+	<variable name="qnt_prev_ob1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{qnt_prev_ob}]]></variableExpression>
+	</variable>
+	<variable name="vr_tot2" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{vr_tot}]]></variableExpression>
+	</variable>
+	<variable name="qnt_prev_ob2" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{qnt_prev_ob}]]></variableExpression>
+	</variable>
+	<variable name="qnt_prev_ob3" class="java.math.BigDecimal" calculation="Highest">
+		<variableExpression><![CDATA[$F{qnt_prev_ob}]]></variableExpression>
+	</variable>
+	<variable name="qnt_prev_ob4" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Highest">
+		<variableExpression><![CDATA[$F{qnt_prev_ob}]]></variableExpression>
+	</variable>
+	<variable name="vr_tot_unit" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$F{vr_tot}.divide($F{qnt_prev_ob},RoundingMode.CEILING)]]></variableExpression>
+	</variable>
+	<variable name="vrTotUnitTot" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$V{vr_tot_unit}]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{vr_tot_unit}]]></initialValueExpression>
+	</variable>
+	<variable name="vrTotUnitGeral" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$V{vr_tot1}.divide($V{qnt_prev_ob3},BigDecimal.ROUND_HALF_UP)]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{vrTotUnitTot}]]></initialValueExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{ope_atividade_id_desc}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<frame>
+					<reportElement x="0" y="0" width="555" height="32" uuid="37c96891-b97d-4c03-9b3d-a1c5db1759e9">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<staticText>
+						<reportElement x="323" y="18" width="70" height="13" uuid="08e0cd5c-6774-4abe-b633-cdac965be863">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Valor]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="403" y="18" width="70" height="13" uuid="dd8c6442-f861-4849-885b-949f1f2eb2ca">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Qnt.Prev.Dest.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="480" y="18" width="70" height="13" uuid="f7c0d054-89af-4a44-b0ea-ad7769eb85c9">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Vr Unit.]]></text>
+					</staticText>
+				</frame>
+				<textField>
+					<reportElement x="50" y="0" width="200" height="17" uuid="b25ab468-df57-47fd-ab5b-c06c481f0d2b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ope_grupo_atividade_id_desc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="303" y="0" width="250" height="17" uuid="b98b70ef-f5f9-48b2-a98b-6d0ffdf816e9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ope_atividade_id_desc}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="10" y="0" width="40" height="17" uuid="97f85ef4-bb71-466d-bffe-4fdb070a3db4">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grupo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="252" y="0" width="50" height="17" uuid="63c45a8e-a2dd-46a8-98a8-627639b3b25c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Atividade:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="11">
+				<frame>
+					<reportElement x="0" y="0" width="555" height="11" uuid="c9208f23-134b-48e3-9a98-0af8309c3d55">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<line>
+						<reportElement x="288" y="0" width="265" height="1" uuid="5fef4320-111a-4b63-a4d3-c0f20b5db054">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.x" value="px"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+					</line>
+					<staticText>
+						<reportElement x="221" y="0" width="100" height="11" uuid="3d36014b-4a2f-4a71-989b-42cf7e5ec20e">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Total]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="400" y="1" width="72" height="11" uuid="643dfe05-86d5-42e0-bf0e-392b4fcbbe5c">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($V{qnt_prev_ob4}.doubleValue())]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="480" y="1" width="70" height="11" uuid="36f88c56-f201-49ca-9ef1-0ad8ac595f53">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{vrTotUnitTot}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="322" y="1" width="71" height="11" uuid="4523d5d7-e506-4b39-9a8a-801aece390e5">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($V{vr_tot2})]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="18">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="18" uuid="b323c5f0-41ab-4787-99c0-36a2ea65bcb1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="18" backcolor="#EDEDED" uuid="15c7ee6b-c44c-4b40-8919-7bdabb6b4c01">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[RESUMO]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="11" uuid="42fd96f9-7f5e-41ab-810e-7064f1146768">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement x="480" y="0" width="70" height="11" uuid="82f761be-6df7-4788-9ca0-f595a36e536c">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vr_tot_unit}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="150" y="0" width="165" height="11" uuid="3a061c63-3e40-4365-a35e-dfb46dc38356">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font size="8" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vr_grupo_desc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="81" y="0" width="70" height="11" uuid="113fb31a-2a23-4ba8-bab5-3bd6d39f4909">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="8" isBold="false" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipo_desc}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="323" y="0" width="70" height="11" uuid="7ffee595-f46b-4dca-80fd-c7c2ce1505fc">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($F{vr_tot})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="14">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="14" uuid="202d9620-77b8-49ce-8528-f0f0b92e0f58">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField>
+					<reportElement x="322" y="1" width="71" height="13" uuid="62a689cf-148f-472e-b12c-a5c1a22bb3c3">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($V{vr_tot1})]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="288" y="0" width="33" height="14" uuid="c08ffa1b-cdf3-41be-8087-3a7f8626bede">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<line>
+					<reportElement x="288" y="0" width="265" height="1" uuid="bc9ab601-b166-4101-a2f9-303d060a03d9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+				</line>
+				<textField>
+					<reportElement x="400" y="1" width="72" height="13" uuid="e0376616-70ad-4485-bfd9-2424f04f0951"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###,##0.00").format($V{qnt_prev_ob3}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="480" y="0" width="70" height="14" uuid="1c06ff63-e7bd-4fae-86fd-12e07f112078"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{vrTotUnitGeral}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

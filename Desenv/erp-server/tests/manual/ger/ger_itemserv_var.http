@@ -1,0 +1,54 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/geritemservvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+POST {{HOSTAPI}}/api/geritemservvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "nome": "tst",
+  "sigla_itemserv_var": "s",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+      "ope_ciclo_var_id": "83b85fc1-3f54-45f3-8815-4c2936a00805"
+    
+}
+
+
+### 
+
+
+
+POST {{HOSTAPI}}/api/geritemservvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "nome": "",
+  "sigla_itemserv_var": "",
+  "unit_id":""
+}
+
+### 
+
+
+

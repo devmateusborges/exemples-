@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="baseRodapeRetrato" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8d33eca6-6c5e-4188-abf4-589cc2687fd3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParUnitId" class="java.lang.String"/>
+	<parameter name="nameReport" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from sys_unit where id = $P{pParUnitId}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[ID da Unidade]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[Nome]]></fieldDescription>
+	</field>
+	<field name="code_unit" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla_unit"/>
+		<property name="com.jaspersoft.studio.field.label" value="sigla_unit"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[Sigla da (Dono Unidade/Tenancy)]]></fieldDescription>
+	</field>
+	<field name="log_user_ins" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[Log - Usuário de Inserção]]></fieldDescription>
+	</field>
+	<field name="log_date_ins" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[Log - Data de Inserção]]></fieldDescription>
+	</field>
+	<field name="log_user_upd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[Log - Usuário de Alteração]]></fieldDescription>
+	</field>
+	<field name="log_date_upd" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.label" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		<fieldDescription><![CDATA[Log - Data de Alteração]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="18" uuid="e038e173-e822-4a27-867e-5129d820c66e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textField>
+					<reportElement x="2" y="0" width="395" height="18" uuid="71c7eca6-6869-4543-b6eb-76319170d601">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{nameReport}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="355" y="0" width="70" height="18" uuid="c8a12668-8476-4500-9f52-960b5b23060e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm:ss">
+					<reportElement x="429" y="0" width="55" height="18" uuid="062e3370-19e2-438b-8d37-2c90c573ee50">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

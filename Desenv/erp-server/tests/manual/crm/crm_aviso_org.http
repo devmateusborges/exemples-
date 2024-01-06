@@ -1,0 +1,45 @@
+
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/crm/crmavisoorg HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/crm/crmavisoorg HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "crm_aviso_id": "0bf11eeb-84e9-4e3f-9a53-fd08a8bdfb23",
+  "crm_org_id": "c7973b75-194b-4af9-90c3-13ec2d84c3e4",
+  "unit_id":self.session.get("sys_unit_id1").decode()
+
+}
+
+
+### 
+
+
+
+

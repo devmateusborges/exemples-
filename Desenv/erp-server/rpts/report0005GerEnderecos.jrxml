@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0005Enderecos" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d1190bc2-faa9-426b-b8ce-98ead879645c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="id_pessoa" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select gp.id, gp.ger_pessoa_id, gp.ativo, gp.tipo, gp.padrao,
+gp.end_logradouro,  gp.end_logradouro_nr,
+gp.end_bairro,  gp.end_complemento,  gp.end_cep, gp.end_cep,
+gp.end_ger_cidade_id,  gp.end_logradouro,  gp.fone, gp.email,
+gp.contato,  gp.log_user_ins,  gp.log_date_ins, gp.log_user_upd,
+gp.log_date_upd, gc.nome as nomeCidade, gUf.sigla_uf as siglaUf from
+ger_pessoa_endereco	gp inner join
+	ger_cidade gc on gp.end_ger_cidade_id = gc.id
+	inner join ger_uf gUf
+	on gc.ger_uf_id =  gUf.id
+	where gp.ger_pessoa_id = $P{id_pessoa} or $P{id_pessoa} is null]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="ger_pessoa_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ger_pessoa_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="ativo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ativo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="padrao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="padrao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="end_logradouro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_logradouro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="end_logradouro_nr" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_logradouro_nr"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="end_bairro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_bairro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="end_complemento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_complemento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="end_cep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_cep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="COLUMN_11" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_cep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="end_ger_cidade_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_ger_cidade_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="COLUMN_13" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="end_logradouro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="fone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="contato" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="log_user_ins" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="log_user_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="log_date_ins" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="log_date_ins"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="log_user_upd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="log_user_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="log_date_upd" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="log_date_upd"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa_endereco"/>
+	</field>
+	<field name="nomecidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomecidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_cidade"/>
+	</field>
+	<field name="siglauf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="siglauf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_uf"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+	</group>
+	<group name="Group2"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="12" splitType="Prevent">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="800" height="12" backcolor="#EDEDED" uuid="ffe64c9b-b632-4ff6-abe5-45637c2a69c5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</frame>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="30" y="0" width="140" height="12" isRemoveLineWhenBlank="true" uuid="fc4b0a9f-1728-4039-8909-5f14e1ae5c21">
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RfDados_AWS_EC2"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{end_logradouro} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="170" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="b9553ace-0db5-4fb8-82dd-f60eaaf2ead5">
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RfDados_AWS_EC2"/>
+					<printWhenExpression><![CDATA[$F{end_bairro} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="280" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="5edc6398-d001-46a9-8169-63d05fb85b10">
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RfDados_AWS_EC2"/>
+					<printWhenExpression><![CDATA[$F{end_cep} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="390" y="0" width="100" height="12" isRemoveLineWhenBlank="true" uuid="d5df606b-00f1-4133-93e7-11447f37e8f9">
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RfDados_AWS_EC2"/>
+					<printWhenExpression><![CDATA[$F{nomecidade} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="0" width="120" height="11" isRemoveLineWhenBlank="true" uuid="2d420025-7362-4691-af92-2624370aa1b4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20f1362f-127f-455a-a7d6-239107703ca9"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{end_logradouro} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{end_logradouro}.concat(" N°: ").concat($F{end_logradouro_nr})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="100" height="11" isRemoveLineWhenBlank="true" uuid="b95c4104-5575-4ee3-8190-e29272ff949c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1e96154-ae92-47dc-8bf0-735f510226ee"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{end_bairro} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" ".concat($F{end_bairro})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="110" height="11" isRemoveLineWhenBlank="true" uuid="837bb707-3f78-4187-8f63-4a62cd405161">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="981215e8-c258-44df-b05d-d453495ee923"/>
+					<printWhenExpression><![CDATA[$F{end_cep} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{end_cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="362" height="11" isRemoveLineWhenBlank="true" uuid="f9f15917-ee6c-4a85-91fd-bb68bf15a233">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb27ec0a-23e0-4ffe-8bc6-62bcb7eb6209"/>
+					<printWhenExpression><![CDATA[$F{nomecidade} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" ".concat($F{nomecidade}).concat(" - ").concat($F{siglauf})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

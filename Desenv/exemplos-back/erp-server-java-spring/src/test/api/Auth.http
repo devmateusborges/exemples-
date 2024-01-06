@@ -1,0 +1,20 @@
+###
+@HOSTAPI=http://localhost:8080
+
+
+### 
+# @name TOKEN_REST
+POST {{HOSTAPI}}/auth/login HTTP/1.1
+Content-Type: application/json
+Authorization: Basic YWRtaW46MTIz
+
+{
+    "login":"admin",
+    "password":"123"
+}
+
+###
+GET {{HOSTAPI}}/sys/sysuser/me HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.accessToken}}
+

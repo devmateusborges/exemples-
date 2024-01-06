@@ -1,0 +1,23 @@
+inherited FrmConfig: TFrmConfig
+  Left = 484
+  Top = 207
+  Caption = 'Config'
+  object Label1: TLabel[0]
+    Left = 115
+    Height = 15
+    Top = 124
+    Width = 80
+    Caption = 'TESTESSSSSSSS'
+    ParentColor = False
+  end
+  object Edit1: TEdit[1]
+    Left = 120
+    Height = 23
+    Top = 85
+    Width = 80
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  inherited AclBase: TActionList[2]
+  end
+end

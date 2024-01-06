@@ -1,0 +1,53 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":self.session.get("sys_unit_id1").decode(),
+}
+
+### 
+### 
+
+
+GET {{HOSTAPI}}/api/sysdocumentcategory HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+###
+
+GET {{HOSTAPI}}/api/sysdocumentcategory/c150db84-68ba-4e2b-ae55-905a7909e3e9 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+###
+
+
+POST {{HOSTAPI}}/api/sysdocumentcategory HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+   "active": "S",
+  "name":"TSTtttt"
+}
+
+
+### 
+
+DELETE {{HOSTAPI}}/api/sysdocumentcategory/ac40fa78-12c6-46ad-8372-a8a0dafff294 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+

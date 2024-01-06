@@ -1,0 +1,40 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/fisibpt HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+POST {{HOSTAPI}}/api/fisibpt HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "data_validade_fin": "2022-12-29T00:00:00",
+  "data_validade_ini": "2022-12-29T00:00:00",
+  "fis_nbs_id": "eada165b-7350-4c8d-aa26-60a129a7144f",
+  "fis_ncm_id": "7eb4d9fa-b361-447f-b528-22a58c5f976d",
+  "ger_uf_id": "6db8a2bd-1792-4b01-b6c1-a5475e8cd36f",
+  "perc_importado": "8",
+  "perc_municipal": "8",
+  "perc_nacional": "8"
+
+}
+
+

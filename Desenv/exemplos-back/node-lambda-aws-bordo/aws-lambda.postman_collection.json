@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "3b7cde3e-1a83-4c66-848b-5c32ce0eeded",
+		"name": "aws-lambda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bodo-postgres",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"type": "text",
+						"value": "dzcVV7CBUp2jSvKUJmnZqZHEKROmCZu78tcZ0Rg0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"cccccccc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://zuhi5a9ux3.execute-api.sa-east-1.amazonaws.com/v1/inputpg",
+					"protocol": "https",
+					"host": [
+						"zuhi5a9ux3",
+						"execute-api",
+						"sa-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"v1",
+						"inputpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bodo-mongo",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"type": "text",
+						"value": "dzcVV7CBUp2jSvKUJmnZqZHEKROmCZu78tcZ0Rg0",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"cccccccc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://zuhi5a9ux3.execute-api.sa-east-1.amazonaws.com/v1/inputmg",
+					"protocol": "https",
+					"host": [
+						"zuhi5a9ux3",
+						"execute-api",
+						"sa-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"v1",
+						"inputmg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bordo-erp-mongo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic 321"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{ \"name\":\"erpmongo1\" }]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.resultfacil.com.br/rest/rest-test-mongo?config=conndevlocal&userunitid=f3996813-838e-49af-9649-8dc44e24bc75&submethod=save",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"resultfacil",
+						"com",
+						"br"
+					],
+					"path": [
+						"rest",
+						"rest-test-mongo"
+					],
+					"query": [
+						{
+							"key": "config",
+							"value": "conndevlocal"
+						},
+						{
+							"key": "userunitid",
+							"value": "f3996813-838e-49af-9649-8dc44e24bc75"
+						},
+						{
+							"key": "submethod",
+							"value": "save"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bordo-erp-postgres-tracking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic 321",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"tracking\":{\r\n      \"index\":1,\r\n      \"eventCode\":28672,\r\n      \"eventDate\":\"2019-12-15T01:48:28.000Z\",\r\n      \"productId\":58,\r\n      \"serialNumber\":172,\r\n      \"channel\":\"IP\",\r\n      \"accel\":{\r\n         \"x\":-54,\r\n         \"y\":27,\r\n         \"z\":-1009\r\n      },\r\n      \"accumFuel\":0,\r\n      \"accumHours\":-250786725,\r\n      \"activeRoute\":255,\r\n      \"alcoholPercent\":0,\r\n      \"analogIn\":26,\r\n      \"batBackup\":0,\r\n      \"batMain\":15.9,\r\n      \"canFeatures\":{\r\n         \"speed\":false,\r\n         \"rpm\":false,\r\n         \"coolantTemperature\":false,\r\n         \"tripTime\":false,\r\n         \"hourmeter\":false,\r\n         \"odometer\":false,\r\n         \"tripDistance\":false,\r\n         \"distanceSinceDTCsCleared\":false,\r\n         \"fuelLevel1\":false,\r\n         \"fuelLevel2\":false,\r\n         \"oilLevel\":false,\r\n         \"fuelType\":false,\r\n         \"alcoholPercent\":false,\r\n         \"vin\":false,\r\n         \"fuelEconomy\":false,\r\n         \"fuelConsumption\":false,\r\n         \"ambientTemperature\":false,\r\n         \"lowResTripFuel\":false,\r\n         \"lowResAccumFuel\":false,\r\n         \"highResTripFuel\":false,\r\n         \"highResAccumFuel\":false,\r\n         \"dtcs\":false,\r\n         \"mil\":false,\r\n         \"vehicleWeight\":false,\r\n         \"steeringAngle\":false\r\n      },\r\n      \"controlPoint\":65535,\r\n      \"coolantTemperature\":127,\r\n      \"dateServer\":\"2019-12-15T01:48:32.076Z\",\r\n      \"driverid\":\"000000000000\",\r\n      \"dtcs\":[\r\n         \r\n      ],\r\n      \"formsGroup\":1,\r\n      \"fuelLevel1\":0,\r\n      \"fuelLevel2\":0,\r\n      \"gps\":{\r\n         \"date\":\"2019-12-15T01:48:28.000Z\",\r\n         \"latitude\":\"-23.48014\",\r\n         \"longitude\":\"-46.62906\",\r\n         \"speed\":0,\r\n         \"heading\":\"0.00\",\r\n         \"altitude\":762,\r\n         \"satNumber\":12,\r\n         \"isValid\":true\r\n      },\r\n      \"hwStatus\":{\r\n         \"errAccel\":false,\r\n         \"errBatBackup\":false,\r\n         \"errGps\":false,\r\n         \"errProfile\":false,\r\n         \"errFlash\":false,\r\n         \"errSDCard\":false,\r\n         \"mil\":false\r\n      },\r\n      \"inputs\":{\r\n         \"ppc\":true,\r\n         \"inp0\":false,\r\n         \"inp1\":false,\r\n         \"in1\":false,\r\n         \"in2\":false,\r\n         \"in3\":false,\r\n         \"in4\":false,\r\n         \"driverid\":false,\r\n         \"ecomm\":false,\r\n         \"mainbat\":false,\r\n         \"accel\":false,\r\n         \"jammerGps\":false,\r\n         \"jammerMdm\":false,\r\n         \"in5\":false,\r\n         \"in6\":false,\r\n         \"in7\":false,\r\n         \"in8\":false,\r\n         \"in9\":false,\r\n         \"in10\":false,\r\n         \"in11\":false,\r\n         \"in12\":false,\r\n         \"in13\":false,\r\n         \"in14\":false,\r\n         \"pc\":false,\r\n         \"route\":false,\r\n         \"trip\":true\r\n      },\r\n      \"networkOperator\":\"CLARO BR\",\r\n      \"odometer\":0,\r\n      \"oilLevel\":0,\r\n      \"outputs\":{\r\n         \"blocker\":false,\r\n         \"siren\":false,\r\n         \"outn1\":false,\r\n         \"outn2\":false,\r\n         \"outn3\":false,\r\n         \"outn4\":false,\r\n         \"outn5\":false,\r\n         \"outn6\":false,\r\n         \"outn7\":false,\r\n         \"outn8\":false,\r\n         \"rs485_1\":false,\r\n         \"rs485_2\":false,\r\n         \"rs485_3\":false,\r\n         \"rs485_4\":false\r\n      },\r\n      \"ratType\":\"2G\",\r\n      \"rpm\":0,\r\n      \"rssi_gsm\":23,\r\n      \"snr_sat\":0,\r\n      \"tachSpeed\":0,\r\n      \"temperature1\":127,\r\n      \"temperature2\":127,\r\n      \"temperature3\":127,\r\n      \"temperature4\":127,\r\n      \"temperature5\":127,\r\n      \"temperature6\":127,\r\n      \"tiltAngle\":0,\r\n      \"tripDistance\":0,\r\n      \"tripFuel\":0,\r\n      \"tripTime\":1577980,\r\n      \"vin\":\"00000000000000000\"\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTERP}}/rest-bor-mov?config={{CONFIGERP}}&userunitid=f3996813-838e-49af-9649-8dc44e24bc75&submethod=savetracking",
+					"host": [
+						"{{HOSTERP}}"
+					],
+					"path": [
+						"rest-bor-mov"
+					],
+					"query": [
+						{
+							"key": "config",
+							"value": "{{CONFIGERP}}"
+						},
+						{
+							"key": "userunitid",
+							"value": "f3996813-838e-49af-9649-8dc44e24bc75"
+						},
+						{
+							"key": "submethod",
+							"value": "savetracking"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bordo-erp-postgres-telemetry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic 321",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"telemetry\":{\r\n      \"endDate\":\"2019-12-15T08:29:59.000Z\",\r\n      \"productId\":58,\r\n      \"channel\":\"IP\",\r\n      \"serialNumber\":171,\r\n      \"startDate\":\"2019-12-15T08:15:00.000Z\",\r\n      \"averages\":{\r\n         \"fuelEconomy\":{\r\n            \"kmPerLiter\":0,\r\n            \"kmPerPercent\":0\r\n         },\r\n         \"fuelConsumption\":{\r\n            \"litersPerHour\":0,\r\n            \"percentsPerHour\":0\r\n         },\r\n         \"speed\":0,\r\n         \"rpm\":0\r\n      },\r\n      \"dateServer\":\"2019-12-15T08:31:02.009Z\",\r\n      \"distanceTraveled\":0,\r\n      \"driverId\":\"000000000000\",\r\n      \"eventsCount\":{\r\n         \"gearOff\":0,\r\n         \"accel\":0,\r\n         \"break\":0,\r\n         \"overSpeed\":0,\r\n         \"overRPM\":0,\r\n         \"turns\":0\r\n      },\r\n      \"fuelUsed\":{\r\n         \"liters\":0,\r\n         \"percent\":0\r\n      },\r\n      \"maxFuelConsumption\":{\r\n         \"value\":0,\r\n         \"latitude\":0,\r\n         \"longitude\":0,\r\n         \"date\":\"1970-01-01T00:00:00.000Z\",\r\n         \"satNum\":0,\r\n         \"isValid\":true\r\n      },\r\n      \"maxFuelEconomy\":{\r\n         \"value\":0,\r\n         \"latitude\":0,\r\n         \"longitude\":0,\r\n         \"date\":\"1970-01-01T00:00:00.000Z\",\r\n         \"satNum\":0,\r\n         \"isValid\":true\r\n      },\r\n      \"maxRPM\":{\r\n         \"value\":0,\r\n         \"latitude\":0,\r\n         \"longitude\":0,\r\n         \"date\":\"1970-01-01T00:00:00.000Z\",\r\n         \"satNum\":0,\r\n         \"isValid\":true\r\n      },\r\n      \"maxSpeed\":{\r\n         \"overall\":{\r\n            \"value\":0,\r\n            \"latitude\":0,\r\n            \"longitude\":0,\r\n            \"date\":\"1970-01-01T00:00:00.000Z\",\r\n            \"satNum\":0,\r\n            \"isValid\":true\r\n         },\r\n         \"gearOff\":{\r\n            \"value\":0,\r\n            \"latitude\":0,\r\n            \"longitude\":0,\r\n            \"date\":\"1970-01-01T00:00:00.000Z\",\r\n            \"satNum\":0,\r\n            \"isValid\":true\r\n         }\r\n      },\r\n      \"odometerEnd\":0,\r\n      \"odometerStart\":0,\r\n      \"reportType\":\"PERIODIC\",\r\n      \"timings\":{\r\n         \"overSpeed\":0,\r\n         \"idleTime\":896,\r\n         \"onTime\":0,\r\n         \"tripTime\":899,\r\n         \"offTime\":0,\r\n         \"gearOff\":0,\r\n         \"rpm\":{\r\n            \"blueZone\":0,\r\n            \"idlingZone\":0,\r\n            \"greenZone\":0,\r\n            \"yellowZone\":0,\r\n            \"redZone\":0\r\n         },\r\n         \"engineBreak\":0\r\n      }\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.resultfacil.com.br/rest/rest-bor-mov?config=conndevlocal&userunitid=f3996813-838e-49af-9649-8dc44e24bc75&submethod=savetelemetry",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"resultfacil",
+						"com",
+						"br"
+					],
+					"path": [
+						"rest",
+						"rest-bor-mov"
+					],
+					"query": [
+						{
+							"key": "config",
+							"value": "conndevlocal"
+						},
+						{
+							"key": "userunitid",
+							"value": "f3996813-838e-49af-9649-8dc44e24bc75"
+						},
+						{
+							"key": "submethod",
+							"value": "savetelemetry"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "1HOSTERP",
+			"value": "https://dev.resultfacil.com.br/rest"
+		},
+		{
+			"key": "HOSTERP",
+			"value": "http://localhost:8050/erp-php"
+		},
+		{
+			"key": "1CONFIGERP",
+			"value": "conndev"
+		},
+		{
+			"key": "CONFIGERP",
+			"value": "conndevlocal"
+		}
+	]
+}

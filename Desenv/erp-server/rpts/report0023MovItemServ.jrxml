@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0023MovItemServ" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="84bb7ccf-4997-44af-9dad-0181316e78fa">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA["(MOV) MOVIMENTAÇÃO DE ITENS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Admin"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["a26c642c-7396-4958-bbf6-633b4e008c13"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nameReport" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["report0014"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVart01" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ger_itemserv_grupo_nome"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVard01" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Grupo"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVart02" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ger_item_serv_nome"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVard02" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Item/Serviço"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pVart03" class="java.lang.String"/>
+	<parameter name="pVard03" class="java.lang.String"/>
+	<parameter name="pVart04" class="java.lang.String"/>
+	<parameter name="pVard04" class="java.lang.String"/>
+	<parameter name="pVart05" class="java.lang.String"/>
+	<parameter name="pVard05" class="java.lang.String"/>
+	<parameter name="pVart06" class="java.lang.String"/>
+	<parameter name="pVard06" class="java.lang.String"/>
+	<parameter name="pVart07" class="java.lang.String"/>
+	<parameter name="pVard07" class="java.lang.String"/>
+	<parameter name="pVart08" class="java.lang.String"/>
+	<parameter name="pVard08" class="java.lang.String"/>
+	<parameter name="pVart09" class="java.lang.String"/>
+	<parameter name="pVard09" class="java.lang.String"/>
+	<parameter name="pVart10" class="java.lang.String"/>
+	<parameter name="pVard10" class="java.lang.String"/>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParMovId" class="java.lang.String"/>
+	<parameter name="pParMovSerie" class="java.lang.String"/>
+	<parameter name="pParDataMovIni" class="java.lang.String"/>
+	<parameter name="pParDataMovFin" class="java.lang.String"/>
+	<parameter name="pParNrMov" class="java.lang.String"/>
+	<parameter name="pParDataEntregaMovIni" class="java.lang.String"/>
+	<parameter name="pParDataEntregaMovFin" class="java.lang.String"/>
+	<parameter name="pParMovOperacaoId" class="java.lang.String"/>
+	<parameter name="pParMovOperacaoNome" class="java.lang.String"/>
+	<parameter name="pParMovOperacaoAtivo" class="java.lang.String"/>
+	<parameter name="pParMovOperacaoSigla" class="java.lang.String"/>
+	<parameter name="pParMovOperacaoTipoES" class="java.lang.String"/>
+	<parameter name="pParMovTipoId" class="java.lang.String"/>
+	<parameter name="pParMovTipoNome" class="java.lang.String"/>
+	<parameter name="pParMovTipoAtivo" class="java.lang.String"/>
+	<parameter name="pParMovTipoSigla" class="java.lang.String"/>
+	<parameter name="pParMovTipoMov" class="java.lang.String"/>
+	<parameter name="pParGerNumeracaoId" class="java.lang.String"/>
+	<parameter name="pParGerNumeracaoNome" class="java.lang.String"/>
+	<parameter name="pParGerNumeracaoAtivo" class="java.lang.String"/>
+	<parameter name="pParGerNumeracaoSerie" class="java.lang.String"/>
+	<parameter name="pParMovStatusId" class="java.lang.String"/>
+	<parameter name="pParMovStatusNome" class="java.lang.String"/>
+	<parameter name="pParMovStatusAtivo" class="java.lang.String"/>
+	<parameter name="pParMovStatusSigla" class="java.lang.String"/>
+	<parameter name="pParMovStatusTipo" class="java.lang.String"/>
+	<parameter name="pParGerEmpresaId" class="java.lang.String"/>
+	<parameter name="pParGerEmpresaNome" class="java.lang.String"/>
+	<parameter name="pParGerEmpresaAtivo" class="java.lang.String"/>
+	<parameter name="pParGerEmpresaSigla" class="java.lang.String"/>
+	<parameter name="pParGerPessoaId" class="java.lang.String"/>
+	<parameter name="pParGerPessoaNome" class="java.lang.String"/>
+	<parameter name="pParGerPessoaAtivo" class="java.lang.String"/>
+	<parameter name="pParGerPessoaSigla" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEnderecoAtivo" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEnderecoLograd" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEnderecoLogradNr" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEnderecoLogradBairro" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregId" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregNome" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregAtivo" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregEnderecoAtivo" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregEnderecoLograd" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregEnderecoLogradNr" class="java.lang.String"/>
+	<parameter name="pParGerPessoaEntregEnderecoLogradBairro" class="java.lang.String"/>
+	<parameter name="pParMovItemServId" class="java.lang.String"/>
+	<parameter name="pParItemServId" class="java.lang.String"/>
+	<parameter name="pParItemServNome" class="java.lang.String"/>
+	<parameter name="pParItemServAtivo" class="java.lang.String"/>
+	<parameter name="pParItemServSigla" class="java.lang.String"/>
+	<parameter name="pParItemServTipo" class="java.lang.String"/>
+	<parameter name="pParItemServSubGrupoId" class="java.lang.String"/>
+	<parameter name="pParItemServSubGrupoNome" class="java.lang.String"/>
+	<parameter name="pParItemServSubGrupoAtivo" class="java.lang.String"/>
+	<parameter name="pParItemServGrupoId" class="java.lang.String"/>
+	<parameter name="pParItemServGrupoNome" class="java.lang.String"/>
+	<parameter name="pParItemServGrupoAtivo" class="java.lang.String"/>
+	<parameter name="pParGerUmedidaId" class="java.lang.String"/>
+	<parameter name="pParGerUmedidaNome" class="java.lang.String"/>
+	<parameter name="pParGerUmedidaAtivo" class="java.lang.String"/>
+	<parameter name="pParGerUmedidaSigla" class="java.lang.String"/>
+	<parameter name="pParFisCfopId" class="java.lang.String"/>
+	<parameter name="pParFisCfopNR" class="java.lang.String"/>
+	<parameter name="pParFisCfopNome" class="java.lang.String"/>
+	<parameter name="pParFisCfopAtivo" class="java.lang.String"/>
+	<parameter name="pParFisCfopDataValidIni" class="java.lang.String"/>
+	<parameter name="pParFisCfopDataValidFin" class="java.lang.String"/>
+	<parameter name="pParLogUserIns" class="java.lang.String"/>
+	<parameter name="pParLogDateInsIni" class="java.lang.String"/>
+	<parameter name="pParLogDateInsFin" class="java.lang.String"/>
+	<parameter name="pParLogUserUpd" class="java.lang.String"/>
+	<parameter name="pParLogDateUpdIni" class="java.lang.String"/>
+	<parameter name="pParLogDateUpdFin" class="java.lang.String"/>
+	<parameter name="vars_01" class="java.lang.String"/>
+	<parameter name="vars_02" class="java.lang.String"/>
+	<parameter name="vars_03" class="java.lang.String"/>
+	<parameter name="vars_04" class="java.lang.String"/>
+	<parameter name="vars_05" class="java.lang.String"/>
+	<parameter name="pParParam" class="java.lang.String">
+		<defaultValueExpression><![CDATA["[{}]"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select * from fnreport0023($P{pParUnitId},$P{pParIndRelId},$P{pVart01},$P{pVard01},$P{pVart02},$P{pVard02},$P{pVart03},$P{pVard03},$P{pVart04},$P{pVard04},$P{pVart05},$P{pVard05},$P{pVart06},$P{pVard06},$P{pVart07},$P{pVard07},$P{pVart08},$P{pVard08},$P{pVart09},$P{pVard09},$P{pVart10},$P{pVard10},$P{pParMovId},$P{pParMovSerie},$P{pParDataMovIni},$P{pParDataMovFin},$P{pParNrMov},$P{pParDataEntregaMovIni},$P{pParDataEntregaMovFin},$P{pParMovOperacaoId},$P{pParMovOperacaoNome},$P{pParMovOperacaoAtivo},$P{pParMovOperacaoSigla},$P{pParMovOperacaoTipoES},$P{pParMovTipoId},$P{pParMovTipoNome},$P{pParMovTipoAtivo},$P{pParMovTipoSigla},$P{pParMovTipoMov},$P{pParGerNumeracaoId},$P{pParGerNumeracaoNome},$P{pParGerNumeracaoAtivo},$P{pParGerNumeracaoSerie},$P{pParMovStatusId},$P{pParMovStatusNome},$P{pParMovStatusAtivo},$P{pParMovStatusSigla},$P{pParMovStatusTipo},$P{pParGerEmpresaId},$P{pParGerEmpresaNome},$P{pParGerEmpresaAtivo},$P{pParGerEmpresaSigla},$P{pParGerPessoaId},$P{pParGerPessoaNome},$P{pParGerPessoaAtivo},$P{pParGerPessoaSigla},$P{pParGerPessoaEnderecoAtivo},$P{pParGerPessoaEnderecoLograd},$P{pParGerPessoaEnderecoLogradNr},$P{pParGerPessoaEnderecoLogradBairro},$P{pParGerPessoaEntregId},$P{pParGerPessoaEntregNome},$P{pParGerPessoaEntregAtivo},$P{pParGerPessoaEntregEnderecoAtivo},$P{pParGerPessoaEntregEnderecoLograd},$P{pParGerPessoaEntregEnderecoLogradNr},$P{pParGerPessoaEntregEnderecoLogradBairro},$P{pParMovItemServId},$P{pParItemServId},$P{pParItemServNome},$P{pParItemServAtivo},$P{pParItemServSigla},$P{pParItemServTipo},$P{pParItemServSubGrupoId},$P{pParItemServSubGrupoNome},$P{pParItemServSubGrupoAtivo},$P{pParItemServGrupoId},$P{pParItemServGrupoNome},$P{pParItemServGrupoAtivo},$P{pParGerUmedidaId},$P{pParGerUmedidaNome},$P{pParGerUmedidaAtivo},$P{pParGerUmedidaSigla},$P{pParFisCfopId},$P{pParFisCfopNR},$P{pParFisCfopNome},$P{pParFisCfopAtivo},$P{pParFisCfopDataValidIni},$P{pParFisCfopDataValidFin},$P{pParLogUserIns},$P{pParLogDateInsIni},$P{pParLogDateInsFin},$P{pParLogUserUpd},$P{pParLogDateUpdIni},$P{pParLogDateUpdFin})]]>
+	</queryString>
+	<field name="ind_rel_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_id"/>
+	</field>
+	<field name="ind_rel_par1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par1"/>
+	</field>
+	<field name="ind_rel_par2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par2"/>
+	</field>
+	<field name="ind_rel_par3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par3"/>
+	</field>
+	<field name="ind_rel_par4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ind_rel_par4"/>
+	</field>
+	<field name="vart_01" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_01"/>
+	</field>
+	<field name="vard_01" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_01"/>
+	</field>
+	<field name="vart_02" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_02"/>
+	</field>
+	<field name="vard_02" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_02"/>
+	</field>
+	<field name="vart_03" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_03"/>
+	</field>
+	<field name="vard_03" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_03"/>
+	</field>
+	<field name="vart_04" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_04"/>
+	</field>
+	<field name="vard_04" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_04"/>
+	</field>
+	<field name="vart_05" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_05"/>
+	</field>
+	<field name="vard_05" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_05"/>
+	</field>
+	<field name="vart_06" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_06"/>
+	</field>
+	<field name="vard_06" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_06"/>
+	</field>
+	<field name="vart_07" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_07"/>
+	</field>
+	<field name="vard_07" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_07"/>
+	</field>
+	<field name="vart_08" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_08"/>
+	</field>
+	<field name="vard_08" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_08"/>
+	</field>
+	<field name="vart_09" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_09"/>
+	</field>
+	<field name="vard_09" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_09"/>
+	</field>
+	<field name="vart_10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vart_10"/>
+	</field>
+	<field name="vard_10" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vard_10"/>
+	</field>
+	<field name="valor_01" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_01"/>
+	</field>
+	<field name="valor_02" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_02"/>
+	</field>
+	<field name="valor_03" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_03"/>
+	</field>
+	<field name="valor_04" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_04"/>
+	</field>
+	<field name="valor_05" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_05"/>
+	</field>
+	<field name="valor_06" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_06"/>
+	</field>
+	<field name="valor_07" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_07"/>
+	</field>
+	<field name="valor_08" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_08"/>
+	</field>
+	<field name="valor_09" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_09"/>
+	</field>
+	<field name="valor_10" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_10"/>
+	</field>
+	<field name="valor_11" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_11"/>
+	</field>
+	<field name="valor_12" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_12"/>
+	</field>
+	<field name="valor_13" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_13"/>
+	</field>
+	<field name="valor_14" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_14"/>
+	</field>
+	<field name="valor_15" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_15"/>
+	</field>
+	<field name="valor_16" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_16"/>
+	</field>
+	<field name="valor_17" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_17"/>
+	</field>
+	<field name="valor_18" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valor_18"/>
+	</field>
+	<variable name="valor_01SumVar05" class="java.math.BigDecimal" resetType="Group" resetGroup="Group5" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_01SumVar04" class="java.math.BigDecimal" resetType="Group" resetGroup="Group4" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_01SumVar03" class="java.math.BigDecimal" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_01SumVar02" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_01SumVar01" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_02SumVar05" class="java.math.BigDecimal" resetType="Group" resetGroup="Group5" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_02}]]></variableExpression>
+	</variable>
+	<variable name="valor_02SumVar04" class="java.math.BigDecimal" resetType="Group" resetGroup="Group4" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_02}]]></variableExpression>
+	</variable>
+	<variable name="valor_02SumVar03" class="java.math.BigDecimal" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_02}]]></variableExpression>
+	</variable>
+	<variable name="valor_02SumVar02" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_02}]]></variableExpression>
+	</variable>
+	<variable name="valor_02SumVar01" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_02}]]></variableExpression>
+	</variable>
+	<variable name="valor_03SumVar05" class="java.math.BigDecimal" resetType="Group" resetGroup="Group5" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_03}]]></variableExpression>
+	</variable>
+	<variable name="valor_03SumVar04" class="java.math.BigDecimal" resetType="Group" resetGroup="Group4" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_03}]]></variableExpression>
+	</variable>
+	<variable name="valor_03SumVar03" class="java.math.BigDecimal" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_03}]]></variableExpression>
+	</variable>
+	<variable name="valor_03SumVar02" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_03}]]></variableExpression>
+	</variable>
+	<variable name="valor_03SumVar01" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_03}]]></variableExpression>
+	</variable>
+	<variable name="valor_04SumVar05" class="java.math.BigDecimal" resetType="Group" resetGroup="Group5" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_04}]]></variableExpression>
+	</variable>
+	<variable name="valor_04SumVar04" class="java.math.BigDecimal" resetType="Group" resetGroup="Group4" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_04}]]></variableExpression>
+	</variable>
+	<variable name="valor_04SumVar03" class="java.math.BigDecimal" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_04}]]></variableExpression>
+	</variable>
+	<variable name="valor_04SumVar02" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_04}]]></variableExpression>
+	</variable>
+	<variable name="valor_04SumVar01" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_04}]]></variableExpression>
+	</variable>
+	<variable name="valor_05SumVar05" class="java.math.BigDecimal" resetType="Group" resetGroup="Group5" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_05}]]></variableExpression>
+	</variable>
+	<variable name="valor_05SumVar04" class="java.math.BigDecimal" resetType="Group" resetGroup="Group4" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_05}]]></variableExpression>
+	</variable>
+	<variable name="valor_05SumVar03" class="java.math.BigDecimal" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_05}]]></variableExpression>
+	</variable>
+	<variable name="valor_05SumVar02" class="java.math.BigDecimal" resetType="Group" resetGroup="Group2" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_05}]]></variableExpression>
+	</variable>
+	<variable name="valor_05SumVar01" class="java.math.BigDecimal" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_05}]]></variableExpression>
+	</variable>
+	<variable name="valor_05SumReport" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_01}]]></variableExpression>
+	</variable>
+	<variable name="valor_02SumReport" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_04}]]></variableExpression>
+	</variable>
+	<variable name="valor_04SumReport" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_02}]]></variableExpression>
+	</variable>
+	<variable name="valor_03SumReport" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$V{valor_02SumReport}.divide($V{valor_04SumReport})]]></variableExpression>
+	</variable>
+	<variable name="valor_01SumReport" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor_05}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{vart_01}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<textField>
+					<reportElement x="0" y="0" width="80" height="12" uuid="8bc4b177-2eb9-41dc-9b20-25a25c22753a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_01}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="80" y="0" width="120" height="12" uuid="983f6559-58fd-414c-a487-d61562ff3be1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_01}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="302" y="0" width="100" height="12" uuid="30fca533-3113-448c-95af-b76e976d4f75">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qnt.Devolvida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="402" y="0" width="100" height="12" uuid="f5b6d3c5-b6cc-4d56-9350-57c28fafdad8">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qnt. Origem]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="502" y="0" width="100" height="12" uuid="6e4a863e-78d4-43cb-bd83-784b575cdf92">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vr. Unit]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="602" y="0" width="99" height="12" uuid="53b798cb-ae2b-4062-8f03-ffa51f679af0">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vr. Bruto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="701" y="0" width="101" height="12" uuid="301ae5d9-e0b7-4099-b553-ba2863b866c6">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vr. Liquido]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13">
+				<printWhenExpression><![CDATA[$P{vars_01}.equals("S")]]></printWhenExpression>
+				<textField>
+					<reportElement x="200" y="1" width="100" height="12" uuid="31bc69e2-7aa8-476a-abca-83ffde7011b1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_01}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="1" width="102" height="12" uuid="1bafaa5f-f587-4e1e-9870-6365e8e7e09a">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_01SumVar01}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="1" width="100" height="12" uuid="76024ef0-ec5c-4757-94c6-ac64ef6c4068">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_02SumVar01}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="502" y="1" width="100" height="12" uuid="81c135cf-936c-4012-ab53-bfbec7e74178">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_03SumVar01}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="602" y="1" width="100" height="12" uuid="242d582c-90fd-42bb-96c7-ddb3d1c098ee">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_04SumVar01}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="702" y="1" width="100" height="12" uuid="720338da-a1dc-4b0d-808c-44de45018bd0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_05SumVar01}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="200" y="0" width="602" height="1" uuid="51ef80b5-8521-4fcc-91c6-77b4a05fb9d8">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{vart_02}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<printWhenExpression><![CDATA[$F{vard_02} != null]]></printWhenExpression>
+				<textField>
+					<reportElement isPrintRepeatedValues="false" x="10" y="0" width="90" height="12" uuid="b0abd472-c4b8-401b-8a15-859251dce981">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_02}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="12" uuid="4f606502-3152-4451-be1f-d81e92d94a99">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_02}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13">
+				<printWhenExpression><![CDATA[$P{vars_02}.equals("S")]]></printWhenExpression>
+				<textField>
+					<reportElement x="200" y="0" width="100" height="12" uuid="c32f1afc-3915-4411-a722-295026b9ebe3">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_02}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="0" width="102" height="12" uuid="6c6ac600-819a-4729-9662-f0f593efab68">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_01SumVar02}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="0" width="100" height="12" uuid="e61dbef4-1e94-46a0-aa43-bc6ff704c6d9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_02SumVar02}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="502" y="0" width="100" height="12" uuid="daebdc64-43e3-43bb-b740-febe4fccb6fe">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_03SumVar02}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="602" y="0" width="100" height="12" uuid="5352f8e5-6677-4bba-b01c-edfdb31b305a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_04SumVar02}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="702" y="0" width="100" height="12" uuid="9a8732c5-e5b2-4e5c-aef8-d49f498375a1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_05SumVar02}.doubleValue())]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{vart_03}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<printWhenExpression><![CDATA[$F{vard_03} != null]]></printWhenExpression>
+				<textField>
+					<reportElement x="20" y="0" width="80" height="12" uuid="78d7be23-ef9c-4e4e-a339-26e1997befd2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_03}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="12" uuid="e7a6e43a-97d6-46fa-b4d5-397e114d949b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_03}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="12">
+				<printWhenExpression><![CDATA[$P{vars_03}.equals("S")]]></printWhenExpression>
+				<textField>
+					<reportElement x="200" y="-2" width="100" height="12" uuid="6fe48c7f-2edd-4c63-8549-90338fe459d4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_03}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="0" width="102" height="12" uuid="c8958983-bc5d-4533-b239-7857d70a37e1">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_01SumVar03}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="0" width="100" height="12" uuid="ad9b8b42-5206-4bd9-b4bc-5e1591e351f6">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_02SumVar03}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="502" y="0" width="100" height="12" uuid="2625789e-43a2-4172-b610-7e0d2e25fd04">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_03SumVar03}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="602" y="0" width="100" height="12" uuid="3855e6c1-40c9-410f-982b-c6f913ba14eb">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_04SumVar03}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="702" y="0" width="100" height="12" uuid="733ada7b-debd-487c-bb43-2aa373509963">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_05SumVar03}.doubleValue())]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{vart_04}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<printWhenExpression><![CDATA[$F{vard_04} != null]]></printWhenExpression>
+				<textField>
+					<reportElement x="20" y="0" width="80" height="12" uuid="6614e52c-5d61-4f27-bccc-2254f9c58ee4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_04}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="12" uuid="e1a2e858-4172-40d3-9020-ba2c2f159392">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_04}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="12">
+				<printWhenExpression><![CDATA[$P{vars_04}.equals("S")]]></printWhenExpression>
+				<textField>
+					<reportElement x="200" y="-2" width="100" height="12" uuid="3f279065-9e85-4838-9b52-95ead2ca2fe9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_04}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="0" width="102" height="12" uuid="48877bb7-2514-4752-95bd-fb5049435623">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_01SumVar04}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="0" width="100" height="12" uuid="57ed2e3d-1ba8-4056-a25c-9b5307c67bce">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_02SumVar04}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="502" y="0" width="100" height="12" uuid="66035311-7359-4e39-851a-4d1e5dfa3d75">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_03SumVar04}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="602" y="0" width="100" height="12" uuid="567a2b46-05fd-40d5-b450-6cf00308bc6f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_04SumVar04}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="702" y="0" width="100" height="12" uuid="9c9e49d1-0c7e-4058-b828-eed8a81f0349">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_05SumVar04}.doubleValue())]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group5">
+		<groupExpression><![CDATA[$F{vart_05}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<printWhenExpression><![CDATA[$F{vard_05} != null]]></printWhenExpression>
+				<textField>
+					<reportElement x="20" y="0" width="80" height="12" uuid="ac1b6ab2-308d-4a75-9b99-8457e9f70057">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_05}+": "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="12" uuid="7a88a413-fc5a-4d40-9c33-3b752f965e25">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{vart_05}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="12">
+				<printWhenExpression><![CDATA[$P{vars_05}.equals("S")]]></printWhenExpression>
+				<textField>
+					<reportElement x="200" y="-2" width="100" height="12" uuid="806d0161-4dce-4b9a-8d11-c6b33f99bc8c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$P{vars_05}.equals("S")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vard_05}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="0" width="102" height="12" uuid="437fce7e-4888-41e8-a193-5b10f891a994">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_01SumVar05}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="402" y="0" width="100" height="12" uuid="f286ae91-a226-43d2-af38-54570bcfce4a">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_02SumVar05}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="502" y="0" width="100" height="12" uuid="e1758f7d-bc0e-46ad-b90b-25ba4ce27ea5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_03SumVar05}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="602" y="0" width="100" height="12" uuid="deb70c17-70fd-430d-b92e-4513bf7208a3">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_04SumVar05}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="702" y="0" width="100" height="12" uuid="6778f0a8-3552-4993-a4c6-b69cb6a87068">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_05SumVar05}.doubleValue())]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="30" width="202" height="47" uuid="cbacf96e-6298-4b63-86e3-b74adab656d4"/>
+				<box>
+					<pen lineColor="#EDEDED"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par1}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="202" y="30" width="200" height="47" uuid="9028c5db-e274-472f-a182-2f1704ffb30c"/>
+				<box>
+					<pen lineColor="#EDEDED"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par2}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="402" y="30" width="200" height="47" uuid="edd44edc-5e06-43e9-8ad1-e0be5ef0cbcf"/>
+				<box>
+					<pen lineColor="#EDEDED"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par3}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="602" y="30" width="200" height="47" uuid="c817511f-4c32-49d4-b8e9-195147216353"/>
+				<box>
+					<pen lineColor="#EDEDED"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ind_rel_par4}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="30" uuid="8361a447-e264-4591-aa4a-ff10448acf6a"/>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA[$P{pParParam}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoPaisagem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="300" y="0" width="102" height="12" uuid="8a9c4ed1-ee68-4cf9-858c-640c235d1e65">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{valor_01}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="0" width="100" height="12" uuid="95cffcc7-578d-446d-9bca-e17593c51a29">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{valor_02}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="0" width="100" height="12" uuid="a6173366-ef3d-451f-8e93-10be183c668f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{valor_03}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="602" y="0" width="100" height="12" uuid="24b27711-180c-446c-ad7d-a30f35da5ba9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{valor_04}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="0" width="100" height="12" uuid="329a3030-1844-4337-ac75-5a721fda7ce8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{valor_05}.doubleValue())]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="712" height="18" uuid="d7b4cad8-0e9e-4b42-8ffb-4176ae2db276">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["report0023"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement positionType="Float" x="712" y="0" width="50" height="18" uuid="04623533-ce0b-4faa-9e9f-e5b6705116bd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="0" width="40" height="18" uuid="774e09d4-764a-4990-91da-495d49102ab9">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="13">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="12" backcolor="#F0F0F0" uuid="a1e121a9-8c57-4639-9a82-c592f5ad5a34"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="200" y="1" width="100" height="12" uuid="492f4e4a-58ee-4bd3-be91-05d9c509d7fc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Geral:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="1" width="102" height="12" uuid="6792f8e6-4f87-47e9-ab00-8615af74218c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_05SumReport}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="1" width="100" height="12" uuid="8d287324-ba1c-4044-8cdb-334e07beeb68">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_04SumReport}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="1" width="100" height="12" uuid="a3be3bb3-b59e-4547-a765-4c83997d83ab">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_03SumReport}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="602" y="1" width="100" height="12" uuid="12d4159c-c0c5-43f1-9f80-cc33c2c5f054">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_02SumReport})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="1" width="100" height="12" uuid="d0e3d6cc-6b6a-4057-af07-7fbbbe2240c5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{valor_01SumReport}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="200" y="0" width="602" height="1" uuid="390412fe-ff99-4d66-aee8-f8c32c03467f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

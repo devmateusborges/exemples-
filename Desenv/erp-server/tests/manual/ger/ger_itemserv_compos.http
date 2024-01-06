@@ -1,0 +1,68 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+ 
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/geritemservcompos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+POST {{HOSTAPI}}/api/geritemservcompos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+ "ativo": "S",
+  "fator_mult": "12",
+  "ger_itemserv_compos_tipo_id": "476a31ce-1052-4499-b76a-3c71be5fdc10",
+  "ger_itemserv_id_de": "5b4c9db5-57af-4af3-9975-32d5cebdadc2",
+  "ger_itemserv_id_para": "5b4c9db5-57af-4af3-9975-32d5cebdadc2",
+  "observacao": "tst",
+  "ordem": "tst",
+  "qnt_altura": "12",
+  "qnt_compos": "12",
+  "qnt_comprimento": "12",
+  "qnt_largura": "12",
+  "unit_id":"117bc5eb-2185-4b10-bcdc-9eb20ad534e1"
+}
+
+
+### 
+
+
+
+POST {{HOSTAPI}}/api/geritemservcompos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+ "ativo": "",
+  "fator_mult": "",
+  "ger_itemserv_compos_tipo_id": "",
+  "ger_itemserv_id_de": "",
+  "ger_itemserv_id_para": "",
+  "observacao": "",
+  "ordem": "",
+  "qnt_altura": "",
+  "qnt_compos": "",
+  "qnt_comprimento": "",
+  "qnt_largura": "",
+  "unit_id":""
+}
+
+### 
+
+
+

@@ -1,0 +1,75 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+POST {{HOSTAPI}}/api/auth/sysplan HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"admin",
+    "login":"admin7",
+    "password":"123",
+    "email":"admin7@admin.com"
+}
+
+### 
+
+
+  
+GET {{HOSTAPI}}/api/sysplan HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/sysplan HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+{
+  
+    "description": "Plano Free",
+
+    "name": "FreXXe",
+    "sys_id": "e8329d00-443f-4c03-8e73-c161f0d4f37d",
+    "type_plan": "FR"
+  
+}
+
+
+### 
+
+
+POST {{HOSTAPI}}/api/sysplan HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+{
+    "description": "Plano Free",
+    "id": "d5dbbee6-c2ed-4d3c-b1d2-b6c9ab561103",
+    "name": "Free",
+    "sys_id": "e8329d00-443f-4c03-8e73-c161f0d4f37d",
+    "type_plan": "FR"
+}
+
+
+
+

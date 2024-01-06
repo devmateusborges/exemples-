@@ -1,0 +1,66 @@
+ DROP VIEW If EXISTS vwfin_pagrec_geral;
+
+ create or replace view vwfin_pagrec_geral as
+  SELECT t1.unit_id AS fin_pagrec_unit_id,
+    t1.id AS fin_pagrec_id,
+    t1.fin_cond_pagrec_id,
+    t3.nome AS fin_cond_pagrec_nome,
+    t3.ativo AS fin_cond_pagrec_ativo,
+		fnstd('SN', 'default', t3.ativo) AS fin_cond_pagrec_ativo_desc,
+    t3.sigla_cond_pagamento AS fin_cond_pagrec_sigla_cond_pagamento,
+		t3.sigla_cond_pagamento||' - '||t3.nome AS fin_cond_pagrec_sigla_cond_pagamento_desc,
+    t1.numero_parc_total AS fin_pagrec_numero_parc_total,
+		t1.tipo_es AS fin_pagrec_tipo_es,
+    fnstd('default', 'tipo_es', t1.tipo_es) AS fin_pagrec_tipo_es_desc,
+    t1.data_mov AS fin_pagrec_data_mov,
+    t1.fin_pagrec_tipo_id,
+    t2.nome AS fin_pagrec_nome,
+    t2.ativo AS fin_pagrec_ativo,
+		fnstd('SN', 'default', t2.ativo) AS fin_pagrec_ativo_desc,
+    t1.numero_doc_pagrec AS fin_pagrec_numero_doc_pagrec,
+    t1.ger_pessoa_id,
+    t4.nome AS ger_pessoa_nome,
+    t4.razao_social AS ger_pessoa_razao_social,
+    t4.doc_cpf AS ger_pessoa_cpf,
+    t4.doc_cnpj AS ger_pessoa_cpnj,
+		fnutil_formatcpfcnpj(t4.id, TRUE) as ger_pesso_doc_cpf_cnj_desc,
+    t4.ativo AS ger_pessoa_ativo,
+		fnstd('SN', 'default',t4.ativo) AS ger_pessoa_ativo_desc,
+    t4.sigla_pes AS ger_pessoa_sigla_pes,
+    (((t4.sigla_pes)::text || '-'::text) || (t4.nome)::text) AS ger_pessoa_desc,
+    t1.ger_pessoa_id_pagrec,
+    t5.nome AS ger_pessoa_pagrec_nome,
+    t5.razao_social AS ger_pessoa_pagrec_razao_social,
+    t5.doc_cpf AS ger_pessoa_pagrec_cpf,
+    t5.doc_cnpj AS ger_pessoa_pagrec_cpnj,
+		fnutil_formatcpfcnpj(t5.id, TRUE) as ger_pessoa_pagrec_cpnj_desc,
+    t5.ativo AS ger_pessoa_pagrec_ativo,
+		fnstd('SN', 'default', t5.ativo) AS ger_pessoa_pagrec_ativo_desc,
+    t5.sigla_pes AS ger_pessoa_pagrec_sigla_pes,
+    (((t5.sigla_pes)::text || '-'::text) || (t5.nome)::text) AS ger_pessoa_pagrec_desc,
+    t6.id AS fin_pagrec_parc_id,
+    t6.numero_parc AS fin_pagrec_parc_numero_parc,
+    t6.fin_doc_tipo_id,
+    t7.nome AS fin_doc_tipo_nome,
+    t7.ativo AS fin_doc_tipo_ativo,
+    fnstd('SN', 'default',t7.ativo) AS fin_doc_tipo_ativo_desc,		
+    t6.valor_pagrec AS fin_pagrec_parc_valor_pagrec,
+    t6.valor_juro AS fin_pagrec_parc_valor_juro,
+    t6.valor_desconto AS fin_pagrec_parc_valor_desconto,
+    t6.valor_multa AS fin_pagrec_parc_valor_multa,
+    t6.data_venc AS fin_pagrec_parc_data_venc,
+    t1.log_user_ins,
+    t1.log_user_upd,
+    t1.log_date_ins,
+    t1.log_date_upd,
+    t8.id AS ger_empresa_id,
+    t8.nome AS ger_empresa_nome,
+    t8.razao_social AS ger_empresa_razao_social
+   FROM (((((((fin_pagrec t1
+     JOIN fin_pagrec_parc t6 ON (((t1.id)::text = (t6.fin_pagrec_id)::text)))
+     JOIN fin_doc_tipo t7 ON (((t6.fin_doc_tipo_id)::text = (t7.id)::text)))
+     LEFT JOIN fin_pagrec_tipo t2 ON (((t1.fin_pagrec_tipo_id)::text = (t2.id)::text)))
+     LEFT JOIN fin_cond_pagrec t3 ON (((t1.fin_cond_pagrec_id)::text = (t3.id)::text)))
+     LEFT JOIN ger_pessoa t4 ON (((t1.ger_pessoa_id)::text = (t4.id)::text)))
+     LEFT JOIN ger_pessoa t5 ON (((t1.ger_pessoa_id_pagrec)::text = (t5.id)::text)))
+     LEFT JOIN ger_empresa t8 ON (((t1.ger_empresa_id)::text = (t8.id)::text)));

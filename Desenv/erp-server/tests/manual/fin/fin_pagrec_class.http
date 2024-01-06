@@ -1,0 +1,48 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finpagrecclass HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finpagrecclass HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+ "data_valid": "15/05/2001",
+  "fator_rat": "5",
+  "fin_class_id": "2e481d4e-1144-43d4-8577-d427a8282694",
+  "fin_pagrec_banco_id": "842fc16d-23e6-4a45-a901-6aaa2f4effd0",
+  "fin_pagrec_id": "1e91aef1-2d96-4d4d-9fd2-5605d2554f4a",
+  "perc_rat": "5",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+  "valor": "12"
+}
+
+
+### 
+
+
+
+

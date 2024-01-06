@@ -1,0 +1,46 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finpagrecparcvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finpagrecparcvar HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "data_valid":"12/05/2022",
+  "fin_pagrec_parc_id":"1af3e9bc-6dae-4270-96f8-eb7e40a1c720",
+  "fin_tipo_variacao_id":"2c09917f-d9f9-4251-8b73-d364cceb5401",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+  "valor":"5"
+  
+}
+
+
+### 
+
+
+
+

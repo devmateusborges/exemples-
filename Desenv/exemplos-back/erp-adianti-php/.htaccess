@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#AUTH routes
+RewriteRule ^auth/([A-Za-z0-9]*)/([A-Za-z0-9]*)/([A-Za-z0-9]*)$ rest.php?class=ApplicationAuthenticationRestService&method=getToken&login=$1&password=$2&pConn=$3&%{QUERY_STRING} [NC]
+
+
+#RESTFUL routes
+RewriteRule ^rest-system-user/([A-Za-z0-9]*)$ rest.php?class=RestSystemUserService&method=handle&id=$1&%{QUERY_STRING} [NC]
+RewriteRule ^rest-system-user/([A-Za-z-_0-9]*)/([A-Za-z-_0-9]*)$ rest.php?class=RestSystemUserService&method=$2&id=$1&%{QUERY_STRING} [NC]
+RewriteRule ^rest-system-user$ rest.php?class=RestSystemUserService&method=handle&%{QUERY_STRING} [NC]

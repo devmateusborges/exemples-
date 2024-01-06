@@ -1,0 +1,7 @@
+build
+node_modules
+.env.development
+.env
+package-lock.json
+.vscode
+/src/styles/layout.css.map

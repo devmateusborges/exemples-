@@ -1,0 +1,46 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"818a3725-b547-4111-800c-932c2d03dfa1"
+}
+###
+
+
+GET {{HOSTAPI}}/api/finclassagrupgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finclassagrupgrupo HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "fin_class_agrup_id": "6f48402d-1812-464f-b5e5-588ff3e1ff71",
+  "fin_class_grupo_id": "d0506271-193b-4304-abc5-8a3aa2944ba3",
+  "fin_class_id": "2e481d4e-1144-43d4-8577-d427a8282694",
+  "unit_id":"818a3725-b547-4111-800c-932c2d03dfa1"
+
+  
+}
+
+
+### 
+
+
+
+

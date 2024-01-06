@@ -1,0 +1,51 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+####
+POST {{HOSTAPI}}/api/sys/sysuser HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "active": "S",
+  "email": "spekytro68@gmail.com",
+  "login": "admin22",
+  "name": "TST",
+  "password": "123",
+  "active_message":"S",
+  "admin":"S",
+  "chat":"S",
+  "document":"S",
+  "email_verified":"S",
+  "image_url":"S",
+  "login_ext":"S",
+  "origem":"1",
+  "phone":"S",
+  "provider":"S",
+  "provider_code":"S",
+  "gtm_default" : "TST1",
+   "sys_tran_lang_id_default_id":"3fdd972d-918c-44ac-9ea0-50efa9717c6c"
+
+}
+
+
+### 
+
+GET {{HOSTAPI}}/api/sys/sysuser HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}

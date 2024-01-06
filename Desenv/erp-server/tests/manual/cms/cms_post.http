@@ -1,0 +1,81 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/cms/cmspost/?ppage=1&pper_page=10&pfilters={"filter" : {"or" : {"titulo":{"like" : "%%"},"corpo":{"like" : "%%"}}},"sort" :{ "titulo" : "desc" }} HTTP/1.1
+Content-Type: application/json
+x-lang: pt-BR
+
+
+2023-01-12 14:43:13
+###
+
+
+GET {{HOSTAPI}}/api/cms/cmspost?ppage=1&pper_page=10&pfilters={"filter" : {"or" : {"codigo":{"titulo" : "%%"},"titulo":{"like" : "%%"}},"and":{"corpo":{"like" : "%"}}}, "sort": { "titulo" : "desc" } } HTTP/1.1
+Content-Type: application/json
+x-lang: pt-BR
+
+
+
+###
+
+POST {{HOSTAPI}}/api/cms/cmspost HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "titulo": "TESTE [CRUD]",
+    "tipo_render": "M",
+    "favorito": "S",
+    "status": "C",
+    "sys_user_id": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+    "util_blog": "S",
+    "util_depoimento": "S",
+    "corpo": "teste de desenvolvimento",
+    "util_help": "S",
+    "util_treinamento": "S",
+    "img_url": []
+}
+###
+
+POST {{HOSTAPI}}/api/cms/cmspost HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "titulo": "TEST DEV",
+    "tipo_render": "M",
+    "favorito": "S",
+    "status": "C",
+    "sys_user_id": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+    "util_blog": "S",
+    "util_depoimento": "S",
+    "corpo": "teste de desenvolvimento",
+    "util_help": "S",
+    "util_treinamento": "S",
+    "cms_post_tag_childs":[{
+        "cms_tag_id": "39a7cf93-5f2d-4078-b613-2a7f15b2619b"
+    }],
+    "cms_post_grupo_childs":[{
+        "cms_grupo_id":"9c897760-aa3f-4af7-8eb1-e081a7a4a921"
+    }]
+}
+
+ 

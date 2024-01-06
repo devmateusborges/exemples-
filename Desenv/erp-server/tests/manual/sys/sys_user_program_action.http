@@ -1,0 +1,44 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+####
+
+POST {{HOSTAPI}}/api/sys/sysuserprogramaction HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "sys_user_id": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+  "sys_program_action_id": "f0d3148c-0767-4097-bcd7-c8903b894284",
+  "exclude_action":"N"
+}
+
+
+### 
+
+GET {{HOSTAPI}}/api/sys/sysuserprogramaction/1e04ec99-cb34-4a3c-b455-24879cbc4223 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+### 
+
+GET {{HOSTAPI}}/api/sys/sysuserprogramaction HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+### 
+
+DELETE {{HOSTAPI}}/api/sys/sysuserprogramaction/1e04ec99-cb34-4a3c-b455-24879cbc4223 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}

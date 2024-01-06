@@ -1,0 +1,60 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+POST {{HOSTAPI}}/api/tst/test1fk/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{   
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "codigo": "6",
+    "descricao": "COD5",
+    "tipo_test1":"10"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/tst/test1fk HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+
+GET {{HOSTAPI}}/api/tst/test1fk?ppage=1&pper_page=10&pfilters={"filter" : {"and" : {"descricao":{"like" : "%"}}},"or":{"id":"1"}, "sort": { "codigo" : "asc" } } HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+### 
+
+
+GET {{HOSTAPI}}/api/tst/test1fk/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+### 
+
+
+GET https://62d9a6275d893b27b2eaf83c.mockapi.io/api/v1/test1 HTTP/1.1
+Content-Type: application/json
+
+

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0003" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3525d61-f6c8-4998-8fc3-625e35a62a57">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<subDataset name="Dataset1" uuid="49abda25-a781-4790-a418-2edf3ff33694">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RfDados_Aws_EC2"/>
+		<queryString language="SQL">
+			<![CDATA[select * from system_unit]]>
+		</queryString>
+		<field name="id" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="sys_user_id" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="system_user_id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="sigla_unit" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="sigla_unit"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="log_user_ins" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="log_user_ins"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="log_date_ins" class="java.sql.Timestamp">
+			<property name="com.jaspersoft.studio.field.label" value="log_date_ins"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="log_user_upd" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="log_user_upd"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+		<field name="log_date_upd" class="java.sql.Timestamp">
+			<property name="com.jaspersoft.studio.field.label" value="log_date_upd"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+		</field>
+	</subDataset>
+	<parameter name="pParUserName" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUserEmail" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUserActive" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUnitName" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUnitSigla" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA["(SYS) - USUÁRIOS > UNIDADE"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUserId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Admin"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2a46c160-47e7-4bc7-9477-fab5b82e346a"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select Suser.id as sys_user_id, 
+			Suser.name as sys_user_name, 
+			 Suser.email as sys_user_email,
+			 Suser.active as sys_user_active,
+			 Suser.phone as sys_user_phone,
+			 Suser.document as sys_user_document,
+			 Sunit.id as sys_unit_id,
+			 Sunit.name as sys_unit_name,
+			 Sunit.sigla_unit as sys_unit_sigla
+from sys_user_unit Sus
+ inner join sys_user Suser
+ on Suser.id = Sus.sys_user_id
+ inner join sys_unit Sunit
+ on Sunit.id = Sus.unit_id
+ where Suser.id like $P{pParUserId}
+ and Lower(Suser.name) like Lower($P{pParUserName})
+and Lower(Suser.email) like Lower($P{pParUserEmail})
+and Lower(Suser.active) like Lower($P{pParUserActive})
+and Sunit.id like $P{pParUnitId}
+and Lower(Sunit.name) like Lower($P{pParUnitName})
+and Lower(Sunit.sigla_unit) in (select Lower(fnutil_table_id($P{pParUnitSigla},Sunit.sigla_unit)))
+ ORDER BY Suser.id,
+ 			 Suser.name, 
+			 Suser.email,
+			 Suser.active,
+			 Suser.phone,
+			 Suser.document,
+			 Sunit.id,
+			 Sunit.name,
+			 Sunit.sigla_unit]]>
+	</queryString>
+	<field name="sys_user_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_user"/>
+	</field>
+	<field name="sys_user_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_user"/>
+	</field>
+	<field name="sys_user_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_email"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_user"/>
+	</field>
+	<field name="sys_user_active" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_active"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_active"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_user"/>
+	</field>
+	<field name="sys_user_phone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_phone"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_phone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_user"/>
+	</field>
+	<field name="sys_user_document" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_user_document"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_user_document"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_user"/>
+	</field>
+	<field name="sys_unit_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_unit_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_unit_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="sys_unit_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_unit_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_unit_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<field name="sys_unit_sigla" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="system_unit_sigla"/>
+		<property name="com.jaspersoft.studio.field.label" value="system_unit_sigla"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="system_unit"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{sys_user_id}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="800" height="12" backcolor="#EDEDED" uuid="5a4ee161-0055-4b93-951e-ea1b3d5ba144">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textField>
+						<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="35" y="0" width="85" height="12" uuid="5b3f7a6b-e1d6-4beb-b6af-154d7d7d890c">
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$F{sys_user_name}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="425" y="0" width="105" height="12" uuid="a2bbf290-3ed1-4263-9c04-59612ddfc0c6">
+							<printWhenExpression><![CDATA[$F{sys_user_document} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{sys_user_document}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="574" y="0" width="106" height="12" uuid="4ed2f9ba-688d-4484-a43d-dbff831c5d8e">
+							<printWhenExpression><![CDATA[$F{sys_user_phone} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{sys_user_phone}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="5" y="0" width="30" height="12" isRemoveLineWhenBlank="true" uuid="c40f0cb5-602d-4e1a-9564-c8ccd4a4051b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6574fd4f-bcc2-4220-93c2-68c05422fd54"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="140" y="0" width="30" height="12" isRemoveLineWhenBlank="true" uuid="705d03c0-3c9f-4bee-93f1-817e85660b59">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ativo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="200" y="0" width="30" height="12" isRemoveLineWhenBlank="true" uuid="3f998842-886d-4de6-a2ca-90cccc983ff7">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Email:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="370" y="0" width="55" height="12" isRemoveLineWhenBlank="true" uuid="b6daa6f0-b8e8-442f-a718-10b5c619fc53">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Documento:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="530" y="0" width="43" height="12" isRemoveLineWhenBlank="true" uuid="ca1f239e-9b2c-4e07-a59e-1e765d9359b7">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Telefone:]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="170" y="0" width="30" height="12" uuid="f7c4da85-a278-4bef-950e-c3cce1c5768f">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{sys_user_active}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="230" y="0" width="130" height="12" uuid="bd53e71f-0284-49b0-90ce-80aac150cb84">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{sys_user_email}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="780" height="40" uuid="c9d85078-b185-4891-b436-c4c5b1dbe4f8"/>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA["[{#pParUserName#:#"+$P{pParUserName}+"#},"+"{#pParUserEmail#:#"+$P{pParUserEmail}+"#},"+"{#pParUserActive#:#"+$P{pParUserActive}+"#},{#pParUnitName#:"+"#"+$P{pParUnitName}+"#},"+"{#pParUnitSigla#:#"+$P{pParUnitSigla}+"#}]"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath} + "baseCabecalhoPaisagem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="48">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="1" width="800" height="46" isRemoveLineWhenBlank="true" uuid="5aedeacc-4169-406f-a3e4-4191ad2f5479">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParUserId">
+					<subreportParameterExpression><![CDATA[$F{sys_user_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath} +"report0003SysUnit.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="19" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="710" y="0" width="50" height="18" uuid="6bb90af5-8e97-4122-85ba-e08d5f8e97fa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="760" y="0" width="40" height="18" uuid="32a79335-e5d0-46eb-befb-7a19d0799e8b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="710" height="19" uuid="e74118f5-95ff-41bc-b071-68f13e8838d4"/>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["report0003"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapePaisagem.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>

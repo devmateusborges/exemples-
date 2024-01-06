@@ -1,0 +1,22 @@
+@AUTHBASIC= Basic 123
+@HOSTAPI=http://localhost:3000
+
+###
+
+POST {{HOSTAPI}}/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstname":"Eduardo",
+    "lastname":"Junqueira",
+    "email":"junqueira@gmail.com.br",
+    "username":"eduardo3",
+    "password":"123"
+}
+
+###
+
+GET  {{HOSTAPI}}/users HTTP/1.1
+
+
+###

@@ -1,0 +1,52 @@
+
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/ctb/ctblanc HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/ctb/ctblanc HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "ctb_historico_id": "b2ac2974-08fd-47b9-aa06-5693dbd81fee",
+  "ctb_lote_id": "513c6959-d57a-47e6-8438-1a8566dd99ca",
+  "ctb_versao_id": "1822fdaa-2681-4ba6-b1e5-955256da3e50",
+  "data_lanc": "12/05/2022",
+  "ger_empresa_id": "c0979f4a-44f6-4de1-81ab-f26be9cc2c0a",
+  "historico": "tst",
+  "numero_lanc": "5",
+  "status": "PD",
+  "status_observacao": "tst",
+  "f3996813-838e-49af-9649-8dc44e24bc75"
+  
+}
+
+
+### 
+
+
+
+

@@ -1,0 +1,92 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+
+### 
+GET {{HOSTAPI}}/api/gerempresa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+###
+
+POST {{HOSTAPI}}/api/ger/gerempresa HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+  "contato_1": "TST",
+  "contato_2": "TST",
+  "contato_3": "TST",
+  "data_abertura": "12/05/2021",
+  "data_validade_a1": "12/05/2022",
+  "data_validade_a3": "12/05/2022",
+  "doc_cnae": "TST",
+  "doc_cnpj": "TST",
+  "doc_cpf": "TST",
+  "doc_ie": "TST",
+  "doc_im": "TST",
+  "doc_junta": "TST",
+  "doc_rntrc": "TST",
+  "email_1": "TST",
+  "end_bairro": "TST",
+  "end_cep": "TSt",
+  "end_complemento": "TST",
+  "end_ger_cidade_id": "e1a04a0a-6eda-4339-8dff-dc58f6995b01",
+  "end_logradouro": "TST",
+  "end_logradouro_nr": "tst",
+  "fis_dfe_ambiente": "t",
+  "fis_dfe_api_token": "sts",
+  "fis_incent_cultura": "S",
+  "fis_incent_fiscal_nfs": "S",
+  "fis_provedor_nfs": "1",
+  "fis_regime": "1",
+  "fis_regime_trib_nfs": "5",
+  "fone_1": "tst",
+  "fone_2": "tst",
+  "fone_3": "sts",
+  "ger_empresa_grupo_id": "4a8226e8-94ff-40dc-a90b-dc694c8916f2",
+  "nome": "sts",
+  "razao_social": "stt",
+  "sigla_empresa": "st",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "ativo":"S",
+  "fis_certificado_id": "503f3785-3877-4018-aea0-3dae000d3fd3",
+  "ger_empresa_param_childs": [{
+        "observacao": "TST1",
+        "dt_valid_inicial": "29/12/2001",
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75"
+  }],
+  "ger_empresa_pessoa_childs": [{
+        "tipo": "1",
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "ger_pessoa_id": "812e91bd-2a43-45b8-8ec5-eba6c8ddbaa9",
+        "observacao": "TST1"
+  }]
+  
+
+}
+
+### 
+Delete {{HOSTAPI}}/api/gerempresa/22e83617-389b-4335-b0a5-1822e83beb29 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+### 
+
+
+

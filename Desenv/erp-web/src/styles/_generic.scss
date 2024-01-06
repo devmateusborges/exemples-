@@ -1,0 +1,17 @@
+.border-round-md {
+  border-radius: $borderRadius !important;
+}
+
+.bgBlueH {
+  background: $colorBlueH
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+}

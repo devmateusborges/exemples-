@@ -1,0 +1,26 @@
+
+POST http://localhost:3000/inputpg
+content-type: application/json
+
+{
+    "name":"xxxxxffff"
+}
+
+###
+
+POST http://localhost:3000/inputmg
+content-type: application/json
+
+{
+    "name":"xxxxxffff"
+}
+
+###
+
+POST https://zuhi5a9ux3.execute-api.sa-east-1.amazonaws.com/v1/input
+
+{
+    "name":"xxxx"
+}
+
+###

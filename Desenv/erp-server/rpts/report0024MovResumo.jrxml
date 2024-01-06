@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0024MovResumo" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="822" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="20" uuid="87686fa1-0881-45eb-a323-3609454eb9a9">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParUnitId" class="java.lang.String"/>
+	<parameter name="pParMovlId" class="java.lang.String"/>
+	<parameter name="pParMovNr" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select
+	t1.id,
+	t3.sigla_pes ,
+	t3.nome as nome_pessoa,
+	fnutil_formatcpfcnpj(t3.id, True) as doc_cnpj_cpf_pessoa,
+	sum(t1.valor_total_cot) as valor_total_cot,
+	sum(t1.valor_desc_cot) as  valor_desc_cot,
+	sum(t1.valor_frete_cot) as valor_frete_cot,
+	sum(t1.valor_outro_cot) as valor_outro_cot,
+	sum(t1.valor_outro_cot) as valor_outro_cot,
+	sum(t1.valor_total_trib_cot) as valor_total_trib_cot,
+	t1.status,
+	t2.numero_mov,
+	t5.nome,
+	t7.nome as nome_cidade,
+	t8.sigla_uf as uf_cidade
+	
+from mov_cotacao t1
+inner join mov t2
+on t2.id = t1.mov_id
+inner join ger_pessoa t3
+on t1.ger_pessoa_id = t3.id
+inner join ger_itemserv t4
+on t1.ger_itemserv_id = t4.id
+inner join fin_cond_pagrec t5
+on t1.fin_cond_pagrec_id = t5.id
+left join ger_pessoa_endereco t6
+on t1.ger_pessoa_endereco_id = t6.id
+left join ger_cidade t7
+on t6.end_ger_cidade_id = t7.id
+left join ger_uf t8
+on  t7.ger_uf_id = t8.id
+
+where t1.unit_id = $P{pParUnitId}
+and t1.mov_id like $P{pParMovlId}
+and 	t2.numero_mov::text like $P{pParMovNr} 
+and t1.status = 'A'
+
+group by
+	t1.id,
+	t3.sigla_pes,
+	t3.nome,
+	t3.id,
+	t1.valor_total_cot,
+	t1.valor_desc_cot,
+	t1.valor_frete_cot,
+	t1.valor_outro_cot,
+	t1.valor_outro_cot,
+	t1.valor_total_trib_cot,
+	t1.status,
+	t2.numero_mov,
+	t5.nome,
+	t7.nome,
+	t8.sigla_uf
+
+order by 	t2.numero_mov,t3.sigla_pes asc]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[ID do Cotação do Movimento]]></fieldDescription>
+	</field>
+	<field name="sigla_pes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla_pes"/>
+		<property name="com.jaspersoft.studio.field.label" value="sigla_pes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+		<fieldDescription><![CDATA[Sigla]]></fieldDescription>
+	</field>
+	<field name="nome_pessoa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_pessoa"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_pessoa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pessoa"/>
+	</field>
+	<field name="doc_cnpj_cpf_pessoa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="doc_cnpj_cpf_pessoa"/>
+		<property name="com.jaspersoft.studio.field.label" value="doc_cnpj_cpf_pessoa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="vwger_pessoa"/>
+	</field>
+	<field name="valor_total_cot" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valor_total_cot"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_total_cot"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[Valor Total]]></fieldDescription>
+	</field>
+	<field name="valor_desc_cot" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valor_desc_cot"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_desc_cot"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[Valor Desconto]]></fieldDescription>
+	</field>
+	<field name="valor_frete_cot" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valor_frete_cot"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_frete_cot"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[Valor Frete]]></fieldDescription>
+	</field>
+	<field name="valor_outro_cot" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valor_outro_cot"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_outro_cot"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[Valor Outros]]></fieldDescription>
+	</field>
+	<field name="COLUMN_9" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valor_outro_cot"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_outro_cot"/>
+	</field>
+	<field name="valor_total_trib_cot" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="valor_total_trib_cot"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_total_trib_cot"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[Valor Total de Tributos]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov_cotacao"/>
+		<fieldDescription><![CDATA[Status: P-Pendente, A-Aprovado, C-Cancelado]]></fieldDescription>
+	</field>
+	<field name="numero_mov" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="numero_mov"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero_mov"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="mov"/>
+		<fieldDescription><![CDATA[Numero do Movimento]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_cond_pagrec"/>
+		<fieldDescription><![CDATA[Nome]]></fieldDescription>
+	</field>
+	<field name="nome_cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_cidade"/>
+	</field>
+	<field name="uf_cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="uf_cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="uf_cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_uf"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{numero_mov}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<staticText>
+					<reportElement x="0" y="6" width="802" height="14" uuid="43bda4f7-519b-47cd-ac11-f18e37a01f9a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fornecedores Aprovados]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="20" width="401" height="11" uuid="69345bc4-9d30-4cfb-851e-99aae37a945a">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textField>
+						<reportElement x="1" y="-1" width="63" height="11" uuid="e6cdd481-2e06-4fd4-ae0b-25dd743c7806">
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" Sigla"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="66" y="0" width="234" height="11" uuid="fff374a1-7163-4d20-aff1-db36ff94b03e">
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" Pessoa"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="301" y="0" width="100" height="11" uuid="597ea0e4-9f6d-4f5f-bc49-d77a03d6ae48">
+							<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Nº Cotação"]]></textFieldExpression>
+					</textField>
+					<line>
+						<reportElement x="65" y="-1" width="1" height="11" uuid="f0e44892-8ac6-4550-b7c1-d57295e60fbd">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+					</line>
+					<line>
+						<reportElement x="300" y="0" width="1" height="11" uuid="35ac9a56-c5cd-405c-9fc2-8ccf3d3cc769">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+					</line>
+				</frame>
+				<frame>
+					<reportElement x="401" y="20" width="401" height="11" uuid="459b022f-d85e-40fa-9e96-c27b078e66b5">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textField>
+						<reportElement x="1" y="0" width="160" height="11" uuid="d2032055-5850-47ca-b074-9ef394906388">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" Cidade"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="161" y="0" width="123" height="11" uuid="afd07f67-f9d8-4020-8d15-1a9c43632789">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["VR. Aprovado"+"  "]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="285" y="0" width="115" height="11" uuid="8041c52d-302e-4577-bd0d-190beee2d852">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" Cond Pgto"]]></textFieldExpression>
+					</textField>
+					<line>
+						<reportElement x="161" y="0" width="1" height="11" uuid="1fdc10ad-0886-43a9-ae36-f202de620d31"/>
+					</line>
+					<line>
+						<reportElement x="284" y="0" width="1" height="11" uuid="64816149-0fb5-40be-9fab-da31efa132ef">
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+					</line>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="401" height="11" uuid="3c93dc6d-4b02-4d7c-817e-d1414d1d4364">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textField>
+					<reportElement x="66" y="0" width="234" height="11" uuid="0c1d053f-f27e-4073-8d2b-62e80e9d0c73">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{nome_pessoa}+" - "+$F{doc_cnpj_cpf_pessoa}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1" y="0" width="64" height="11" uuid="b122e5d3-a5f6-4cb6-a341-3d59e2f46c25">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{sigla_pes}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="65" y="0" width="1" height="11" uuid="2f025628-9af7-4f09-8d94-5514f71a7b07">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement x="300" y="0" width="1" height="11" uuid="07281ca4-01f1-4bd6-8d4f-12e916760594">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+				<textField>
+					<reportElement x="301" y="0" width="100" height="11" uuid="4b000893-30c2-45df-954a-2ec707f6018d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{numero_mov}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="401" y="0" width="401" height="11" uuid="ad8f0ba4-7b18-4190-b868-c8d3d5e18cd5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textField>
+					<reportElement x="1" y="0" width="160" height="11" uuid="9e4cb81d-6a42-454e-9e41-3ee63bc6fd9e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{nome_cidade}+" - "+$F{uf_cidade}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="161" y="0" width="1" height="11" uuid="a8e14773-5fc2-4166-bb77-236221500d69"/>
+				</line>
+				<line>
+					<reportElement x="284" y="0" width="1" height="11" uuid="d9a31b3d-0f04-4460-9638-073ddd0ca4d8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+				<textField>
+					<reportElement x="286" y="0" width="114" height="11" uuid="e1df97d8-008d-4aba-838b-25c959775dee">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" "+$F{nome}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="162" y="0" width="122" height="11" uuid="c20d00f0-1f34-4afc-bce4-fb4902b536c4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("R$ #,##0.00").format($F{valor_total_cot})+"  "]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

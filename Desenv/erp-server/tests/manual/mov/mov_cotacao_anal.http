@@ -1,0 +1,194 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/movcotacaoanal HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/movcotacaoanal HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "c05_valor_frete_cot": "5",
+    "c06_observacao2": "tst",
+    "c05_valor_total_cot": "5",
+    "c06_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c08_observacao2": "tst",
+    "c02_qnt_cot": "5",
+    "c04_qnt_cot": "5",
+    "c02_status": "t",
+    "c05_qnt_cot": "5",
+    "c01_sys_user_id_aprov": "43fabc70-5a3e-4766-912c-64b0294308f2",
+    "c08_valor_unit_cot": "5",
+    "c10_status": "t",
+    "c03_valor_desc_cot": "5",
+    "c09_valor_total_trib_cot": "5",
+    "c09_data_status": "15/07/2001",
+    "c04_valor_frete_cot": "5",
+    "c03_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c04_valor_total_cot": "5",
+    "c05_status": "t",
+    "c07_observacao1": "tst",
+    "c08_valor_total_cot": "5",
+    "c06_sys_user_id_aprov": "43fabc70-5a3e-4766-912c-64b0294308f2",
+    "c10_valor_desc_cot": "5",
+    "c07_sys_user_id_aprov": "43fabc70-5a3e-4766-912c-64b0294308f2",
+    "c08_valor_total_trib_cot": "5",
+    "c10_valor_total_trib_cot": "5",
+    "c07_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c07_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c01_observacao2": "tst",
+    "c07_valor_outro_cot": "5",
+    "c10_valor_total_cot": "5",
+    "c05_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c09_qnt_cot": "5",
+    "c03_status": "t",
+    "c03_observacao2": "tst",
+    "c10_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c03_qnt_cot": "5",
+    "c02_sys_user_id_aprov": "43fabc70-5a3e-4766-912c-64b0294308f2",
+    "c07_observacao2": "tst",
+    "c01_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c02_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c04_valor_total_trib_cot": "5",
+    "c08_observacao1": "tst",
+    "c10_qnt_cot": "5",
+    "c04_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c07_valor_frete_cot": "5",
+    "c04_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c04_data_status": "15/07/2001",
+    "c03_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c07_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c01_valor_unit_cot": "5",
+    "c03_valor_total_trib_cot": "5",
+    "c02_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c04_status": "t",
+    "c09_valor_outro_cot": "5",
+    "c02_valor_total_cot": "5",
+    "c08_sys_user_id_aprov": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "c01_status": "t",
+    "c04_sys_user_id_aprov": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "c01_data_status": "15/07/2001",
+    "c08_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c03_observacao1": "tst",
+    "c10_observacao1": "tst",
+    "c06_observacao1": "tst",
+    "c06_valor_frete_cot": "5",
+    "c08_qnt_cot": "5",
+    "c08_data_status": "15/07/2001",
+    "c09_sys_user_id_aprov": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "c05_valor_desc_cot": "5",
+    "ger_itemserv_id": "dbafdbe9-2bfc-4898-a3df-5089c6d0872c",
+    "c09_observacao2": "tst",
+    "c06_valor_total_trib_cot": "5",
+    "c09_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c08_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c05_data_status": "15/07/2001",
+    "mov_id": "e08fc5de-5ac5-4c54-8df0-01082a83917f",
+    "c06_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c04_observacao2": "tst",
+    "c09_valor_unit_cot": "5",
+    "c02_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c05_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c05_observacao1": "tst",
+    "c06_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c08_valor_outro_cot": "5",
+    "c03_sys_user_id_aprov": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "c04_valor_outro_cot": "5",
+    "c04_valor_desc_cot": "5",
+    "c09_status": "t",
+    "c10_valor_unit_cot": "5",
+    "c01_valor_frete_cot": "5",
+    "c06_valor_desc_cot": "5",
+    "c10_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c07_status": "t",
+    "c02_observacao2": "tst",
+    "c03_valor_unit_cot": "5",
+    "c04_valor_unit_cot": "5",
+    "c10_observacao2": "tst",
+    "c05_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c01_valor_total_cot": "5",
+    "c02_valor_frete_cot": "5",
+    "c07_valor_desc_cot": "5",
+    "c01_valor_total_trib_cot": "5",
+    "c02_valor_total_trib_cot": "5",
+    "c08_valor_frete_cot": "5",
+    "c01_qnt_cot": "5",
+    "c09_valor_desc_cot": "5",
+    "c03_valor_total_cot": "5",
+    "c07_valor_total_trib_cot": "5",
+    "c06_valor_outro_cot": "5",
+    "c02_valor_outro_cot": "5",
+    "c05_sys_user_id_aprov": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "c03_data_status": "15/07/2001",
+    "c07_valor_unit_cot": "5",
+    "c09_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c01_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c01_valor_desc_cot": "5",
+    "c10_sys_user_id_aprov": "062dddad-4ca3-4956-aa75-6f6cf368b05b",
+    "c09_observacao1": "tst",
+    "c05_valor_total_trib_cot": "5",
+    "c04_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c02_valor_unit_cot": "5",
+    "c02_valor_desc_cot": "5",
+    "c09_valor_total_cot": "5",
+    "c06_valor_unit_cot": "5",
+    "c01_valor_outro_cot": "5",
+    "c05_observacao2": "tst",
+    "c08_status": "t",
+    "c10_valor_frete_cot": "5",
+    "c03_valor_outro_cot": "5",
+    "c10_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c09_valor_frete_cot": "5",
+    "c06_data_status": "15/07/2001",
+    "c08_valor_desc_cot": "5",
+    "c03_valor_frete_cot": "5",
+    "c01_ger_pessoa_endereco_id": "f3c0db0a-a1fd-4b86-81bb-8b7c60674e77",
+    "c07_data_status": "15/07/2001",
+    "c06_qnt_cot": "5",
+    "c06_valor_total_cot": "5",
+    "c02_data_status": "15/07/2001",
+    "c08_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c09_fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+    "c07_qnt_cot": "5",
+    "c02_observacao1": "tst",
+    "c04_observacao1": "tst",
+    "c05_valor_unit_cot": "5",
+    "c05_valor_outro_cot": "5",
+    "c07_valor_total_cot": "5",
+    "c03_ger_pessoa_id": "9030b6b4-d1db-416a-b821-ea570daeb02a",
+    "c06_status": "t",
+    "c10_valor_outro_cot": "5",
+    "c01_observacao1": "tst",
+    "c10_data_status": "15/07/2001"
+ 
+}
+
+
+### 
+
+
+
+

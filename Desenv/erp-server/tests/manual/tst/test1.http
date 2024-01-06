@@ -1,0 +1,256 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/tst/test1 HTTP/1.1
+x-gmt: -3
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+x-unitid: f3996813-838e-49af-9649-8dc44e24bc75
+### 
+
+GET {{HOSTAPI}}/api/tst/test1?ppage=1&pper_page=10&pfilters={"filter" : {"or" : {"codigo":{"like" : "%6%"},"descricao":{"like" : "%6%"}},"and":{"codigo":{"like" : "%"}}}, "sort": { "codigo" : "asc" } } HTTP/1.1
+x-gmt: -3
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+x-unitid: f3996813-838e-49af-9649-8dc44e24bc75
+
+### 
+
+POST {{HOSTAPI}}/api/tst/test1/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+x-unitid: f3996813-838e-49af-9649-8dc44e24bc75
+
+{   
+  "id": "445ee210-ab4c-444c-9a8e-008fe681a54c",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "codigo": "211",
+  "cpfcnpj": "221.560.398-44",
+  "descricao": "hhhhhhxxxcccc",
+  "dt_nascimento": "2022-11-26T00:00:00",
+  "dthr_nascimento": "2002-07-24T01:24:27",
+  "hr_nascimento": "1900-01-01T00:00:00",
+  "quantidade": "13.000000",
+  "valor": "14.000000",
+  "radio": "OPT1",
+  "sys_document_childs": [
+    {
+      "id": "07c71db0-f177-4e27-8606-e66e3859263f",
+      "content_type": "TXT",
+      "filename": "sys_document_childs1.txt",
+      "description": "sys_document_childs 1",
+      "title": "Title1",
+      "code_document":"TSTDOC1",
+      "file64":"CmFwcEJ1dHRvbkRlbGV0ZVZpc2libGVSb3cKYXBwQnV0dG9uRWRpdFZpc2libGVSb3cKYXBwUHJlZmVyZW5jZVZpc2libGUKYXBwRmF2b3JpdGVWaXNpYmxlCmFwcFByb2dyYW1JZD17Q29uc3RQcm9ncmFtVXRpbC5jeHh4eHh9Cg=="
+    }
+
+  ],
+  "test1_childs": [
+    {
+      "id": "e0948caf-4f22-437d-8bc1-fb05d9dd1460",
+      "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+      "codigo": "TST",
+      "quantidade": 10,
+      "valor_total": 10,
+      "valor_unit": 10,
+      "sys_document_foto": [
+        {
+          "id": "07c71db0-f177-4e27-8606-e66e38592635",
+          "content_type": "TXT",
+          "filename": "test1_childs1.txt",
+          "description": "test1_childs 1",
+          "title": "Title1",
+          "code_document":"TSTDOC1",
+          "file64":"CmFwcEJ1dHRvbkRlbGV0ZVZpc2libGVSb3cKYXBwQnV0dG9uRWRpdFZpc2libGVSb3cKYXBwUHJlZmVyZW5jZVZpc2libGUKYXBwRmF2b3JpdGVWaXNpYmxlCmFwcFByb2dyYW1JZD17Q29uc3RQcm9ncmFtVXRpbC5jeHh4eHh9Cg=="
+        }
+      ]
+    }
+  ],
+  "test1a_childs": [
+    {
+      "id": "e0948caf-4f22-437d-8bc1-fb05d9dd1444",
+      "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+      "observacao": "11",
+      "foto_analizada": [
+        {
+          "id": "07c71db0-f177-4e27-8606-e66e38592634",
+          "content_type": "TXT",
+          "filename": "test1a_childs1.txt",
+          "description": "test1a_childs 1",
+          "title": "Title1",
+          "code_document":"TSTDOC1",
+          "file64":"CmFwcEJ1dHRvbkRlbGV0ZVZpc2libGVSb3cKYXBwQnV0dG9uRWRpdFZpc2libGVSb3cKYXBwUHJlZmVyZW5jZVZpc2libGUKYXBwRmF2b3JpdGVWaXNpYmxlCmFwcFByb2dyYW1JZD17Q29uc3RQcm9ncmFtVXRpbC5jeHh4eHh9Cg=="
+        }
+      ]
+    }
+  ]
+}
+### 
+
+
+POST {{HOSTAPI}}/api/auth/redefinepassword HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "login":"11111111",
+  "password": "123",
+  "new_password": "321"
+}
+
+### 
+POST {{HOSTAPI}}/api/tst/test1/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+x-unitid: f3996813-838e-49af-9649-8dc44e24bc75
+
+{
+  "id": "503f3785-3877-4018-aea0-3dae000d3fd3",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "codigo": "99",
+  "cpfcnpj": "221.560.398-44",
+  "descricao": "hh",
+  "dt_nascimento": "2022-11-26T00:00:00",
+  "dthr_nascimento": "2002-07-24T01:24:27",
+  "hr_nascimento": "1900-01-01T00:00:00",
+  "quantidade": "23.000000",
+  "radio": "OPT1",
+  "test1_childs": [
+    {
+      "id": "e0948caf-4f22-437d-8bc1-fb05d9dd1460",
+      "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+      "codigo": "TST",
+      "quantidade": 10,
+      "valor_total": 10,
+      "valor_unit": 10
+    }
+  ],
+  "sys_document_id_obj": [
+    {
+      "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+      "contenttype": "TXT",
+      "filename": "filename1.txt",
+      "description": "Description 1",
+      "title": "Title1",
+      "code_document":"TSTDOC1",
+      "file64":"CmFwcEJ1dHRvbkRlbGV0ZVZpc2libGVSb3cKYXBwQnV0dG9uRWRpdFZpc2libGVSb3cKYXBwUHJlZmVyZW5jZVZpc2libGUKYXBwRmF2b3JpdGVWaXNpYmxlCmFwcFByb2dyYW1JZD17Q29uc3RQcm9ncmFtVXRpbC5jeHh4eHh9Cg=="
+    },
+    {
+      "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+      "contenttype": "TXT",
+      "filename": "filename2.txt",
+      "description": "Description 2",
+      "title": "Title2",
+      "code_document":"TSTDOC2",
+      "file64":"CmFwcEJ1dHRvbkRlbGV0ZVZpc2libGVSb3cKYXBwQnV0dG9uRWRpdFZpc2libGVSb3cKYXBwUHJlZmVyZW5jZVZpc2libGUKYXBwRmF2b3JpdGVWaXNpYmxlCmFwcFByb2dyYW1JZD17Q29uc3RQcm9ncmFtVXRpbC5jeHh4eHh9Cg=="
+    }
+
+  ]
+}
+### 
+
+POST {{HOSTAPI}}/api/tst/test1/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{   
+  "codigo": "33",
+  "dt_nascimento": ""
+}
+
+
+### 
+
+
+POST {{HOSTAPI}}/api/tst/test1 HTTP/1.1
+x-gmt: -3
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+x-unitid: f3996813-838e-49af-9649-8dc44e24bc75
+
+{
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "codigo": "7777",
+  "cpfcnpj": "221.560.398-44",
+  "descricao": "xxxxxx",
+  "dt_nascimento": "2022-11-26T00:00:00",
+  "dthr_nascimento": "2002-07-24T01:24:27",
+  "hr_nascimento": "1900-01-01T00:00:00",
+  "quantidade": "3.000000",
+  "radio": "OPT1",
+  "test1_childs": [
+    {
+      "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+      "codigo": "C1",
+      "quantidade": 3333.99,
+      "valor_total": 1345.1,
+      "valor_unit": 123.1
+    }
+  ]
+}
+
+### 
+
+GET {{HOSTAPI}}/api/tst/test1 HTTP/1.1
+x-gmt: -3
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+GET {{HOSTAPI}}/api/test1?ppage=1&pper_page=10&pfilters={"filter" : {"or" : {"codigo":{"like" : "%6%"},"descricao":{"like" : "%6%"}},"and":{"codigo":{"like" : "%"}}}, "sort": { "codigo" : "asc" } } HTTP/1.1
+x-gmt: -3
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+
+GET {{HOSTAPI}}/api/test1/2b5e7c71-dd98-4734-b683-a993d6f796bd HTTP/1.1
+x-gmt: -3
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+### 
+
+
+DELETE {{HOSTAPI}}/api/test1/1fa58df5-4292-444d-bfb1-05f58cf03606 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+
+
+### 
+
+
+GET {{HOSTAPI}}/api/auth/getprogrambyuserlogin/admin?pfilters={"login":"admin","admin":"N"} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+### 
+
+
+GET {{HOSTAPI}}/api/test1/diversos HTTP/1.1
+Content-Type: application/json
+
+
+### 

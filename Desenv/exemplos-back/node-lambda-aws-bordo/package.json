@@ -1,0 +1,12 @@
+{
+  "name": "lambda-bordo-resultfacil",
+  "version": "1.0.0",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15",
+    "pg": "^8.5.1",
+    "validator": "^13.5.2"
+  }
+}

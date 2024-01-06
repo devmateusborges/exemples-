@@ -1,0 +1,83 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+
+}
+###
+
+
+GET {{HOSTAPI}}/api/sysuserunit HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/finpagrec HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+  "data_mov": "02/02/2001",
+  "data_valid": "02/02/2001",
+  "fin_cond_pagrec_id": "6402ab3d-27ba-4d8c-9838-acdceb05cb79",
+  "fin_doc_tipo_id": "c8e3cd09-62af-4c20-8915-21d1f36991b5",
+  "fin_pagrec_tipo_id": "07793630-9e4b-4d9c-aa69-d7927e0779de",
+  "ger_empresa_id": "e440b4cf-d39e-4385-8e05-6306db56cce9",
+  "ger_pessoa_id_pagrec": "812e91bd-2a43-45b8-8ec5-eba6c8ddbaa9",
+  "ger_pessoa_id": "812e91bd-2a43-45b8-8ec5-eba6c8ddbaa9",
+  "numero_doc_pagrec": "2",
+  "numero_parc_total": "5",
+  "observacao": "2",
+  "process_id": "c078ae81-223a-4351-b1ce-20ec6b19b279",
+  "tipo_es": "E",
+  "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+  "valor_pagrec": "5",
+  "ope_centro_rat_tipo_id": "ddcff8b0-decf-49f8-b484-7b9a088819ee",
+  "fin_pagrec_parc_childs": [{
+        "data_valid": "29/12/2003",
+        "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+        "data_venc": "29/12/2003",
+        "fin_doc_tipo_id": "c8e3cd09-62af-4c20-8915-21d1f36991b5",
+        "numero_parc": "5",
+        "valor_multa": "5",
+        "valor_juro": "5",
+        "valor_pagrec": "5",
+        "valor_desconto": "5",
+        "fin_pagrec_parc_var_childs": [{
+            "data_valid": "29/12/2003",
+            "unit_id": "f3996813-838e-49af-9649-8dc44e24bc75",
+            "valor": "5",
+            "fin_tipo_variacao_id": "fa12305f-c26c-44aa-98b3-c93cb1188dc7"
+        }]
+  }]
+}
+
+
+### 
+###
+
+
+Delete {{HOSTAPI}}/api/finpagrec/d9525207-166d-424a-a7fa-f4eddb238d80 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+###
+
+
+
+
+
+

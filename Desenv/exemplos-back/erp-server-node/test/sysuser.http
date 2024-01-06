@@ -1,0 +1,82 @@
+@APIHOST=http://localhost:3000
+
+
+# @name authlogin
+POST {{APIHOST}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "login":"admin",
+    "password":"admin"
+}
+
+###
+
+GET {{APIHOST}}/api/v1/sysUser HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authlogin.response.body.$.token}}
+
+
+###
+
+POST {{APIHOST}}/api/v1/sysUser HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authlogin.response.body.$.token}}
+
+{
+    "name": "admin1",
+    "login": "admin1",
+    "password": "Pw123456#",
+    "email": "suporte1@resultfacil.com.br",
+    "active": "S",
+    "active_message": "N",
+    "phone": "0",
+    "document": "0",
+    "admin": "S",
+    "login_ext": "admin",
+    "origem": "1",
+    "chat": "S"
+  }
+
+###
+
+
+###
+
+GET {{APIHOST}}/api/v1/sysUser/3a721dc3-49cb-4d8e-a05c-8a0fabaa9fda HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authlogin.response.body.$.token}}
+
+
+###
+
+DELETE {{APIHOST}}/api/v1/sysUser/3a721dc3-49cb-4d8e-a05c-8a0fabaa9fda HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authlogin.response.body.$.token}}
+
+
+###
+
+
+PUT {{APIHOST}}/api/v1/sysUser/c98f8e15-de66-4fc3-8b7b-63d6bd1d5b4e HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{authlogin.response.body.$.token}}
+
+{
+    "name": "admin1ssss",
+    "login": "admin1",
+    "email": "suporte1@resultfacil.com.br",
+    "active": "S",
+    "active_message": "N",
+    "phone": "0",
+    "document": "0",
+    "admin": "S",
+    "login_ext": "admin",
+    "origem": "1",
+    "chat": "S"
+  }
+
+
+###
+
+

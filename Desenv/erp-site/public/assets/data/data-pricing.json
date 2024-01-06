@@ -1,0 +1,58 @@
+{
+    "data": [{
+            "id": "1",
+            "titulo": "Resultadmin",
+            "conteudo": "1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultadmin.svg"
+        },
+        {
+            "id": "2",
+            "titulo": "Resultagro",
+            "conteudo": "3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultagro.svg"
+        },
+        {
+            "id": "3",
+            "titulo": "Resultbordo",
+            "conteudo": "3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultbordo.svg"
+        },
+        {
+            "id": "4",
+            "titulo": "Resultbov",
+            "conteudo": "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultbov.svg"
+        },
+        {
+            "id": "5",
+            "titulo": "Resultchat",
+            "conteudo": "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultchat.svg"
+        },
+        {
+            "id": "6",
+            "titulo": "Resultcrm",
+            "conteudo": "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultcrm.svg"
+        },
+        {
+            "id": "7",
+            "titulo": "Resultfacil",
+            "conteudo": "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultfacil.svg"
+        },
+        {
+            "id": "8",
+            "titulo": "Resultponto",
+            "conteudo": "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultponto.svg"
+        },
+
+        {
+            "id": "9",
+            "titulo": "Resultreport",
+            "conteudo": "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deseruntquisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!",
+            "img": "banner-resultreport.svg"
+        }
+    ]
+}

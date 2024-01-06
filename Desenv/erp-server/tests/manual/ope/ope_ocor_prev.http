@@ -1,0 +1,52 @@
+
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/opeocorprev HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/opeocorprev HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "qnt_limite":"5",
+    "observacao":"tst",
+    "f3996813-838e-49af-9649-8dc44e24bc75",
+    "qnt_dia_limite":"5",
+    "ope_ocor_id":"5cc305a4-6239-48e2-9d74-502b722f7bd6",
+    "ope_centro2_id":"b703d56e-051c-4a8e-8987-5a27349412da",
+    "data_ult_solucao":"15/07/2022",
+    "qnt_dia_aviso":"5",
+    "data_valid_ini":"15/07/2022",
+    "ope_compart_id":"e90c3fa2-ba9c-42c5-9120-38d031251839",
+    "qnt_aviso":"5"
+}
+
+
+### 
+
+
+
+

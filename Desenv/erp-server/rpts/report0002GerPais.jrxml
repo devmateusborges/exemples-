@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0002" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="bf8df39e-9c21-4e97-b699-6b3fa083261e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="144"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="845"/>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParPaisId" class="java.lang.String"/>
+	<parameter name="pParPaisNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParPaisSigla" class="java.lang.String"/>
+	<parameter name="pParPaisAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUfId" class="java.lang.String"/>
+	<parameter name="pParUfNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUfAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUfSigla" class="java.lang.String"/>
+	<parameter name="pParCidId" class="java.lang.String"/>
+	<parameter name="pParCidNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParCidAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA["(GER) - PAIS > FEDERAÇÃO > CIDADE"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Admin")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0ac2032f-fc44-41c9-9bf9-833e1647be5b"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select
+gc.id as id_cidade,
+gc.nome as nome_cidade,
+gc.ativo as cidade_ativo,
+gc.nr_cidade as  cidade_numero,
+gu.id as id_estado,
+gu.ativo as ativo_uf,
+gu.nome as nome_estado,
+gu.sigla_uf as sigla_uf,
+gp.id as id_pais,
+gp.nome as nome_pais,
+gp.ativo as pais_ativo,
+gp.sigla_pais as sigla_pais
+from ger_pais gp 
+       inner join ger_uf gu 
+			 on gp.id = gu.ger_pais_id
+			 inner join ger_cidade gc
+			 on gu.id = gc.ger_uf_id 
+			 where gc.id in (select fnutil_table_id( $P{pParCidId} ,gc.id)) 
+			and gc.nome like  $P{pParCidNome}
+			and gc.ativo like $P{pParCidAtivo}
+			and gu.id in (select fnutil_table_id($P{pParUfId},gu.id))
+			and gu.nome like $P{pParUfNome}
+			and gu.ativo like $P{pParUfAtivo}
+			and gu.sigla_uf in (select fnutil_table_id($P{pParUfSigla},gu.sigla_uf))
+			and gp.id in (select fnutil_table_id($P{pParPaisId},gp.id)) 
+			and gp.nome like $P{pParPaisNome}
+			and gp.ativo  like $P{pParPaisAtivo}
+			and gp.sigla_pais in (select fnutil_table_id($P{pParPaisSigla},gp.sigla_pais))
+			 order by gp.sigla_pais, gu.sigla_uf, gc.nome]]>
+	</queryString>
+	<field name="id_cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_cidade"/>
+	</field>
+	<field name="nome_cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_cidade"/>
+	</field>
+	<field name="cidade_ativo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cidade_ativo"/>
+		<property name="com.jaspersoft.studio.field.label" value="cidade_ativo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_cidade"/>
+	</field>
+	<field name="cidade_numero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cidade_numero"/>
+		<property name="com.jaspersoft.studio.field.label" value="cidade_numero"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_cidade"/>
+	</field>
+	<field name="id_estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_estado"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_uf"/>
+	</field>
+	<field name="ativo_uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ativo_uf"/>
+		<property name="com.jaspersoft.studio.field.label" value="ativo_uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_uf"/>
+	</field>
+	<field name="nome_estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_estado"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_uf"/>
+	</field>
+	<field name="sigla_uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla_uf"/>
+		<property name="com.jaspersoft.studio.field.label" value="sigla_uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_uf"/>
+		<fieldDescription><![CDATA[Sigla da Uf]]></fieldDescription>
+	</field>
+	<field name="id_pais" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_pais"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pais"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pais"/>
+	</field>
+	<field name="nome_pais" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome_pais"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome_pais"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pais"/>
+	</field>
+	<field name="pais_ativo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pais_ativo"/>
+		<property name="com.jaspersoft.studio.field.label" value="pais_ativo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pais"/>
+	</field>
+	<field name="sigla_pais" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla_pais"/>
+		<property name="com.jaspersoft.studio.field.label" value="sigla_pais"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_pais"/>
+		<fieldDescription><![CDATA[Sigla Pais]]></fieldDescription>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{sigla_pais}]]></groupExpression>
+		<groupHeader>
+			<band height="14">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="2" width="555" height="12" backcolor="#EDEDED" uuid="b5c9bf38-e078-4f3d-beb4-0b798a058156">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textField>
+						<reportElement x="24" y="0" width="100" height="12" uuid="8ba08c5b-e8ee-48dc-82b3-7021c9adb513">
+							<printWhenExpression><![CDATA[$F{nome_pais} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{nome_pais}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement x="0" y="2" width="25" height="12" uuid="9fb93fc5-a279-4a0f-9f53-1d605c4a9a4f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[País:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="150" y="2" width="30" height="12" uuid="7f03ea6c-fdd5-48b2-8d8b-a27ea87ae8c2"/>
+					<textElement>
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ativo:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="180" y="2" width="100" height="12" uuid="46f2605d-3c8e-4509-b61a-30bab524aa91">
+						<printWhenExpression><![CDATA[$F{pais_ativo} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement>
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pais_ativo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{sigla_uf}]]></groupExpression>
+		<groupHeader>
+			<band height="14">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="2" width="555" height="12" backcolor="#EDEDED" uuid="4bebbef8-ec44-4423-a766-e196136722ad">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<staticText>
+						<reportElement x="10" y="0" width="35" height="12" uuid="5646435c-2284-410b-ad38-008d00223c47">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Estado:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="45" y="0" width="100" height="12" uuid="f8a2639d-c463-45d1-bae3-e98a6bb54c6c">
+							<printWhenExpression><![CDATA[$F{nome_estado} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{nome_estado}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="167" y="0" width="28" height="12" uuid="23b66e57-5b75-4ba0-8cd8-b9d3b2517bf0">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Sigla:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="195" y="0" width="80" height="12" uuid="e5bd9da1-e6c7-46d4-9d67-35ebfb48a244">
+							<printWhenExpression><![CDATA[$F{sigla_uf} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{sigla_uf}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="290" y="0" width="30" height="12" uuid="28ee0d8b-5857-46e7-b986-54dc66a49b5a"/>
+						<textElement>
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Ativo:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="320" y="0" width="20" height="12" uuid="00be3fff-406c-4714-96bc-86c0ef02657a">
+							<printWhenExpression><![CDATA[$F{ativo_uf} != null]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{ativo_uf}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group3"/>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{sigla_uf}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<frame>
+					<reportElement x="0" y="0" width="555" height="12" uuid="f18e64f2-338c-4f3c-b3f3-eead24ee1fd4">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+				</frame>
+				<staticText>
+					<reportElement x="20" y="0" width="100" height="12" uuid="e47399e4-5a13-4083-8c6b-9398e0fefdd1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cidades]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="130" y="0" width="100" height="12" uuid="a54585a3-5d90-466f-909d-067a44131453"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ativo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="240" y="0" width="100" height="12" uuid="2d2edb5f-3568-4391-8950-084b5c1309ee"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[N° Cidade]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="40" uuid="d1ea2371-e057-448d-9b08-4cd8049f5fe0"/>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA["[{#pParPaisNome#: #"+$P{pParPaisNome}+"#},"+"{#pParPaisAtivo#: #"+$P{pParPaisAtivo}+"#},{#pParPaisSigla#: #"+$P{pParPaisSigla}+"#},{#pParUfNome#: #"+$P{pParUfNome}+"#},{#pParUfAtivo#:#"+$P{pParUfAtivo}+"#},{#pParUfSigla#:#"+$P{pParUfSigla}+"#},{#pParCidNome#:#"+$P{pParCidNome}+"#},{#pParCidAtivo#:#"+$P{pParCidAtivo}+"#}]"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoRetrato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="100" height="11" uuid="306d714c-947d-47be-8023-f51cc454677c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{nome_cidade} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome_cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="100" height="11" uuid="e0f345bc-2bef-48e0-9f8c-64de3e8e7a49">
+					<printWhenExpression><![CDATA[$F{cidade_ativo} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade_ativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="100" height="11" uuid="5981fdcf-7e91-4953-a46e-b0f900fc41df">
+					<printWhenExpression><![CDATA[$F{cidade_numero} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade_numero}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="440" height="18" uuid="bf2006e2-8259-4291-8eca-ed3a2a8a14e9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["report0002"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapeRetrato.jasper"]]></subreportExpression>
+			</subreport>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="440" y="0" width="80" height="18" uuid="024ae380-13bf-4aa2-a117-a1b832694406">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" evaluationTime="Report">
+				<reportElement x="520" y="0" width="35" height="18" uuid="ca28a6e9-2824-4125-a7ee-6f866a019f09">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

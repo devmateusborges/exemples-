@@ -1,0 +1,46 @@
+
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/opeocormovdest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/opeocormovdest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "ope_ocor_mov_id":"23d0b7bc-f4a1-4a8f-9fa5-53f033d62599",
+    "f3996813-838e-49af-9649-8dc44e24bc75",
+    "observacao":"tst",
+    "ope_compart_id":"e90c3fa2-ba9c-42c5-9120-38d031251839",
+    "ope_centro2_id":"b703d56e-051c-4a8e-8987-5a27349412da"
+}
+
+
+### 
+
+
+
+

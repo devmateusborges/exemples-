@@ -1,0 +1,6 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+00 01 * * * /usr/local/scripts/BkpPg.sh  >> /usr/local/bkp/BkpPg`date +\%Y\%m\%d\%H\%M\%S`-cron.log 2>&1
+00 03 * * * /usr/local/scripts/BkpAws.sh  >> /usr/local/bkp/BkpAws`date +\%Y\%m\%d\%H\%M\%S`-cron.log 2>&1
+00 01 * * * /usr/local/scripts/BkpMongo.sh  >> /usr/local/bkp/BkpMongo`date +\%Y\%m\%d\%H\%M\%S`-cron.log 2>&1

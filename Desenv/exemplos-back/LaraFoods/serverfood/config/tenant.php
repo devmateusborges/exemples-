@@ -1,0 +1,13 @@
+<?php
+
+return [
+
+    /**
+     * Admins e-mails
+     */
+    'admins' => [
+        'admin@admin.com.br',
+        'admin@especializati.com.br',
+    ],
+
+];

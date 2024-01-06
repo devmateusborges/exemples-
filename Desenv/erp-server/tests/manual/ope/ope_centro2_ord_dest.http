@@ -1,0 +1,54 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+            "login":"admin",
+            "password":"123",
+            "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+###
+
+
+GET {{HOSTAPI}}/api/opecentro2orddest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/opecentro2orddest HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "valor_unit_prev": "5",
+    "qnt_prev_obj": "5",
+    "qnt_obj": "5",
+    "unit_id":"",
+    "valor_total": "5",
+    "ope_centro2_ord_id": "597c7083-bd14-4d0c-aee8-f9c0167fc6b9",
+    "valor_total_prev": "5",
+    "observacao_interna": "tst",
+    "ope_centro2_id_dest": "b703d56e-051c-4a8e-8987-5a27349412da",
+    "valor_unit": "5",
+    "data_valid": "29/05/2022",
+    "ger_umedida_id_dest": "a1473819-04ba-438e-a129-8463084ad586",
+    "observacao_externa": "tst"
+    
+}
+
+
+### 
+
+
+
+

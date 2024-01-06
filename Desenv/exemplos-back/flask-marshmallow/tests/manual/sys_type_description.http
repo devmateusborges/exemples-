@@ -1,0 +1,62 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin1",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/systypedescription HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+
+
+###
+
+GET {{HOSTAPI}}/api/systypedescription/90515953-eeef-47ee-bf09-ae607d76de8c HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+####
+
+
+POST {{HOSTAPI}}/api/systypedescription HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+{
+
+"description_type":"trerers",
+  "field_name": "tst",
+  "table_name":"tst",
+  "value_type": "tstdsdddsd"
+
+}
+
+
+### 
+
+
+
+DELETE {{HOSTAPI}}/api/systypedescription/90515953-eeef-47ee-bf09-ae607d76de8c HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.acess_token}}
+
+
+
+### 
+
+
+

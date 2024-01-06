@@ -1,0 +1,46 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+   "login":"admin",
+   "password":"123",
+   "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/ind/indcjd HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+POST {{HOSTAPI}}/api/ind/indcjd HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "nome": "TST1",
+    "nome_tecnico": "TST1",
+    "ativo": "S",
+    "ind_cjdftd_childs":[ {
+        "ind_ftd_id":"c693653a-6496-4e39-94c2-ec7732a8e5fb",
+        "ind_cjd_id":"c084aa4d-7f28-4586-b70a-34110397ebd4"
+    }]
+
+
+   
+}
+
+
+ 

@@ -1,0 +1,44 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+   "login":"admin",
+   "password":"123",
+   "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/ind/indvrsemestre HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+POST {{HOSTAPI}}/api/ind/indvrquinzena HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75",
+    "ind_indic_id":"c941de91-2221-4b49-832f-3c708f5fdfc0",
+    "valor_meta":"5",
+    "ger_per_id":"c2deb894-4afc-4c65-b574-a9f8f04f4d69",
+    "valor_real":"5",
+    "aprovado_exibicao":"S",
+    "ger_empresa_id":"f58a139c-3698-448b-a48d-fa6a85b2dd44",
+    "atributo":"S"
+}
+
+
+ 

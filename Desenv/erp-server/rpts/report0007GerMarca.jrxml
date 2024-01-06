@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0007" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e5b360f-9375-48f7-8b11-973f97317365">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="conn"/>
+	<parameter name="pParUnitId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["f3996813-838e-49af-9649-8dc44e24bc75"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParMarcaNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParMarcaAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParModeloNome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParModeloAtivo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["%"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParModeloId" class="java.lang.String"/>
+	<parameter name="pParMarcaId" class="java.lang.String"/>
+	<parameter name="pParTitleReport" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("(GER) - MARCA > MODELO")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParUser" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String("Admin")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pParIndRelId" class="java.lang.String">
+		<defaultValueExpression><![CDATA["5fc557d4-89ec-4804-b55a-3f1f31b91e8d"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pSubReportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT  gm.id As IdMarca,
+                gm.nome AS Marca,
+		gm.ativo AS Ativo_Marca,
+                gmm.ger_marca_id As IdModelo,
+		gmm.nome AS Modelo,
+		gmm.ativo AS Ativo_Modelo
+FROM ger_marca gm 
+left join ger_marca_modelo gmm
+on gm.id = gmm.ger_marca_id
+where gm.id in (select fnutil_table_id($P{pParMarcaId},gm.id))
+and gm.nome like $P{pParMarcaNome}
+and gm.ativo like $P{pParMarcaAtivo}
+and gmm.id in (select fnutil_table_id($P{pParModeloId},gmm.id)) 
+and gmm.nome like $P{pParModeloNome}
+and gmm.ativo like $P{pParModeloAtivo}
+order by gm.id, gmm.ger_marca_id]]>
+	</queryString>
+	<field name="idmarca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="idmarca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_marca"/>
+	</field>
+	<field name="marca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="marca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_marca"/>
+	</field>
+	<field name="ativo_marca" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ativo_marca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_marca"/>
+	</field>
+	<field name="idmodelo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="idmodelo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_marca_modelo"/>
+	</field>
+	<field name="modelo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="modelo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_marca_modelo"/>
+	</field>
+	<field name="ativo_modelo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ativo_modelo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_marca_modelo"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{idmarca}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="12" backcolor="#EDEDED" uuid="0467ddc2-bd08-47df-800a-82bc7a323232">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<staticText>
+						<reportElement x="0" y="0" width="40" height="12" uuid="f0e4fb3a-18d4-45d3-9833-6aeb1917cc01">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="31b421c9-bd60-4e84-ab5d-4f9399b7212a"/>
+							<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Marca:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="40" y="0" width="120" height="12" uuid="a4f236d1-ee09-4d2c-bea6-88bdb79ae907">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="31b421c9-bd60-4e84-ab5d-4f9399b7212a"/>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$F{marca}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="170" y="0" width="40" height="12" uuid="a24db8f2-eab3-44ef-b6a1-b274fee61f17">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d6a5502-5dcd-4633-bdbe-4147edaaab80"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="SansSerif" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[ Ativo:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="210" y="0" width="315" height="12" uuid="4327ba95-32b6-4b94-a720-ac84fc83ae9b">
+							<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d6a5502-5dcd-4633-bdbe-4147edaaab80"/>
+						</reportElement>
+						<textElement>
+							<font fontName="SansSerif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" "+$F{ativo_marca}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{idmodelo}]]></groupExpression>
+		<groupHeader>
+			<band height="12">
+				<frame>
+					<reportElement x="0" y="0" width="555" height="12" uuid="9fd2fdf7-8a67-4b35-929b-bae4d4c3b51c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+				</frame>
+				<staticText>
+					<reportElement x="20" y="0" width="100" height="12" uuid="9f987e97-e323-43c5-8276-d33569be3e7e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1bf7f02-8d2a-4872-9082-8ce76e4eafbb"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<printWhenExpression><![CDATA[$F{modelo} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Modelo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="0" width="100" height="12" uuid="bcdc824c-6dba-4625-9a52-c3c631859227">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cbddc65-a526-426e-a5d5-e259f422b475"/>
+						<printWhenExpression><![CDATA[$F{ativo_modelo} != null]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ativo]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="40" uuid="6e656b4e-e5a9-4dc0-ae8c-f75658dda953"/>
+				<subreportParameter name="pParTitleReport">
+					<subreportParameterExpression><![CDATA[$P{pParTitleReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUser">
+					<subreportParameterExpression><![CDATA[$P{pParUser}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParIndRelId">
+					<subreportParameterExpression><![CDATA[$P{pParIndRelId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pParParam">
+					<subreportParameterExpression><![CDATA["[{#pParMarcaNome#:#"+$P{pParMarcaNome}+"#},"+"{#pParMarcaAtivo#:#"+$P{pParMarcaAtivo}+"#},{#pParModeloNome#:#"+$P{pParModeloNome}+"#},"+"{#pParModeloAtivo#:#"+$P{pParModeloAtivo}+"#}]"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseCabecalhoRetrato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="100" height="11" uuid="8a1e2f7d-b8ca-492a-aa23-f0018c366030">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{modelo} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="100" height="11" uuid="d8e708ca-c615-450d-9865-612f189d1cf5">
+					<printWhenExpression><![CDATA[$F{ativo_modelo} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ativo_modelo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="439" y="0" width="80" height="18" uuid="490df583-2f3b-40da-a97d-86bcc0323228">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="519" y="0" width="35" height="18" uuid="06f3aed3-d947-424b-964d-a130d391f265">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="439" height="18" uuid="66387bff-9132-4f27-8101-ae312d0faa69">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="pParUnitId">
+					<subreportParameterExpression><![CDATA[$P{pParUnitId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nameReport">
+					<subreportParameterExpression><![CDATA["repor0007"]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pSubReportsPath}+"baseRodapeRetrato.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+</jasperReport>

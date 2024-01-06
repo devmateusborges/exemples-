@@ -1,0 +1,306 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+   "login":"admin",
+   "password":"123",
+   "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+
+
+GET {{HOSTAPI}}/api/ind/indrel HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+POST {{HOSTAPI}}/api/ind/indrel HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "ind_cjd_id": "2ef6f5cb-0190-4d4d-b5f7-dffbdf8cfe55",
+    "ind_ftd_id": "a8998867-3d62-4376-859b-2546a5b039df",
+    "tipo": "R",
+    "nome": "TST1",
+    "ativo": "S",
+    "nome_tecnico": "TST1",
+    "ind_relprm_childs": [{
+        "ind_prm_id": "788ab22e-e657-430d-9c69-325f847b8408",
+        "ordem_exib": "2",
+        "valor_padrao": "5",
+        "ind_rel_id": "e9e36f64-0598-4ae7-9ac3-8bdf3149e8df"
+    }],
+    "ind_rel_var_childs": [{
+        "ordem_padrao": "1",
+        "var_nome_tecnico": "TST1",
+        "var_nome_tecnico_prefixo": "TST1",
+        "var_nome_descritivo": "TST1",
+        "largura": "5",
+        "var_agrupavel": "S",
+        "visivel": "S",
+        "ind_rel_id": "5090d506-00ee-4526-9d1a-83508403b978"
+    }]
+
+
+}
+
+###
+#31e0bf5f-8cb4-4b03-91e2-ad3b464dd38e - L - report0001 - (FIN) - TIPO VARIAÇÃO
+&reportFormat=pdf
+&pParTitleReport=(FIN) - TIPO VARIAÇÃO
+&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75
+&pParIndRelId=31e0bf5f-8cb4-4b03-91e2-ad3b464dd38e
+&pParParams=
+{"params":[{"parNomeTec":"pParFinTipoVariacaoId","parValor":"%"},{"parNomeTec":"pParFinTipoVariacaoNome","parValor":"%J%"},{"parNomeTec":"pParFinTipoVariacaoAtivo","parValor":"%"},{"parNomeTec":"pParFinTipoBaixa","parValor":"%"},{"parNomeTec":"pParFinTipoVariacaoVrPositivo","parValor":"%"},{"parNomeTec":"pParLogUserIns","parValor":"%"},{"parNomeTec":"pParLogUserUpd","parValor":"%"},{"parNomeTec":"pParLogDateInsIni","parValor":""},{"parNomeTec":"pParLogDateInsFin","parValor":""},{"parNomeTec":"pParLogDateUpdIni","parValor":""},{"parNomeTec":"pParLogDateUpdFin","parValor":""}],
+"cols":[{"colNomeTec":"nome","colNomeTecPrefixo":"fin_tipo_variacao"},{"colNomeTec":"ativo","colNomeTecPrefixo":"fin_tipo_variacao"}]
+}
+
+
+
+###
+#0ac2032f-fc44-41c9-9bf9-833e1647be5b - R - report0002GerPais - (GER) - PAIS > FEDERAÇÃO > CIDADE
+POST {{HOSTAPI}}/api/ind/indrel/generatereport HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{"queue":"N",
+"internals":[
+    {"parNomeTec":"reportFormat","parValor":"pdf"},
+    {"parNomeTec":"pParTitleReport","parValor":"(GER) - PAIS > FEDERAÇÃO > CIDADE"},
+    {"parNomeTec":"pParUnitId","parValor":"f3996813-838e-49af-9649-8dc44e24bc75"},
+    {"parNomeTec":"pParIndRelId","parValor":"0ac2032f-fc44-41c9-9bf9-833e1647be5b"},
+    {"parNomeTec":"pParUser","parValor":"admin"}
+],
+"params":[
+    {"parNomeTec":"pParPaisId","parValor":"99c4bfa5-06bd-40b2-8432-61d284af7586"},
+    {"parNomeTec":"pParPaisNome","parValor":"%B%"},
+    {"parNomeTec":"pParPaisAtivo","parValor":"S"},
+    {"parNomeTec":"pParPaisSigla","parValor":""},
+    {"parNomeTec":"pParUfId","parValor":""},
+    {"parNomeTec":"pParUfNome","parValor":"%São%"},
+    {"parNomeTec":"pParUfAtivo","parValor":"S"},
+    {"parNomeTec":"pParUfSigla","parValor":""},
+    {"parNomeTec":"pParCidId","parValor":""},
+    {"parNomeTec":"pParCidNome","parValor":"%Ribe%"},
+    {"parNomeTec":"pParCidAtivo","parValor":"S"}
+]
+}
+
+###
+#2a46c160-47e7-4bc7-9477-fab5b82e346a - R - report0003SystemUser - (SYS) - USUÁRIOS > UNIDADE
+&reportFormat=pdf&pParTitleReport=(SYS) - USUÁRIOS > UNIDADE&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=2a46c160-47e7-4bc7-9477-fab5b82e346a&pParUser=admin&pParUnitName=%25E%25&pParUnitSigla=EXEMPLO&pParUserId=7448e100-8b3c-4cc3-ba78-18b230339005&pParUserName=%25a%25&pParUserEmail=%25s%25&pParUserActive=S"
+
+
+###
+#d0037aa1-1260-4272-9d7c-6f73db3cb0a0 - L - report0004 - (FIN) - CONDIÇÃO DE PAGAMENTO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(FIN) - CONDIÇÃO DE PAGAMENTO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=d0037aa1-1260-4272-9d7c-6f73db3cb0a0&pParParams=
+{"params":[{"parNomeTec":"pParFinCondPagRecId","parValor":"%"},{"parNomeTec":"pParFinCondPagRecNome","parValor":"%"},{"parNomeTec":"pParFinCondPagRecSigla","parValor":""},{"parNomeTec":"pParFinCondPagRecAtivo","parValor":"%"},{"parNomeTec":"pParConsidFeriado","parValor":"%"},{"parNomeTec":"pParConsidFDS","parValor":"%"},{"parNomeTec":"pParTipoPrazo","parValor":"%"},{"parNomeTec":"pParLogUserIns","parValor":"%"},{"parNomeTec":"pParLogUserUpd","parValor":"%"},{"parNomeTec":"pParLogDateInsIni","parValor":""},{"parNomeTec":"pParLogDateInsFin","parValor":""},{"parNomeTec":"pParLogDateUpdIni","parValor":""},{"parNomeTec":"pParLogDateUpdFin","parValor":""}],"cols":[{"colNomeTec":"nome","colNomeTecPrefixo":"fin_cond_pagrec"},{"colNomeTec":"ativo","colNomeTecPrefixo":"fin_cond_pagrec"}]}
+
+
+###
+#02ad9cdb-2ff9-47ea-9248-abdfbe857d5a - R - report0005GerPessoa - (GER) - PESSOAS > ENDEREÇO > CONTA BANCÁRIA
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(GER) - PESSOAS > ENDEREÇO > CONTA BANCÁRIA&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=02ad9cdb-2ff9-47ea-9248-abdfbe857d5a&pParPessoaId=5a63c6a9-6a08-4fa6-8ebb-5950388397d8&pParPessoaNome=Loja de Veterinária&pParPessoaSigla=10012&pParPessoaAtivo=S&pParUser=admin";
+
+###
+
+#c9b0c767-55de-4eaf-af26-14c76c731547 - L - report0006 - (GER) - EMPRESA
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(GER) - EMPRESA&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=c9b0c767-55de-4eaf-af26-14c76c731547&pParParams=
+
+{"params":[{"parNomeTec":"pParGerEmpresaId","parValor":"%"},{"parNomeTec":"pParGerEmpresaNome","parValor":"Agro%20Petros"},{"parNomeTec":"pParGerEmpresaSigla","parValor":""},{"parNomeTec":"pParGerEmpresaAtivo","parValor":"S"},{"parNomeTec":"pParGerEmpresaDocCnpj","parValor":"%"},{"parNomeTec":"pParGerEmpresaDocCpf","parValor":"%"},{"parNomeTec":"pParLogUserIns","parValor":"%"},{"parNomeTec":"pParLogUserUpd","parValor":"%"},{"parNomeTec":"pParLogDateInsIni","parValor":""},{"parNomeTec":"pParLogDateInsFin","parValor":""},{"parNomeTec":"pParLogDateUpdIni","parValor":""},{"parNomeTec":"pParLogDateUpdFin","parValor":""}],"cols":[{"colNomeTec":"nome","colNomeTecPrefixo":"ger_empresa"},{"colNomeTec":"ativo","colNomeTecPrefixo":"ger_empresa"}]}
+
+###
+#5fc557d4-89ec-4804-b55a-3f1f31b91e8d - R - report0007GerMarca - (GER) - MARCA > MODELO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(GER) - MARCA > MODELO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=5fc557d4-89ec-4804-b55a-3f1f31b91e8d&pParMarcaId=4dab4ce3-29e0-42a5-a8cf-e86a1dd9957d&pParMarcaNome=%25G%25&pParMarcaAtivo=S&pParModeloId=59a51f46-7d1d-4fe0-a38d-96417ad89760&pParModeloNome=%25G%25&pParModeloAtivo=S&pParUser=admin";
+
+###
+#1d760ef1-57c4-4bce-a5aa-7627cb5848e9 - R - report0008FinClassAgrupGrupo - (FIN) - GRUPO > CLASSIFICAÇÃO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(FIN) - GRUPO > CLASSIFICAÇÃO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=1d760ef1-57c4-4bce-a5aa-7627cb5848e9&pParAgrupId=7e06adb1-bbb9-4a30-ae30-80592c0683c6&pParAgrupNome=Visão Gestores (Padrão)&pParAgrupAtivo=S&pParGrupoId=aa4bc6c9-c9af-4b1a-9f6b-e2e572b7f945&pParGrupoNome=%25O%25&pParGrupoSigla=2.02.06&pParGrupoAtivo=S&pParFinClassId=a1e9778e-157f-46ca-8c42-b87a77d3d416&pParFinClassNome=%25S%25&pParFinClassSigla=42&pParFinClassAtivo=S&pParUser=admin";
+
+###
+#623a4735-18f1-4a6e-b596-ef0235737973 - C - report0009FinPagRec - (FIN) - SUMARIO DE PAGAMENTOS E RECEBIMENTOS
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(FIN) - SUMARIO DE PAGAMENTOS E RECEBIMENTOS&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=623a4735-18f1-4a6e-b596-ef0235737973&pVart01=ger_pessoa_desc&pVard01=Pessoa&pVart02=ger_pessoa_pagrec_desc&pVard02=Pessoa P/R&pVart03=fin_pagrec_data_mov&pVard03=Dt.Mov&pVart04=&pVard04=&pVart05=&pVard05=&pParFinPagRecES=S&pParGerPessoaNome=%25S%25&pParGerPessoaPagRecNome=%25S%25&pParFinPagRecDataMovIni=1888-01-01&pParFinPagRecDataMovFin=2999-12-31&pParFinPagRecNumeroDocPagRec=987&pParFinPagRecParcValorPagRecIni=-999999999&pParFinPagRecParcValorPagRecFin=999999999&pParFinPagRecParcValorJuroIni=-999999999&pParFinPagRecParcValorJuroFin=999999999&pParFinPagRecParcValorDescontoIni=-999999999&pParFinPagRecParcValorDescontoFin=999999999&pParFinPagRecParcValorMultaIni=-999999999&pParFinPagRecParcValorMultaFin=999999999&pParFinPagRecParcDataVencIni=1888-01-01&pParFinPagRecParcDataVencFin=2999-12-31&pParFinPagRecDataBaixaIni=1888-01-01&pParFinPagRecDataBaixaFin=2999-12-31&pParLogUserIns=&pParLogDateInsIni=&pParLogDateInsFin=&pParLogUserUpd=&pParLogDateUpdIni=&pParLogDateUpdFin=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin";
+
+
+###
+#ec2af668-7cda-4021-a7ad-320c5e93b703 - R - report0010FinBanco - (FIN) - BANCO > CONTA
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(FIN) - BANCO > CONTA&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=ec2af668-7cda-4021-a7ad-320c5e93b703&pParBancoId=f83897a1-dcc8-4890-8010-9e7dfec7fd8d&pParBancoNome=%25B%25&pParBancoAtivo=S&pParBancoNr=237&pParContaId=e3a1ec7d-c831-4a40-83f5-330c32f8ba27&pParContaAgencia=2411&pParContaNr=0771396-7&pParContaAtivo=S&pParUser=admin";
+
+
+###
+#fa54e176-e07e-416d-9150-0b708fd2451b - R - report0011OpeCentro2Ord - (OPE) - ORDEM SERVIÇO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=ORDEM DE SERVIÇO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=fa54e176-e07e-416d-9150-0b708fd2451b&pParIdOrdem=94ffbb47-a6ea-4e1d-8339-a3b98cff2a31&pParUser=admin";
+
+
+###
+#bc0729af-2d4d-4d90-864a-413cda82adc1 - L - report0012 - (FIN) - LOTE
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(FIN) - LOTE&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=bc0729af-2d4d-4d90-864a-413cda82adc1&pParParams=
+{"params":[{"parNomeTec":"pParFinLoteId","parValor":"%"},{"parNomeTec":"pParFinLoteNome","parValor":"%"},{"parNomeTec":"pParFinLoteDateIni","parValor":"%"},{"parNomeTec":"pParFinLoteDateFin","parValor":"%"},{"parNomeTec":"pParLogUserIns","parValor":"%"},{"parNomeTec":"pParLogUserUpd","parValor":"%"},{"parNomeTec":"pParLogDateInsIni","parValor":"%"},{"parNomeTec":"pParLogDateInsFin","parValor":"%"},{"parNomeTec":"pParLogDateUpdFin","parValor":"%"},{"parNomeTec":"pParLogDateUpdIni","parValor":"%"}],"cols":[{"colNomeTec":"nome","colNomeTecPrefixo":"gp"},{"colNomeTec":"nome","colNomeTecPrefixo":"fl"}]}
+
+
+###
+#da7751b9-a905-4e89-8392-7490c66c5a93 - L - report0013 - (FIN) - TIPO DOCUMENTO
+POST {{HOSTAPI}}/api/ind/indrel/generatereport HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{"queue":"N",
+"internals":[
+    {"parNomeTec":"reportFormat","parValor":"pdf"},
+    {"parNomeTec":"pParTitleReport","parValor":"(FIN) - TIPO DOCUMENTO"},
+    {"parNomeTec":"pParUnitId","parValor":"f3996813-838e-49af-9649-8dc44e24bc75"},
+    {"parNomeTec":"pParIndRelId","parValor":"da7751b9-a905-4e89-8392-7490c66c5a93"},
+    {"parNomeTec":"pParUser","parValor":"admin"}
+],
+"params":[
+    {"parNomeTec":"pParFinDocTipoId","parValor":"%"},
+    {"parNomeTec":"pParFinDocTipoNome","parValor":"%"},
+    {"parNomeTec":"pParFinDocTipoAtivo","parValor":"%"},
+    {"parNomeTec":"pParLogUserIns","parValor":"%"},
+    {"parNomeTec":"pParLogUserUpd","parValor":"%"},
+    {"parNomeTec":"pParLogDateInsIni","parValor":"%"},
+    {"parNomeTec":"pParLogDateInsFin","parValor":"%"},
+    {"parNomeTec":"pParLogDateUpdIni","parValor":"%"},
+    {"parNomeTec":"pParLogDateUpdFin","parValor":"%"}
+],
+"cols":[
+    {"colNomeTec":"nome","colNomeTecPrefixo":"fin_doc_tipo"},
+    {"colNomeTec":"ativo","colNomeTecPrefixo":"fin_doc_tipo"}
+]
+}
+ 
+###
+#46c7b1bb-a8f8-4579-9b65-24d8ecc911b5 - C - report0014OpeArea - (OPE) - ÁREA
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - ÁREA&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=46c7b1bb-a8f8-4579-9b65-24d8ecc911b5&pVart01=ope_centro2_area_item_serv_ultimo_nome&pVard01=Item Serviço&pVart02=ope_centro2_area_tipo_solo_nome&pVard02=Tipo Solo&pVart03=&pVard03=&pVart04=&pVard04&pVart05&pVard05&pParCentro2AreaId=bd5eba02-7175-4672-af79-ada34e299b1e&pParBlocoCol=B7&pParTipoSoloId=87664ca1-20a2-4756-aab8-5395b65dcd25&pParTipoSoloNome=%25A%25&pParEspacId=0b34f668-109e-44ba-9b3b-121ad866f409&pParEspacNome=%252%25&pParAtivSisPlanId=852f0d8b-3f22-48d5-997b-cc042e28f539&pParAtivSisPlanNome=%25P%25&pParAtivSisCultId=852f0d8b-3f22-48d5-997b-cc042e28f539&pParAtivSisCultNome=%25P%25&pParAtivSisColhId=5087c13e-73ba-4a58-afb8-7221eaadd62d&pParAtivSisColhNome=%25C%25&pParItemServId=cc2ab682-8927-41c4-9fd1-7c7f3d3e27f7&pParItemServNome=%25P%25&pParItemServAtivo=S&pParDataIniPlan=1888-01-01&pParDataIniPlanFin=2999-12-30&pParDataFinPlanIni=1888-01-01&pParDataFinPlan=2999-12-30&pParDataUltPlanIni=1888-01-01&pParDataUltPlanFin=2999-12-30&pParDataIniCol=1888-01-01&pParDataIniColFin=2999-12-30&pParDataFinColIni=1999-01-01&pParDataFinCol=&pParDataUltColIni=1999-01-01&pParDataUltColFin=2999-12-30&pParDataFloradaIni=1999-01-01&pParDataFloradaFin=&pParDataEmergIni=1999-01-01&pParDataEmergFin=2999-12-30&pParUnidadeMedId=77c821ed-33b0-435f-90a5-5f9b56691a3f&pParUnidadeMedNome=%25M%25&pParCentro1Id=f0222f55-e09d-4491-a805-388c467081bb&pParCentro1Nome=%25B%25&pParCentro1Ativo=S&pParCentro2Id=bd5eba02-7175-4672-af79-ada34e299b1e&pParCentro2Nome=%25B%25&pParCentro2Ativo=S&pParSubTipoId=a7d414b3-2d84-4f83-a3ee-3be69e1d94d6&pParSubTipoNome=%25C%25&pParTipoId=db26a489-6eab-4686-a3f7-2eaf36ebf749&pParTipoNome=%25E%25&pParRatTipoId=18b8bee1-e71d-4683-9abb-16f27316ba6b&pParRatTipoNome=%25R%25&pParSubGrupoId=aa73b126-aa82-490c-bfb2-85eb95e95082&pParSubGrupoNome=%25C%25&pParGrupoId=c3768621-2060-4ce7-b3af-06225e1a86ef&pParGrupoNome=%25E%25&pParGrupoAtivo=S&pParPeriodoId=388bea7f-4311-4e0e-902b-7a1330ab6e93&pParPeriodoNome=%25S%25&pParPeriodoAtivo=S&pParPeriodoDataIni=2000-01-01&pParPeriodoDataFin=2999-12-31&pParLogUserIns=&pParLogUserUpd&pParLogDateInsIni=1999-01-01&pParLogDateInsFin=2999-12-31&pParLogDateUpdIni=1999-01-01&pParLogDateUpdFin=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin";
+
+###
+#ca30de82-cd90-4fe4-8ee1-887dff83b59a - C - report0016OpeEquip - (OPE) - EQUIPAMENTO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - EQUIPAMENTO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=ca30de82-cd90-4fe4-8ee1-887dff83b59a&pVart01=ope_centro2_equip_cidade_nome&pVard01=Cidade&pVart02=ope_frente_trabalho_nome&pVard02=Frente&pVart03=ope_centro2_nome&pVard03=Equipamento&pVart04&pVard04&pVart05&pVard05&pParEquipId=41585a73-e7ab-4e99-9067-876734e9d209&pParEquipTipoRodado=&pParEquipTipoCarroceria=&pParEquipCidId=f460d766-4fb6-4530-887a-da72a2e660d3&pParEquipCidNome=%25U%25&pParUfId=fa987af5-c43b-47fd-ae81-5c6a49840f0c&pParUfNome=%25M%25&pParEquipPlaca=TYS-5453&pParEquipRenavam&pParEquipTara&pParEquipCapacidKg&pParEquipCapacidM3&pParEquipPotenc&pParEquipNrChassi&pParEquipNrSerie&pParEquipLiberadoAbastec=S&pParEquipLargura&pParEquipAltur&pParEquipNrRegEstadual&pParEquipTipoTracao&pParCentro1Id=1fc2bdfa-28ac-47ab-8eca-fcb24eb52c5d&pParCentro1Nome=%25T%25&pParCentro1Ativo=S&pParCentro2Id=41585a73-e7ab-4e99-9067-876734e9d209&pParCentro2Nome=%25T%25&pParCentro2Ativo=S&pParFrentTrabId=e604357a-3b81-4ff8-b080-05953ae4e6ad&pParFrentTrabNome=%25F%25&pParFrentTrabAtivo=S&pParMarcaModeloId=59a51f46-7d1d-4fe0-a38d-96417ad89760&pParMarcaModeloNome=%25G%25&pParMarcaModeloAtivo=S&pParMarcaId=4dab4ce3-29e0-42a5-a8cf-e86a1dd9957d&pParMarcaNome=%25G%25&pParMarcaAtivo=S&pParSubGrupId=8ab6e303-dcad-409d-87f7-bd0befb57bf5&pParSubGrupoNome=%25T%25&pParSubGrupoAtivo=S&pParGrupoId=10b3a748-6f2d-4eda-9ec7-c47d0ed66258&pParGrupoNome=%25T%25&pParGrupoAtivo=S&pParProprietarioId=e8b2c46e-efdc-4220-8dda-f8b894965254&pParProprietarioNome=%25O%25&pParProprietarioAtivo=S&pParProprietarioDoc=13164921098&pParLogUserIns&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogUserUpd&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=&pParUser=admin";
+
+###
+#18d16cfe-436e-4a56-bd1d-9d25a281d3e1 - C - report0017OpePessoa - (OPE) - PESSOA
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - PESSOA&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=18d16cfe-436e-4a56-bd1d-9d25a281d3e1&pVart01=ope_frente_trabalho_nome&pVard01=Frente&pVart02=ope_centro2_nome&pVard02=Pessoa&pVart03=&pVard03=&pVart04=&pVard04=&pVart05=&pVard05=&pParPessoaPtoIdenfTipo=1&pParPessoaPtoIdenf=0898909890&pParCentro1Id=b7697d04-d128-476b-8872-49247f12aecc&pParCentro1Nome=%25C%25&pParCentro1Ativo=S&pParCentroSubTipoId=be841d85-7a26-460d-aae3-89b137fa894d&pParCentroSubTipoNome=%25A%25&pParCentro2Id=6d6feb54-63bc-4ef4-82f4-3a986b3bde9f&pParCentro2Nome=%25C%25&pParCentro2Sigla=%25C%25&pParCentro2Ativo=S&pParFrenteTrabalhoId=e604357a-3b81-4ff8-b080-05953ae4e6ad&pParFrenteTrabalhoNome=%25F%25&pParFrenteTrabalhoSigla=TM01&pParFrenteTrabalhoAtivo=S&pParLogUserIns=&pParLogUserUpd=&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin";
+
+###
+#3378e747-b2a9-46ed-a3f0-172043f95800 - C - report0018OpeEstoque - (OPE) - ESTOQUE
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - ESTOQUE&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=3378e747-b2a9-46ed-a3f0-172043f95800&pVart01=ope_centro2_estoque_tipo&pVard01=Tipo&pVart02=ope_centro2_nome&pVard02=Centro 2&pVart03&pVard03&pVart04&pVard04&pVart05&pVard05&pParEstoqId=bd5eba02-7175-4672-af79-ada34e299b1e&pParEstoqTipo=E&pParCentro2Id=bd5eba02-7175-4672-af79-ada34e299b1e&pParCentro2Nome=%25B%25&pParCentro2Sigla=B.INS-SP&pParCentro2Ativo=S&pParCentro2TipoDestinacao=P&pParCentro2TipoCtbComp=2&pParCentro2CtbCompId=fde9e2a1-e26a-4555-a1eb-3522cca90d00&pParLogUserIns&pParLogUserUpd&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin";
+
+###
+#311efc68-9d31-4aed-8e23-40863b9f8983 - C - report0019OpeOrdDest - (OPE) - ORDEM DESTINAÇÃO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - ORDEM DESTINAÇÃO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=311efc68-9d31-4aed-8e23-40863b9f8983&pParUser=admin&pVart01=ger_empresa_nome_ord&pVard01=Empresa&pVart02=ope_centro2_nome&pVard02=Destinação&pVart03=&pVard03=&pVart04=&pVard04=&pVart05=&pVard05=&pSubReportsPath=./&pParOrdDestId=e7fc3569-0fd9-45d2-b011-1b660f75ea80&pParOrdDestQntPrevObjIni=-999999999&pParOrdDestQntPrevObjFin=999999999&pParOrdDestVrUnitPrevIni=-999999999&pParOrdDestVrUnitPrevFin=999999999&pParOrdDestVrTotPrevIni=-999999999&pParOrdDestVrTotPrevFin=999999999&pParOrdDestQntObjIni=-999999999&pParOrdDestQntObjFin=999999999&pParOrdDestVrUnitIni=-999999999&pParOrdDestVrUnitFin=999999999&pParOrdDestVrTotalIni=-999999999&pParOrdDestVrTotalFin=999999999&pParOrdDataIniExecIni=2000-01-01&pParOrdDataIniExecFin=2999-12-31&pParOrdDataFinExecIni=2000-01-01&pParOrdDataFinExecFin=2999-12-31&pParOrdDataStatusIni=2000-01-01&pParOrdDataStatusFin=2999-12-31&pParOrdDataIniExecPrevIni=2000-01-01&pParOrdDataIniExecPrevFin=2999-12-31&pParOrdDataFinExecPrevIni=2000-01-01&pParOrdDataFinExecPrevFin=2999-12-31&pParCentro2Id=920a1c26-7168-4004-a328-ae6dff5fff51&pParCentro2Nome=%25P%25&pParCentro2Ativo=S&pParCtbId=62c4c61f-4d61-4119-99d2-4cc6cb3a733e&pParCtbNome=%25E%25&pParCtbAtivo=S&pParGerUmedidaId=0f9445ce-74cc-428b-a219-421ea22c19fd&pParGerUmedidaNome=%25D%25&pParGerUmedidaAtivo=S&pParCentro1Id=60565c09-9b71-4204-b6d6-de2ccfac5358&pParCentro1Nome=%25E%25&pParCentro1Ativo=S&pParSubGrupoId=514e3fbc-4a78-44f1-b600-620a8f4a8486&pParSubGrupoNome=%25P%25&pParSubGrupoAtivo=S&pParGrupoId=654c3814-7e23-4e38-81ce-7b058dfe0a15&pParGrupoNome=%25P%25&pParGrupoAtivo=S&pParSubTipoId=1f60deaa-895e-424d-8a5b-761c415426ae&pParSubTipoNome=%25F%25&pParTipoId=5d4243b7-16f5-4d95-851a-03e14daa6a35&pParTipoNome=%25I%25&pParGerEmpresaId=30f96759-2081-4bb3-acfd-121c8f7215e3&pParGerEmpresaNome=%25F%25&pParGerEmpresaAtivo=S&pParGerEmpresaDocCnpj=54785899/0003-70&pParGerEmpresaDocCpf=&pParPeriodoId=388bea7f-4311-4e0e-902b-7a1330ab6e93&pParPeriodoNome=%25S%25&pParPeriodoAtivo=S&pParPeriodoDataIni=2000-01-01&pParPeriodoDataIniFin=2999-12-31&pParPeriodoDataFinIni=2000-01-01&pParPeriodoDataFin=2999-12-31&pParCentro2PessoaId=87cfbd8e-26fe-4acf-a6be-bf49a32122fc&pParCentro2PessoaNome=%25O%25&pParGerPessoaEnderecoId=7a635398-5a7d-4ae2-ba86-50255485407f&pParGerPessoaEnderecoAtivo=S&pParGerPessoaEnderecoTipo=F&pParGerPessoaEnderecoPadrao=S&pParGerPessoaEnderecoLograd=%25R%25&pParGerPessoaEnderecoLogradNr=41&pParGerPessoaEnderecoLogradBairro=%25I%25&pParGerPessoaId=b6e615d2-bcdf-4c8f-9c9c-0660c5b7686e&pParGerPessoaNome=%25P%25&pParGerPessoaAtivo=S&pParGerPessoaDoc=37.424.609/0001-06&pParOrdTipoId=2ccd5b74-f5f0-4d5c-aa96-6df2fd75db85&pParOrdTipoNome=&pParOrdCentro2Id=396a67f0-7de4-4f19-a6fe-7f9f54d2eaab&pParOrdCentro2Nome=%25A%25&pParOrdCentro2Ativo=S&pParFrenteTrabalhoId=e604357a-3b81-4ff8-b080-05953ae4e6ad&pParFrenteTrabalhoNome=%25F%25&pParFrenteTrabalhoAtivo=S&pParStatusId=8a59ff65-a3a0-4769-9096-a00063ced28d&pParStatusNome=%25E%25&pParStatusAtivo=S&pParStatusTipo=A&pParLogUserIns=&pParLogUserUpd=&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=2999-12-30";
+
+###
+#dde3a09a-9f51-4113-83d1-b3f0fd27ed35 - C - report0020OpeOrdItemServ - (OPE) - ORDEM  ITEM/SERVIÇO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - ORDEM  ITEM/SERVIÇO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=dde3a09a-9f51-4113-83d1-b3f0fd27ed35&pVart01=ope_atividade_nome&pVard01=Atividade&pVart02=ger_itemserv_nome&pVard02=Item/Serv&pVart03&pVard03&pVart04&pVard04&pVart05&pVard05&pParItemServId=9350ee38-7f0e-4789-a8e8-da8b9a9c51d0&pParQntRendIni=-999999999&pParQntRendFin=999999999&pParPercUtilIni=-999999999&pParPercUtilFin=999999999&pParQntTotUtilIni=-999999999&pParQntTotUtilFin=999999999&pParVrUnitUtilIni=-999999999&pParVrUnitUtilFin=999999999&pParVrTotUtilIni=-999999999&pParVrTotUtilFin=999999999&pParAtivOrdExec=3&pParAtivOrdTipoExec=%25P%25&pParItemServNome=%25D%25&pParItemServAtivo=S&pParItemServTipo=%25I%25&pParAtivId=72ce486a-8d13-4166-b332-c94747ca96fb&pParAtivNome=%25C%25&pParAtivAtivo=S&pParCentro2OrdId=17044ec7-8be2-4b4d-80a7-f2f6234e0f94&pParCentro2OrdDtIniExec=2020-06-29&pParCentro2OrdDtIniExecFin=2020-06-29&pParCentro2OrdDtFinExecIni=2020-06-29&pParCentro2OrdDtFinExec=2020-06-29&pParCentro2OrdDtIniExecPrev=2020-07-02&pParCentro2OrdDtIniExecPrevFin=2020-07-08&pParCentro2OrdDtIniExecPrevFin=2020-07-08&pParCentro2OrdDtFinExecPrevIni=2020-07-08&pParCentro2OrdDtFinExecPrev=2020-07-08&pParCentro2OrdNr=634&pParEmpresaOrdId=30f96759-2081-4bb3-acfd-121c8f7215e0&pParEmpresaOrdNome=%25E%25&pParEmpresaOrdAtivo=S&pParEmpresaOrdCpf&pParEmpresaOrdCnpj=55685888/0002-67&pParPeriodoOrdId=388bea7f-4311-4e0e-902b-7a1330ab6e93&pParPeriodoOrdNome=%25S%25&pParPeriodoOrdAtivo=S&pParPeriodoOrdDataIni=2020-04-01&pParPeriodoOrdDataIniFin=2021-03-31&pParPeriodoOrdDataFinIni=2020-04-01&pParPeriodoOrdDataFin=2021-03-31&pParCtbId&pParCtbNome&pParCtbAtivo&pParGerPessoaId&pParGerPessoaNome&pParGerPessoaAtivo&pParGerPessoaDoc&pParPessoaEnderecoId&pParPessoaEnderecoAtivo&pParPessoaEnderecoTipo&pParPessoaEnderecoPadrao&pParPessoaEnderecoLograd&pParPessoaEnderecoNr&pParCentro2OrdTipoId=6d4fbc29-1e99-4cff-ab55-c17678ee2c65&pParCentro2OrdTipoNome=%25A%25&pParCentro2OrdTipoAtivo=S&pParCentro2Id=98aab518-e597-4677-9857-9a4fd214c582&pParCentro2Nome=T1&pParCentro2Ativo=S&pParCentro1Id=3875b0e9-f195-49f5-a551-0b2177d3c414&pParCentro1Nome=%25F%25&pParCentro1Ativo=S&pParFrentTrabId&pParFrentTrabNome&pParFrentTrabAtivo&pParStatusId=8c6b7e9d-b545-44a0-9289-837f1d143f97&pParStatusNome=%25P%25&pParStatusAtivo=S&pParStatusTipo=P&pParSubGrupoId=b18ac48b-e2af-4ff1-aafd-19cbe2885f5e&pParSubGrupoNome=%25A%25&pParSubGrupoAtivo=S&pParGrupoNome=%25L%25&pParGrupoAtivo=S&pParSubTipoId=f4053f31-1832-4653-ac41-99c06edc3cac&pParSubTipoNome=%25A%25&pParTipoId=6fa69ab4-7ee6-42d7-8afb-5b105a19f16d&pParTipoNome=%25L%25&pParLogUserIns&pParLogUserUpd&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin";
+
+###
+#7ce1666f-4df4-4e17-8376-ce7305ee6d6e - C - report0021OpeOrdRec - (OPE) - ORD RECURSO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - ORD RECURSO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=7ce1666f-4df4-4e17-8376-ce7305ee6d6e&pVart01=ope_frente_trabalho_nome_ord&pVard01=Frente Trabalho&pVart02=ope_centro2_nome&pVard02=Recurso&pVart03&pVard03&pVart04&pVard04&pVart05&pVard05&pParOrdRecIId=3f563788-9306-4638-b2ed-a389d29ab7f0&pParOrdRecQntRendIni=-999999999&pParOrdRecQntRendFin=999999999&pParOrdRecPercUtilIni=-999999999&pParOrdRecPercUtilFin=999999999&pParOrdRecQntTotUtilIni=-999999999&pParOrdRecQntTotUtilFin=999999999&pParOrdRecVrUnitUtilIni=-999999999&pParOrdRecVrUnitUtilFin=999999999&pParOrdRecVrTotUtilIni=-999999999&pParOrdRecVrTotUtilFin=999999999&pParCentro1Id=bcf1559a-ff64-4f07-b6a7-09528cd52001&pParCentro1Nome=%25A%25&pParCentro1Ativo=S&pParCentro2Id=396a67f0-7de4-4f19-a6fe-7f9f54d2eaab&pParCentro2Nome=%25A%25&pParCentro2Ativo=S&pParCtbId=c6b4fe9b-59e3-4af7-9e49-a3b09affbb71&pParCtbNome=%25F%25&pParCtbAtivo=S&pParPessoaEnderecoId=39f0c1a5-a6d1-4c27-80e0-3a155b3702a6&pParPessoaEnderecoAtivo=S&pParPessoaEnderecoTipo=F&pParPessoaEnderecoPadrao=S&pParPessoaEnderecoLograd=%25A%25&pParPessoaEnderecoNr=320&pParCentro1Imp01Id=bcf1559a-ff64-4f07-b6a7-09528cd52001&pParCentro1Imp01Nome=%25A%25&pParCentro1Imp01Ativo=S&pParCentro2Imp01Id=396a67f0-7de4-4f19-a6fe-7f9f54d2eaab&pParCentro2Imp01Nome=%25A%25&pParCentro2Imp01Ativo=S&pParSubTipoId=000cf216-e2dd-4663-b6bd-d553c416ac24&pParSubTipoNome=%25P%25&pParTipoId=db26a489-6eab-4686-a3f7-2eaf36ebf749&pParTipoNome=%25E%25&pParSubGrupoId=715f83e4-2707-422b-8986-41acde8d39b3&pParSubGrupoNome=%25O%25&pParSubGrupoAtivo=S&pParGrupoId=cb18739d-e6e7-4bbb-9ca1-f5f59fe9cd0f&pParGrupoNome=%25E%25&pParGrupoAtivo=S&pParCentro2OrdId=94ffbb47-a6ea-4e1d-8339-a3b98cff2a31&pParCentro2OrdDtIniExec=2020-06-09&pParCentro2OrdDtIniExecFin=2020-06-28&pParCentro2OrdDtFinExecIni=2020-06-09&pParCentro2OrdDtFinExec=2020-06-28&pParCentro2OrdDtIniExecPrev=2020-06-09&pParCentro2OrdDtIniExecPrevFin=2020-06-30&pParCentro2OrdDtFinExecPrevIni=2020-06-09&pParCentro2OrdDtFinExecPrev=2020-06-30&pParCentro2OrdNr=600&pParEmpresaOrdId=30f96759-2081-4bb3-acfd-121c8f7215e3&pParEmpresaOrdNome=%25F%25&pParEmpresaOrdAtivo=S&pParEmpresaOrdCpf&pParEmpresaOrdCnpj=54785899/0003-70&pParPeriodoOrdId=388bea7f-4311-4e0e-902b-7a1330ab6e93&pParPeriodoOrdNome=%25S%25&pParPeriodoOrdAtivo=S&pParPeriodoOrdDataIni=2020-04-01&pParPeriodoOrdDataIniFin=2021-03-31&pParPeriodoOrdDataFinIni=2020-04-01&pParPeriodoOrdDataFin=2021-03-31&pParGerPessoaId=b6e615d2-bcdf-4c8f-9c9c-0660c5b7686e&pParGerPessoaNome=%25P%25&pParGerPessoaAtivo=S&pParGerPessoaDoc=37.424.609/0001-06&pParCentro2OrdTipoId=2ccd5b74-f5f0-4d5c-aa96-6df2fd75db85&pParCentro2OrdTipoNome=%25A%25&pParCentro2OrdTipoAtivo=S&pParFrentTrabId=e604357a-3b81-4ff8-b080-05953ae4e6ad&pParFrentTrabNome=%25F%25&pParFrentTrabAtivo=S&pParStatusId=8a59ff65-a3a0-4769-9096-a00063ced28d&pParStatusNome=%25E%25&pParStatusAtivo=S&pParStatusTipo=A&pParLogUserIns&pParLogUserUpd&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin";
+
+###
+
+#0f0dc5f0-6e33-4674-a3e5-025fc02a42bd - C - report0022GerItemServ - (GER) - ITEM/SERVIÇO
+POST {{HOSTAPI}}/api/ind/indrel/generatereport HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+"queue":"N",
+"internals":[
+    {"parNomeTec":"reportFormat","parValor":"pdf"},
+    {"parNomeTec":"pParTitleReport","parValor":"(GER) - ITEM/SERVIÇO"},
+    {"parNomeTec":"pParUnitId","parValor":"f3996813-838e-49af-9649-8dc44e24bc75"},
+    {"parNomeTec":"pParIndRelId","parValor":"0f0dc5f0-6e33-4674-a3e5-025fc02a42bd"},
+    {"parNomeTec":"pParUser","parValor":"admin"}
+],
+"params":[
+    {"parNomeTec":"pVart01","parValor":"ger_itemserv_grupo_nome"},
+    {"parNomeTec":"pVard01","parValor":"Grupo"},
+    {"parNomeTec":"pVart02","parValor":"ger_itemserv_nome"},
+    {"parNomeTec":"pVard02","parValor":"Item/Serviço"},
+    {"parNomeTec":"pVart03","parValor":""},
+    {"parNomeTec":"pVard03","parValor":""},
+    {"parNomeTec":"pVart04","parValor":""},
+    {"parNomeTec":"pVard04","parValor":""},
+    {"parNomeTec":"pVart05","parValor":""},
+    {"parNomeTec":"pVard05","parValor":""},
+    {"parNomeTec":"pVars01","parValor":"S"},
+    {"parNomeTec":"pVars02","parValor":"S"},
+    {"parNomeTec":"pVars03","parValor":"N"},
+    {"parNomeTec":"pVars04","parValor":"N"},
+    {"parNomeTec":"pVars05","parValor":"N"},
+    {"parNomeTec":"pParItemServId","parValor":"00876a43-6f84-4de9-902b-78d6e89017d0"},
+    {"parNomeTec":"pParItemServNome","parValor":"%C%"},
+    {"parNomeTec":"pParItemServAtivo","parValor":"S"},
+    {"parNomeTec":"pParItemServTipo","parValor":"S"},
+    {"parNomeTec":"pParItemServOrigemFiscal","parValor":"0"},
+    {"parNomeTec":"pParItemServTipoComposi","parValor":"N"},
+    {"parNomeTec":"pParItemServTipoCtbComp","parValor":"C"},
+    {"parNomeTec":"pParItemServDocCnaeNfs","parValor":"6821801"},
+    {"parNomeTec":"pParItemServSubGrupoId","parValor":"dd73668e-3eee-4017-8921-c374d111e103"},
+    {"parNomeTec":"pParItemServSubGrupoNome","parValor":"%C%"},
+    {"parNomeTec":"pParItemServSubGrupoAtivo","parValor":"S"},
+    {"parNomeTec":"pParItemServGrupoId","parValor":"4081bf00-14bf-4e29-b12b-db9bb36eb5de"},
+    {"parNomeTec":"pParItemServGrupoNome","parValor":"%C%"},
+    {"parNomeTec":"pParItemServGrupoAtivo","parValor":"S"},
+    {"parNomeTec":"pParFisNcmId","parValor":"914fb035-4350-43c3-8251-61e5604f34ea"},
+    {"parNomeTec":"pParFisNcmNome","parValor":"84159020"},
+    {"parNomeTec":"pParFisNcmAtivo","parValor":"S"},
+    {"parNomeTec":"pParFisNcmDataValidadeIni","parValor":"2000-01-01"},
+    {"parNomeTec":"pParFisNcmDataValidadeFin","parValor":"2999-12-31"},
+    {"parNomeTec":"pParFisNcmNumero","parValor":"84159020"},
+    {"parNomeTec":"pParUnidadeMedId","parValor":"1077b3fe-0cc3-42cc-a702-6fb0e649b3c3"},
+    {"parNomeTec":"pParUnidadeMedNome","parValor":"%T%"},
+    {"parNomeTec":"pParUnidadeMedAtivo","parValor":"S"},
+    {"parNomeTec":"pParFisCestId","parValor":"d3de5e9a-a792-4bfd-84bf-35224416f433"},
+    {"parNomeTec":"pParFisCestNome","parValor":"%I%"},
+    {"parNomeTec":"pParFisCestAtivo","parValor":"S"},
+    {"parNomeTec":"pParFisCestDataValidadeIni","parValor":"2000-01-01"},
+    {"parNomeTec":"pParFisCestDataValidadeFin","parValor":"2999-12-31"},
+    {"parNomeTec":"pParFisCestNumero","parValor":"17.044.00"},
+    {"parNomeTec":"pParFisNbsId","parValor":""},
+    {"parNomeTec":"pParFisNbsNome","parValor":""},
+    {"parNomeTec":"pParFisNbsAtivo","parValor":""},
+    {"parNomeTec":"pParFisNbsDataValidadeIni","parValor":""},
+    {"parNomeTec":"pParFisNbsDataValidadeFin","parValor":""},
+    {"parNomeTec":"pParFisNbsNumero","parValor":""},
+    {"parNomeTec":"pParCtbId","parValor":""},
+    {"parNomeTec":"pParCtbNome","parValor":""},
+    {"parNomeTec":"pParCtbAtivo","parValor":""},
+    {"parNomeTec":"pParLogUserIns","parValor":""},
+    {"parNomeTec":"pParLogUserUpd","parValor":""},
+    {"parNomeTec":"pParLogDateInsIni","parValor":"1888-01-01"},
+    {"parNomeTec":"pParLogDateInsFin","parValor":"2999-12-30"},
+    {"parNomeTec":"pParLogDateUpdIni","parValor":"1888-01-01"},
+    {"parNomeTec":"pParLogDateUpdFin","parValor":""}
+]
+}
+
+###
+#a26c642c-7396-4958-bbf6-633b4e008c13 - C - report0023MovItemServ - (MOV) MOVIMENTAÇÃO DE ITENS
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(MOV) MOVIMENTAÇÃO DE ITENS&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=a26c642c-7396-4958-bbf6-633b4e008c13&pVart01=ger_itemserv_grupo_nome&pVard01=Grupo&pVart02=ger_item_serv_nome&pVard02=Item/Serviço&pVart03=&pVard03=&pVart04=&pVard04=&pVart05=&pVard05=&pParMovSerie=&pParDataMovIni=1888-01-01&pParDataMovFin=2999-12-31&pParNrMov=&pParDataEntregaMovIni=1888-01-01&pParDataEntregaMovFin=&pParGerNumeracaoId=ace03674-b063-4098-a9bd-2ff1854fbddd&pParGerNumeracaoNome=%25C%25&pParGerNumeracaoAtivo=S&pParGerNumeracaoSerie=0&pParGerPessoaEnderecoAtivo=S&pParGerPessoaEntregId=&pParGerPessoaEntregNome=&pParGerPessoaEntregAtivo=&pParGerPessoaEntregEnderecoAtivo=&pParLogUserIns=&pParLogUserUpd=&vars_01=S&vars_02=S&vars_03=N&vars_04=N&vars_05=N&pParUser=admin&pParMovId=c8d9c042-2464-4579-ba60-5db4c3c6a631&pParDataEntregaMovIni=1888-01-01&pParMovOperacaoId=5d8171f7-d404-43af-ba37-dd12d3ffae1c&pParMovOperacaoNome=%25C%25&pParMovOperacaoAtivo=S&pParMovOperacaoSigla=CTC&pParMovOperacaoTipoES=E&pParMovTipoId=87c7d0df-b129-4312-9860-a0ca135d5a54&pParMovTipoNome=%25C%25&pParMovTipoAtivo=S&pParMovTipoSigla=CPS-CT&pParMovTipoMov=CPS-CT&pParMovStatusId=ca6e241a-67d5-4dc8-bcb0-43452c1ff105&pParMovStatusNome=%25N%25&pParMovStatusAtivo=S&pParMovStatusSigla=ERR&pParMovStatusTipo=1&pParGerEmpresaId=c573ff61-185f-4bcb-a962-7f3566c1dd44&pParGerEmpresaNome=%25I%25&pParGerEmpresaAtivo=S&pParGerEmpresaSigla=THS&pParGerPessoaId=b11c527d-0285-4337-9c41-f29789914736&pParGerPessoaNome=%25c%25&pParGerPessoaAtivo=S&pParGerPessoaSigla=10079&pParGerPessoaEnderecoLograd=Rua Sao Miguel&pParGerPessoaEnderecoLogradNr=1&pParGerPessoaEnderecoLogradBairro=%25S%25&pParMovItemServId=fb2fe145-737c-4781-a648-90831ca62e50&pParItemServId=cc2ab682-8927-41c4-9fd1-7c7f3d3e27f7&pParItemServNome=%25P%25&pParItemServAtivo=S&pParItemServSigla=0005&pParItemServTipo=I&pParItemServSubGrupoId=4a041ae5-35ba-4db9-9502-01a0b244fca1&pParItemServSubGrupoNome=%25T%25&pParItemServSubGrupoAtivo=S&pParItemServGrupoId=ec0786de-9509-4857-be71-f2831260ccac&pParItemServGrupoNome=%25A%25&pParItemServGrupoAtivo=S&pParGerUmedidaId=77a8144c-2010-4120-ab76-7165a0437900&pParGerUmedidaNome=%25H%25&pParGerUmedidaAtivo=S&pParGerUmedidaSigla=HA&pParFisCfopId=4c22f298-e3ef-4186-9780-80b7404bf8c1&pParFisCfopNR=5101&pParFisCfopNome=%25V%25&pParFisCfopAtivo=S&pParFisCfopDataValidIni=1888-01-01&pParFisCfopDataValidFin=2999-12-30&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=2999-12-30&pParGerPessoaEntregEnderecoLograd=%25R%25&pParGerPessoaEntregEnderecoLogradNr=1&pParGerPessoaEntregEnderecoLogradBairro=%25S%25&pParMovOperacaoId=5d8171f7-d404-43af-ba37-dd12d3ffae1c&pParMovOperacaoNome=%25C%25&pParMovOperacaoAtivo=S&pParMovOperacaoSigla=CTC&pParMovOperacaoTipoES=E&pParMovTipoId=87c7d0df-b129-4312-9860-a0ca135d5a54&pParMovTipoNome=%25C%25&pParMovTipoAtivo=S&pParMovTipoSigla=CPS-CT&pParMovTipoMov=CPS-CT";
+
+###
+#0127bc7f-6c48-4206-bf27-3eb364c7a7ca - R - report0024MovCotacao - (MOV) - ANALISE DE COTAÇÃO
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(MOV) - ANALISE DE COTACAO&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=0127bc7f-6c48-4206-bf27-3eb364c7a7ca&pParUser=admin&pParMovId=4482d8dd-2fad-4216-927f-b11460794015&pParNrMov=10006&pParSystemUser=admin&pParDataMovIni=1888-01-01&pParDataMovFin=2999-12-30&Separador1=";
+
+###
+#bd99ce86-c4fe-4e15-b844-6565bc08d0d6 - C - report0025OpeOcorMovDestArea - (OPE) - OCORRENCIAS - ÁREA
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - OCORRENCIAS - ÁREA&pParUser=admin&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=bd99ce86-c4fe-4e15-b844-6565bc08d0d6&pVart01=ope_centro2_nome&pVard01=Área&pVart02=ope_ocor_mov_numero&pVard02=Nº Movimento&pVart03=&pVard03=&pVart04=&pVard04=&pVart05=&pVard05=&pParOcorMovDataMovIni=2000-01-01&pParOcorMovDataMovFin=2999-12-31&pParOcorMovNr=7&pParGerEmpresaNome=%25F%25&pParGerEmpresaAtivo=S&pParGerEmpresaDocCnpj=54785899/0003-71&pParGerEmpresaDocCpf=&pParGerPessoaEnderecoLograd=RUA ITATIGUA&pParGerPessoaEnderecoLogradNr=5456&pParGerCidadeNome=%25S%25&pParUfNome=SP&pParOcorTipoNome=%25M%25&pParOcorTipoAtivo=S&pParOcorTipoSigla=MIP. C/ARMADI&pParOcorTipoTp=A&pParOcorMovDetQntOcor=10.000000&pParOcorMovDetQntOcorCalc=10.000000&pParOcorMovDetDtStatusIni=2000-01-01&pParOcorMovDetDtStatusFin=2999-12-31&pParOcorNome=%25Q%25&pParOcorAtivo=S&pParOcorSigla=Q.PAR&pParOcorTipo=A&pParOcorTipoLanc=3&pParOcorGrupoNome=%25Q%25&pParOcorGrupoAtivo=S&pParOcorGrupoSigla=Q.PAR&pParGerUmedidaNome=%25U%25&pParGerUmedidaAtivo=S&pParGerUmedidaSigla=Un&pParOcorStatusNome=%25C%25&pParOcorStatusAtivo=S&pParOcorStatusSigla=CA&pParOcorStatusTipo=C&pParOpeAreaQntAreaProd=2.000000&pParOpeAreaQntAreaImprod=0.000000&pParOpeAreaQntPlantEstand=0.000000&pParOpeAreaBlocoCol=B6&pParOpeAreaDtIniPlan=1999-12-13&pParOpeAreaDtIniPlanFin=2009-03-11&pParOpeAreaDtFinPlanIni=1999-12-13&pParOpeAreaDtFinPlan=2009-03-11&pParOpeAreaDtUltPlanIni=1999-12-13&pParOpeAreaDtUltPlanFin=2999-12-30&pParOpeAreaDtIniCol=1999-12-13&pParOpeAreaDtIniColFin=2999-12-30&pParOpeAreaDtFinColIni=1999-01-01&pParOpeAreaDtUltColIni=1999-01-01&pParOpeAreaDtUltColFin=2999-12-30&pParOpeAreaDtFlorada1Ini=1999-01-01&pParOpeAreaDtFlorada1Fin=&pParOpeAreaDtEmergIni=1999-01-01&pParOpeAreaDtEmergFin=&pParOpeAreaUmedidaNome=%25U%25&pParOpeAreaUmedidaSigla=&pParCentro2Nome=%25F%25&pParCentro2Sigla=FBC-RC&pParCentro2Ativo=S&pParCentro2TipoDestinacao=&pParCentro2TipoProp=P&pParCentro1Nome=%25F%25&pParCentro1Ativo=S&pParCentro1Sigla=FBC&pParAreaSistemaCultNome=%25P%25&pParAreaSistemaCultSigla=Plan.Mec&pParLogUserIns=&pParLogDateInsIni=2000-01-01&pParLogDateInsFin=2999-12-31&pParLogUserUpd=&pParLogDateUpdIni=2000-01-01&pParLogDateUpdFin=&pSubReportsPath=./";
+
+###
+#aaa91203-1662-4cb3-83e9-d1d337a88bc3 - C - report0026OpeOcorMovDestEquip - (OPE) - OCORRENCIAS - EQUIPAMENTOS
+url = "/report?config=conndev&reportFormat=pdf&pParTitleReport=(OPE) - OCORRENCIAS - EQUIPAMENTOS&pParUnitId=f3996813-838e-49af-9649-8dc44e24bc75&pParIndRelId=aaa91203-1662-4cb3-83e9-d1d337a88bc3&pParUser=admin&pVart01=ope_centro2_nome&pVard01=Equipamento&pVart02=ope_ocor_mov_numero&pVard02=Nº Mov&pVart03&pVard03&pVart04&pVard04&pVart05&pVard05&pParCentro1Nome=%25E%25&pParCentro1Sigla=EQPTOS&pParCentro1Ativo=S&pParCentro2Nome=%25E%25&pParCentro2Ativo=S&pParCentro2Sigla=3038&pParCentro2EquipTipoRodad=00&pParCentro2EquipTipoCarroc=00&pParCentro2EquipCid=%25S%25&pParCentro2EquipUf=%25S%25&pParCentro2EquipPlaca&pParCentro2EquipRenavam&pParCentro2EquipTara&pParCentro2EquipCapacidKg&pParCentro2EquipCapacidM3&pParCentro2EquipPotenc&pParCentro2EquipNrChassi&pParCentro2EquipNrSerie&pParCentro2EquipLiberadoAbastec=N&pParCentro2EquipNrRegisEstadual&pParCentro2EquipTipoTracao&pParCentro2EquipTranspAutoCarg=3&pParCompartNome&pParCompartAtivo&pParCompartSigla&pParCompartCapacid&pParCompartValidItemServ&pParCompartDtAquisicaoIni&pParCompartDtAquisicaoFin&pParCompartVrAquisicao&pParCompartNrSerie&pParOcorMovDataMovIni=1888-01-01&pParOcorMovDataMovFin=2999-12-30&pParOcorMovNr=7&pParGerEmpresaNome=%25F%25&pParGerEmpresaAtivo=S&pParGerEmpresaDocCnpj=54785899/0003-71&pParGerEmpresaDocCpf&pParGerPessoaEnderecoLograd=%25R%25&pParGerPessoaEnderecoLogradNr=5456&pParGerCidadeNome=%25S%25&pParUfNome=%25S%25&pParOcorTipoNome=%25M%25&pParOcorTipoAtivo=S&pParOcorTipoSigla=MIP. C/ARMADI&pParOcorTipoObrigCompart=N&pParOcorTipoTp=A&pParOcorMovDetQntOcor=10.000000&pParOcorMovDetQntOcorCalc=10.000000&pParOcorMovDetDtStatusIni=1888-01-01&pParOcorMovDetDtStatusFin=2999-12-30&pParOcorNome=%25Q%25&pParOcorAtivo=S&pParOcorSigla=Q.PAR&pParOcorTipo=A&pParOcorTipoLanc=3&pParOcorGrupoNome=%25Q%25&pParOcorGrupoAtivo=S&pParOcorGrupoSigla=Q.PAR&pParGerUmedidaNome=%25U%25&pParGerUmedidaAtivo=S&pParGerUmedidaSigla=Un&pParOcorStatusNome=%25C%25&pParOcorStatusAtivo=S&pParOcorStatusSigla=CA&pParOcorStatusTipo=C&pParLogUserIns&pParLogUserUpd&pParLogDateInsIni=1888-01-01&pParLogDateInsFin=2999-12-30&pParLogDateUpdIni=1888-01-01&pParLogDateUpdFin=";
+
+###

@@ -1,0 +1,102 @@
+
+###
+@HOSTAPI=http://127.0.0.1:5000
+
+### 
+
+# @name TOKEN_REST
+POST {{HOSTAPI}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{   
+    "login":"admin",
+    "password":"123",
+    "unit_id":"f3996813-838e-49af-9649-8dc44e24bc75"
+}
+
+### 
+GET {{HOSTAPI}}/api/syslicence HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+
+
+###
+
+
+POST {{HOSTAPI}}/api/syslicence HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+
+  "doc":"tst",
+  "end_uf": "tst",
+  "end_bairro": "tst",
+  "end_cidade": "tst",
+  "end_logradouro": "tst",
+  "end_numero": "tst",
+  "end_pais": "sts",
+
+
+  "log_date_ins": "12/05/2022",
+  "nome_solicitante": "tst",
+  "status": "AT",
+  "status_data": "12/05/2022",
+  "status_observacao": "tst",
+  "sys_version": "tst",
+  "tipo_doc": "tst",
+   "chamado_id":"t",
+
+  "sys_id": "c8a70a60-73b5-4ba4-a97d-d754499ddb3c",
+  "sys_plan_id": "09cfa735-9357-495e-bfac-4d35cbb8c172",
+  "sys_user_id":"6d235b8c-c6d5-4890-9728-3d290ade02ca",
+  "active":"S",
+  "sys_licence_restriction_childs": [{
+         "sys_restriction_id": "31da7d22-1925-4f32-85cc-d578834aad3a",
+        "value_restriction": "5",
+        "days_blocked": "5",
+        "days_blocked_extra": "5",
+        "value_restriction_blocked": "5"
+  }]
+  
+
+}
+
+
+### 
+
+
+
+POST {{HOSTAPI}}/api/syslicence HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_REST.response.body.$.access_token}}
+
+{
+    "doc":"tst",
+  "end_uf": "tst",
+  "end_bairro": "tst",
+  "end_cidade": "tst",
+  "end_logradouro": "tst",
+  "end_numero": "tst",
+  "end_pais": "sts",
+
+
+  "log_date_ins": "12/05/2022",
+  "nome_solicitante": "tst",
+  "status": "Sp",
+  "status_data": "12/05/2022",
+  "status_observacao": "tst",
+  "sys_version": "tst",
+  "tipo_doc": "tst",
+   "chamado_id":"t",
+
+  "sys_id": "16afb315-e210-42e4-9b15-ece23f5808c6",
+  "sys_plan_id": "09cfa735-9357-495e-bfac-4d35cbb8c172",
+  "sys_user_id":"d5ddf2dc-4b17-4c78-a8df-9f9e615b99a0"
+}
+
+### 
+
+
+

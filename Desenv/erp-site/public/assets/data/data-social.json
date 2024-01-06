@@ -1,0 +1,33 @@
+{
+    "data": [{
+            "url": "https://api.whatsapp.com/send/?phone=551699324-6404&text&app_absent=0",
+            "img": "whatsapp.svg",
+            "id": "1"
+        },
+        {
+            "url": "https://www.instagram.com/resultfacilweb",
+            "img": "instagran.svg",
+            "id": "2"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCym6QyDz5wWl9UAhVcks7qQ",
+            "img": "youtube.svg",
+            "id": "3"
+        },
+        {
+            "url": "https://twitter.com/resultfacilweb",
+            "img": "twitter.svg",
+            "id": "4"
+        },
+        {
+            "url": "https://www.facebook.com/resultfacil",
+            "img": "facebook.svg",
+            "id": "5"
+        },
+        {
+            "url": "https://www.linkedin.com/company/resultfacil",
+            "img": "linkedin.svg",
+            "id": "6"
+        }
+    ]
+}
